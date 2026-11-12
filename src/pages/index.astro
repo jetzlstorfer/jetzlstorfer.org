@@ -138,11 +138,7 @@ const initialProject = run[0];
           <div class="run-stage">
             <div class="front-print" data-run-front>
               <div class="front-art" data-run-art>
-                <div class="front-geometry" aria-hidden="true">
-                  <span class="geometry-disc"></span>
-                  <span class="geometry-block"></span>
-                  <span class="geometry-cut"></span>
-                </div>
+                <div class="front-geometry" aria-hidden="true" set:html={initialProject ? printShape(initialProject, 0) : ''}></div>
                 {initialProject?.image && <img class="front-screenshot" data-run-image src={assetUrl(initialProject.image.file)} alt={initialProject.image.alt || initialProject.title} />}
                 <div class="front-print-caption">
                   <span class="front-language mono" data-run-language>{initialProject?.primaryLanguage || 'Repository'}</span>
@@ -431,6 +427,7 @@ const initialProject = run[0];
       const description = stage.querySelector('[data-run-description]');
       const source = stage.querySelector('[data-run-source]');
       const live = stage.querySelector('[data-run-live]');
+      const geometry = stage.querySelector('.front-geometry');
       let image = stage.querySelector('[data-run-image]');
       const language = stage.querySelector('[data-run-language]');
       const pushed = stage.querySelector('[data-run-pushed]');
@@ -443,6 +440,7 @@ const initialProject = run[0];
         const update = () => {
           active = next;
           const item = run[next];
+          geometry.replaceChildren(buttons[next].querySelector('.tile-art svg').cloneNode(true));
           title.textContent = item.title;
           title.dataset.text = item.title;
           description.textContent = item.description;
@@ -465,7 +463,7 @@ const initialProject = run[0];
               nextImage.dataset.runImage = '';
               nextImage.alt = item.alt;
               nextImage.src = item.image;
-              stage.querySelector('[data-run-art]').prepend(nextImage);
+              geometry.after(nextImage);
               image = nextImage;
             } else {
               image.src = item.image;

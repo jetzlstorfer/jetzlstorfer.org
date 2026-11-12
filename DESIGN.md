@@ -172,7 +172,7 @@ The interface uses square corners, thin blue or pink rules, clipped geometric pr
 - **Style:** Compact, bold Mona Sans links with open space and no pill backgrounds. Keep the GitHub link at the right edge; on mobile hide only the two secondary section links.
 
 ### Featured Print
-The featured artwork is the signature component: a generous, geometric print with ink overlays and a small paper-backed language/date caption. Keep the project title, concise description and direct source/live actions adjacent to it on wider screens; stack them cleanly on mobile.
+The featured artwork is the signature component: a generous, geometric print with ink overlays and a small paper-backed language/date caption. Use the selected rail tile's language-driven shapes and ink colors in the large preview, updating them together when the project changes. Keep the project title, concise description and direct source/live actions adjacent to it on wider screens; stack them cleanly on mobile.
 
 ## Do's and Don'ts
 
