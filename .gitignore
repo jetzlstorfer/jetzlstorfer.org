@@ -1,0 +1,14 @@
+# dependencies and build output
+node_modules/
+dist/
+.astro/
+
+# generated at build time by `npm run fetch`
+src/data/portfolio.json
+src/assets/fetched/
+
+# local tooling
+.impeccable/questions/
+.impeccable/hook.cache.json
+.env
+*.log

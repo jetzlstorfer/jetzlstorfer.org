@@ -1,0 +1,20 @@
+---
+version: 1
+slug: "src-pages-index-astro"
+primary_target: "src/pages/index.astro"
+related_targets: []
+---
+
+Scope: the portfolio home page; Experience mode.
+
+Audience and job: peers, customers and developers arrive from a conversation or link to understand what Jürgen builds, find a relevant project, and open its source or live demo.
+
+Proof and action: public GitHub projects, screenshots, languages, commit activity, contribution history, community repositories and Credly badges. Make project/source and live-demo links immediately usable.
+
+Constraints: public data only; no customer claims, testimonials, invented metrics, talk list, blog, trackers or runtime third-party requests. GitHub pins and scheduled builds keep the page current.
+
+Direction: Two-Ink Riso. Warm paper, federal blue, fluoro pink, sunflower and black; printed rules, multiply overprints, grain and off-register title layers. Projects lead the page.
+
+Memorable moment: advance the featured project sightline with buttons, arrow keys or a neighboring print; use View Transitions when available and honor reduced motion.
+
+Unresolved: publishing the new public repository and configuring Cloudflare DNS require the user's explicit go-ahead.
