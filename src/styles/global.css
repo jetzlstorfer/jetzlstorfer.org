@@ -147,6 +147,12 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 }
 .ink-title:hover { text-shadow: 2px 2px 0 rgba(30, 79, 255, .2); transform: translateX(1px); }
 .ink-title-small { font-size: clamp(2.7rem, 5.2vw, 4.2rem); }
+/* Keep accents inside the mask without changing the tight name spacing. */
+.opening-name .ink-title {
+  padding-block: .25em .05em;
+  margin-block: -.25em -.05em;
+}
+.opening-name .ink-title::after { padding-block: inherit; }
 .opening-meta {
   margin-top: clamp(18px, 2.4vw, 32px);
   display: flex;
