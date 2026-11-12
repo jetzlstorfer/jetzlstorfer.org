@@ -22,6 +22,6 @@ Dependabot opens grouped pull requests once a month: one for npm minor and patch
 
 ## Publish
 
-The workflow builds and deploys to GitHub Pages. While the site is a draft it runs on manual dispatch only; after enabling Pages, restore the `push` and `schedule` triggers described in `.github/workflows/deploy.yml` to rebuild on every push to `main` and once a day. The built-in `GITHUB_TOKEN` is tried first; if GitHub rejects a public profile query, add a token as the repository secret `PORTFOLIO_TOKEN`.
+The workflow builds and deploys to GitHub Pages on every push to `main` and on manual dispatch. The built-in `GITHUB_TOKEN` is tried first; if GitHub rejects a public profile query, add a token as the repository secret `PORTFOLIO_TOKEN`.
 
-The public `CNAME` file targets `jetzlstorfer.org`. After the repository exists and Pages is enabled for GitHub Actions, configure Cloudflare with GitHub Pages' apex A records (or CNAME flattening) and a `www` CNAME to `jetzlstorfer.github.io`. Keep DNS-only until GitHub issues the certificate.
+Set the custom domain to `jetzlstorfer.org` in the repository's Pages settings; the `CNAME` file alone does not configure a custom domain for an Actions deployment. Configure Cloudflare with GitHub Pages' apex A records (or CNAME flattening) and a `www` CNAME to `jetzlstorfer.github.io`. Keep DNS-only until GitHub issues the certificate.

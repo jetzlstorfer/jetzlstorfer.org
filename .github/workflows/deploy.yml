@@ -1,12 +1,8 @@
 name: Print and publish portfolio
 
 on:
-  # Publishing is paused while the site is a draft. Once Pages is enabled
-  # (Settings > Pages > Source: GitHub Actions), restore these triggers:
-  #   push:
-  #     branches: [main]
-  #   schedule:
-  #     - cron: '17 5 * * *'
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
