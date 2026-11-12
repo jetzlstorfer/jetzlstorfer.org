@@ -317,21 +317,15 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   transition: transform .18s ease, background .18s ease;
 }
 .arrow-button:hover { background: var(--yellow); transform: translate(1px, 1px); }
-.ink-key {
+.data-updated {
   min-height: 58px;
   display: flex;
   align-items: center;
-  gap: clamp(16px, 3vw, 35px);
+  justify-content: flex-end;
   border-bottom: 1px solid var(--line-pink);
   color: var(--muted);
-  font-size: .7rem;
+  font-size: .62rem;
 }
-.ink-key > span { display: inline-flex; align-items: center; gap: 7px; }
-.ink-key .mono { margin-left: auto; font-size: .62rem; }
-.swatch { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
-.swatch-blue { background: var(--blue); }
-.swatch-pink { background: var(--pink); }
-.swatch-yellow { background: var(--yellow); border: 1px solid rgba(23,25,29,.25); }
 
 .ledger-section, .catalogue-section, .year-section, .badges-section, .back-section { padding-top: clamp(76px, 10vw, 132px); }
 .section-heading { align-items: end; padding-bottom: 17px; }
@@ -580,9 +574,7 @@ kbd { color: var(--muted); border: 1px solid var(--line-pink); padding: 3px 6px;
   .run-rail { gap: 8px; }
   .run-tile { flex: 0 0 42%; min-height: 98px; scroll-snap-align: start; }
   .tile-art { height: 45px; }
-  .ink-key { min-height: 50px; gap: 12px; font-size: .61rem; }
-  .ink-key .mono { display: none; }
-  .swatch { width: 8px; height: 8px; }
+  .data-updated { min-height: 50px; font-size: .61rem; }
   .section-heading h2 { font-size: clamp(2.8rem, 13vw, 4.5rem); }
   .section-heading p { font-size: .8rem; }
   .section-count { display: none; }

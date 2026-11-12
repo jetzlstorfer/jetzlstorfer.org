@@ -191,11 +191,8 @@ const initialProject = run[0];
           </div>
         </section>
 
-        <div class="ink-key" aria-label="Print key">
-          <span><i class="swatch swatch-blue"></i> Source</span>
-          <span><i class="swatch swatch-pink"></i> Current</span>
-          <span><i class="swatch swatch-yellow"></i> Language</span>
-          <span class="mono">PUSHED · {compactDate(portfolio.generatedAt)}</span>
+        <div class="data-updated mono">
+          <span>Data updated · <time datetime={portfolio.generatedAt}>{compactDate(portfolio.generatedAt)}</time></span>
         </div>
       </section>
 
