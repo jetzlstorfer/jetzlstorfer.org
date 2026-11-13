@@ -46,6 +46,9 @@ export default {
    */
   overrides: {
     'cloudnativelinz/cloudnativelinz.github.io': { title: 'cloudnativelinz.at' },
+    'plattentests-go': { title: 'plattentests' },
+    'music-timetraveler': { title: 'Music Time Traveler' },
+    'spotify-yearly-discoveries': { title: 'Spotify Yearly Discoveries' }
   },
 
   /** Credly user for the badge shelf. Set to null to drop the section. */

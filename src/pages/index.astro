@@ -150,8 +150,8 @@ const initialProject = run[0];
                 <h3 class="ink-title front-title" data-text={initialProject?.title || ''} data-run-title>{initialProject?.title}</h3>
                 <p class="front-description" data-run-description>{initialProject?.description || initialProject?.summary || initialProject?.subtitle}</p>
                 <div class="front-actions">
-                  <a class="ink-button" data-run-source href={initialProject?.url} target="_blank" rel="noreferrer">Open source <span aria-hidden="true">↗</span></a>
-                  <a class="outline-button" data-run-live href={initialProject?.homepage || '#'} target="_blank" rel="noreferrer" hidden={!initialProject?.homepage}>Live site <span aria-hidden="true">↗</span></a>
+                  <a class="ink-button" data-run-live href={initialProject?.homepage || '#'} target="_blank" rel="noreferrer" hidden={!initialProject?.homepage}>Live site <span aria-hidden="true">↗</span></a>
+                  <a class="outline-button" data-run-source href={initialProject?.url} target="_blank" rel="noreferrer">Open source <span aria-hidden="true">↗</span></a>
                 </div>
               </div>
             </div>
