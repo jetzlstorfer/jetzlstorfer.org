@@ -211,7 +211,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   height: 82%;
   object-fit: cover;
   filter: grayscale(1) contrast(1.08);
-  mix-blend-mode: screen;
+  mix-blend-mode: difference;
   opacity: .86;
   transition: filter .3s ease, opacity .3s ease;
 }
