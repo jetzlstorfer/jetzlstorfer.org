@@ -12,9 +12,21 @@ npm run dev
 
 The fetch script uses `GITHUB_TOKEN`, `GH_TOKEN`, or `gh auth token` and writes generated data and downloaded images under `src/`. Those generated files are gitignored; always run `npm run fetch` before building a fresh checkout.
 
+## Code checks
+
+```sh
+npm run lint
+npm run check
+npm run build
+```
+
+ESLint checks authored JavaScript and Astro components; generated data, downloaded assets and build output are excluded. `astro check` checks Astro and TypeScript diagnostics using the strict TypeScript configuration. Run `npm run fetch` first on a fresh checkout so the checks and build can read the generated portfolio data.
+
+Pull requests to `main` run all three checks without deploying or using `PORTFOLIO_TOKEN`. Public data is fetched using the read-only built-in `GITHUB_TOKEN`; it must have access to the public GitHub GraphQL queries. Pushes to `main` and manual deployments run the same checks before publishing.
+
 ## Curation
 
-GitHub pins choose the featured run. `portfolio.config.mjs` controls exclusions, extra repositories, optional featured repositories, recency and factual overrides such as a live URL. Only public repositories are requested and written.
+`portfolio.config.mjs` controls featured-project selection and order, exclusions, extra repositories, recency and factual overrides such as a live URL. Put repository names in `featured` in the order you want them shown (`name` for your own repos, `owner/name` for other public repos). GitHub pins and recently active repositories fill any remaining slots. Only public repositories are requested and written.
 
 ## Dependency updates
 

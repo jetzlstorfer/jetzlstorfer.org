@@ -254,7 +254,7 @@ function parseReadme(md) {
   const h1 =
     prose.match(/^#\s+(.+?)\s*#*\s*$/m) ??
     prose.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i) ??
-    prose.match(/^([^\n#>!\[<][^\n]*)\n=+\s*$/m);
+    prose.match(/^([^\n#>![<][^\n]*)\n=+\s*$/m);
   if (h1) title = inlineToText(h1[1]) || null;
 
   let summary = null;
@@ -375,13 +375,17 @@ const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g
 
 /* ---------------------------------------------------------------- curation */
 
-const isOwn = (r) => r.owner.login.toLowerCase() === LOGIN.toLowerCase();
+const isOwn = (r) => (typeof r.owner === 'string' ? r.owner : r.owner?.login)?.toLowerCase() === LOGIN.toLowerCase();
 const keyOf = (r) => (isOwn(r) ? r.name : r.nameWithOwner);
 
 function listHas(list, repo) {
+  return listIndex(list, repo) >= 0;
+}
+
+function listIndex(list, repo) {
   const names = [repo.nameWithOwner.toLowerCase()];
   if (isOwn(repo)) names.push(repo.name.toLowerCase());
-  return (list ?? []).some((x) => names.includes(String(x).toLowerCase()));
+  return (list ?? []).findIndex((x) => names.includes(String(x).toLowerCase()));
 }
 
 function overrideFor(repo) {
@@ -627,9 +631,10 @@ async function main() {
 
   console.log(`> profile ${LOGIN}`);
   const user = await fetchProfile();
-  const pinned = new Set(
-    user.pinnedItems.nodes.filter((n) => n?.nameWithOwner && !n.isPrivate).map((n) => n.nameWithOwner.toLowerCase()),
-  );
+  const pinnedNames = user.pinnedItems.nodes
+    .filter((n) => n?.nameWithOwner && !n.isPrivate)
+    .map((n) => n.nameWithOwner.toLowerCase());
+  const pinned = new Set(pinnedNames);
 
   const byKey = new Map();
   const consider = (repo, source) => {
@@ -643,7 +648,11 @@ async function main() {
   for (const r of user.repositories.nodes) consider(r, 'own');
   for (const r of user.repositoriesContributedTo.nodes) consider(r, 'community');
 
-  const extras = [...new Set([...pinned, ...(config.include ?? []).map((x) => String(x).toLowerCase())])].filter(
+  const extras = [...new Set([
+    ...pinnedNames,
+    ...(config.include ?? []).map((x) => String(x).toLowerCase()),
+    ...(config.featured ?? []).map((x) => String(x).toLowerCase()),
+  ])].filter(
     (k) => k.includes('/') && !byKey.has(k),
   );
   const stubs = extras.map((k) => {
@@ -668,6 +677,14 @@ async function main() {
     projects.push(p);
   }
   const projectsByKey = new Map(projects.map((p) => [p.nameWithOwner.toLowerCase(), p]));
+  const missingFeatured = (config.featured ?? []).filter((name) => !projects.some((p) => listHas([name], p)));
+  if (missingFeatured.length) {
+    throw new Error(`configured featured repositories are unavailable or excluded: ${missingFeatured.join(', ')}`);
+  }
+  const archivedFeatured = projects.filter((p) => p.featured && p.archived);
+  if (archivedFeatured.length) {
+    throw new Error(`configured featured repositories are archived: ${archivedFeatured.map((p) => p.nameWithOwner).join(', ')}`);
+  }
 
   const recentCutoff = new Date(NOW.getTime() - (config.recentMonths ?? 24) * 30.44 * DAY);
   for (const p of projects) {
@@ -686,21 +703,26 @@ async function main() {
     },
   );
 
-  // The run: pins and featured always stand in it, the rest is the most recently active work.
+  // Configured projects lead in config order; GitHub pins then recent own work fill the run.
   const runSize = config.runSize ?? 8;
   const byActive = (a, b) => b.activeAt.localeCompare(a.activeAt);
   const own = projects.filter((p) => p.own).sort(byActive);
-  const forced = projects.filter((p) => (p.pinned || p.featured) && !p.archived).sort(byActive);
+  const curated = projects.filter((p) => p.featured).sort((a, b) => listIndex(config.featured, a) - listIndex(config.featured, b));
+  const pinnedRank = new Map(pinnedNames.map((name, index) => [name, index]));
+  const pinnedProjects = projects
+    .filter((p) => p.pinned && !p.archived && !p.featured)
+    .sort((a, b) => pinnedRank.get(a.nameWithOwner.toLowerCase()) - pinnedRank.get(b.nameWithOwner.toLowerCase()));
+  const forced = [...curated, ...pinnedProjects];
   const run = [...forced];
   for (const p of own) {
     if (run.length >= Math.max(runSize, forced.length)) break;
     if (!p.archived && !run.includes(p)) run.push(p);
   }
-  run.sort(byActive).forEach((p, i) => {
+  run.forEach((p, i) => {
     p.run = i + 1;
   });
 
-  // Images: run prints, community, and recent own work.
+  // Images: featured projects, community work, and recent own work.
   const wantsImage = projects.filter((p) => p.run || p.source === 'community' || p.recent);
   console.log(`> images for ${wantsImage.length} projects`);
   await pool(wantsImage, 4, async (p) => {

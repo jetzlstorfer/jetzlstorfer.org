@@ -13,8 +13,8 @@ Proof and action: public GitHub projects, screenshots, languages, commit activit
 
 Constraints: public data only; no customer claims, testimonials, invented metrics, talk list, blog, trackers or runtime third-party requests. GitHub pins and scheduled builds keep the page current.
 
-Direction: Two-Ink Riso. Warm paper, federal blue, fluoro pink, sunflower and black; printed rules, multiply overprints, grain and off-register title layers. Projects lead the page.
+Direction: Website portfolio with Two-Ink Riso-inspired visuals. Warm paper, federal blue, fluoro pink, sunflower and black; printed rules, multiply overprints, grain and off-register title layers. The websites and projects lead the page; print language is visual only.
 
-Memorable moment: advance the featured project sightline with buttons, arrow keys or a neighboring print; use View Transitions when available and honor reduced motion.
+Memorable moment: advance the featured website with buttons, arrow keys or the neighboring project rail; use View Transitions when available and honor reduced motion.
 
 Unresolved: publishing the new public repository and configuring Cloudflare DNS require the user's explicit go-ahead.
