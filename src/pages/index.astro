@@ -5,24 +5,21 @@ import '@fontsource-variable/mona-sans';
 import '@fontsource/monaspace-neon';
 import portfolio from '../data/portfolio.json';
 
-const assets = import.meta.glob('../assets/fetched/**/*.{webp,png,jpg,jpeg}', {
+const assets = import.meta.glob<string>('../assets/fetched/**/*.{webp,png,jpg,jpeg}', {
   eager: true,
   import: 'default',
   query: '?url',
 });
 
-const assetUrl = (file) => file ? assets[`../${file.replace(/^src\//, '')}`] ?? null : null;
-const { profile, links, tags, projects, ledger, calendar, badges } = portfolio;
+const assetUrl = (file: string | null | undefined) => file ? assets[`../${file.replace(/^src\//, '')}`] ?? null : null;
+const { profile, links, projects, calendar, badges } = portfolio;
+type Project = (typeof projects)[number];
+const ownerAvatars: Record<string, { file: string } | undefined> = portfolio.ownerAvatars;
 const contactUrl = links.find((link) => link.label === 'LinkedIn')?.url ?? `https://github.com/${profile.login}`;
-const run = projects.filter((project) => project.run).sort((a, b) => a.run - b.run);
-const ownProjects = projects.filter((project) => project.own);
+const run = projects.filter((project): project is Project & { run: number } => Boolean(project.run)).sort((a, b) => a.run - b.run);
 const communityProjects = projects.filter((project) => project.source === 'community');
-const recentProjects = ownProjects.filter((project) => project.recent && !project.archived);
-const backCatalogue = ownProjects.filter((project) => !project.recent || project.archived);
-const languages = [...new Set(ownProjects.map((project) => project.primaryLanguage).filter(Boolean))].sort();
-const currentYear = new Date(portfolio.generatedAt).getFullYear();
-const compactDate = (date) => new Date(date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' });
-const displayDate = (date) => new Date(date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+const compactDate = (date: string) => new Date(date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' });
+const displayDate = (date: string) => new Date(date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 const monthLabels = calendar.days.flatMap((day, index, days) => {
   const date = new Date(`${day.date}T00:00:00Z`);
   const previous = index ? new Date(`${days[index - 1].date}T00:00:00Z`) : null;
@@ -30,9 +27,10 @@ const monthLabels = calendar.days.flatMap((day, index, days) => {
     ? [{ label: date.toLocaleDateString('en-GB', { month: 'short', timeZone: 'UTC' }), column: Math.floor(index / 7) }]
     : [];
 });
-const safeJson = (value) => JSON.stringify(value).replace(/</g, '\\u003c');
-const printShape = (project, index) => {
-  const shapeByLanguage = {
+const safeJson = (value: unknown) => JSON.stringify(value).replace(/</g, '\\u003c');
+const printShape = (project: Project, index: number) => {
+  type Shape = 'circle' | 'triangle' | 'square' | 'quarter' | 'half' | 'bar' | 'chevron' | 'hex' | 'diamond' | 'ring';
+  const shapeByLanguage: Partial<Record<string, Shape>> = {
     Go: 'circle', Python: 'triangle', TypeScript: 'square', JavaScript: 'quarter',
     HTML: 'half', CSS: 'bar', SCSS: 'bar', Shell: 'chevron', Bicep: 'hex',
     HCL: 'hex', 'C#': 'diamond', Jupyter: 'ring',
@@ -84,24 +82,23 @@ const initialProject = run[0];
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#fbf5ea" />
-    <meta name="description" content={`${profile.name}'s living portfolio: public projects, community work and experiments, printed from GitHub.`} />
-    <title>{profile.name} — projects, in print</title>
+    <meta name="description" content={`${profile.name}'s living portfolio of websites, community work and experiments, updated from GitHub.`} />
+    <title>{profile.name} — websites and projects</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   </head>
   <body>
-    <!-- THESIS: The work leads: a living print catalogue, not a generic card grid.
-    OWN-WORLD: Warm paper, blue/pink/yellow/black spot inks, offset rules, multiply overprints and grain define every control and print.
-    STORY: Visitors scan current projects, follow real source or live links, then browse the ledger, full catalogue, community work and credentials.
-    FIRST VIEWPORT: Name and compact navigation sit above a large featured print; a receding project rail and its previous/next controls share the same sightline.
+    <!-- THESIS: The work leads: a living portfolio of websites, not a generic card grid.
+    OWN-WORLD: Warm paper, blue/pink/yellow/black spot colors, offset rules and grain define the visual style.
+    STORY: Visitors scan featured websites, follow real source or live links, then explore contribution history, community work and credentials.
+    FIRST VIEWPORT: Name and compact navigation sit above a featured website; a receding project rail and its previous/next controls share the same sightline.
     FORM: risograph-web-system, challenger on re-roll 1; spatial-navigation-enfilade-sightline staging; seed 870e8f20. -->
 
     <div class="paper-grain" aria-hidden="true"></div>
     <header class="masthead page-wrap">
       <a class="wordmark" href="#top" aria-label="Jürgen Etzlstorfer, home">J.E<span>.</span></a>
       <nav class="main-nav" aria-label="Main navigation">
-        <a href="#prints">Prints</a>
-        <a href="#ledger">Press log</a>
-        <a href="#year">Year in ink</a>
+        <a href="#featured-websites">Featured</a>
+        <a href="#year">Year in review</a>
         <a href="#community">Community</a>
       </nav>
       <a class="masthead-link" href={`https://github.com/${profile.login}`} target="_blank" rel="noreferrer" aria-label="GitHub">
@@ -118,16 +115,16 @@ const initialProject = run[0];
           </div>
           <div class="opening-meta">
             <div>
-              <h1 id="page-title">Projects, in print.</h1>
+              <h1 id="page-title">Projects, an overview.</h1>
               <p>{profile.tagline}</p>
             </div>
-            <p class="print-note"><span class="registration-mark" aria-hidden="true">✳</span> A living catalogue, printed from public GitHub data.</p>
+            <p class="print-note"><span class="registration-mark" aria-hidden="true">✳</span> A living portfolio, updated from public GitHub data.</p>
           </div>
         </div>
 
         <section class="sightline" aria-labelledby="sightline-title" data-sightline>
           <div class="section-topline">
-            <h2 id="sightline-title">The current run</h2>
+            <h2 id="featured-websites">Featured projects</h2>
             <span class="mono run-counter" data-run-count>{String(1).padStart(2, '0')} / {String(run.length).padStart(2, '0')}</span>
             <div class="run-controls" aria-label="Featured project controls">
               <button type="button" class="arrow-button" data-run-prev aria-label="Previous featured project">←</button>
@@ -147,7 +144,7 @@ const initialProject = run[0];
               </div>
               <div class="front-info">
                 <div class="front-title-row">
-                  <span class="run-index mono" data-run-index>PRINT 01</span>
+                  <span class="run-index mono" data-run-index>PROJECT 01</span>
                   <span class="pinned-stamp" data-run-pinned hidden={!initialProject?.pinned}>PINNED</span>
                 </div>
                 <h3 class="ink-title front-title" data-text={initialProject?.title || ''} data-run-title>{initialProject?.title}</h3>
@@ -196,115 +193,11 @@ const initialProject = run[0];
         </div>
       </section>
 
-      <section class="ledger-section page-wrap" id="ledger" aria-labelledby="ledger-title">
-        <div class="section-heading">
-          <div>
-            <h2 id="ledger-title">Press log</h2>
-            <p>Recent commits across public repositories.</p>
-          </div>
-          <span class="mono section-count">{String(ledger.length).padStart(2, '0')} LINES</span>
-        </div>
-        <div class="ledger">
-          {ledger.slice(0, 12).map((entry, index) => (
-            <a class="ledger-line" href={entry.url} target="_blank" rel="noreferrer">
-              <span class="ledger-number mono">{String(index + 1).padStart(2, '0')}</span>
-              <time class="ledger-date mono" datetime={entry.date}>{compactDate(entry.date)}</time>
-              <span class="ledger-repo">{entry.repo}</span>
-              <span class="ledger-headline">{entry.headline}</span>
-              <span class="ledger-sha mono">{entry.sha}</span>
-              <span class="ledger-arrow" aria-hidden="true">↗</span>
-            </a>
-          ))}
-        </div>
-        <p class="section-footnote mono">SOURCE · GITHUB COMMIT HISTORY · LAST 12 PRINTS</p>
-      </section>
-
-      <section class="catalogue-section page-wrap" id="prints" aria-labelledby="prints-title">
-        <div class="section-heading catalogue-heading">
-          <div>
-            <h2 id="prints-title">All prints</h2>
-            <p>{ownProjects.length} public repositories, ordered by recent activity.</p>
-          </div>
-          <span class="mono section-count">{String(ownProjects.length).padStart(2, '0')} REPOSITORIES</span>
-        </div>
-        <div class="catalogue-tools">
-          <label class="search-wrap">
-            <span class="search-mark" aria-hidden="true">⌕</span>
-            <input type="search" data-search placeholder="Find a repository…" aria-label="Search projects" />
-            <kbd> / </kbd>
-          </label>
-          <label class="select-wrap">
-            <span class="visually-hidden">Filter by language</span>
-            <select data-language-filter aria-label="Filter by language">
-              <option value="">All languages</option>
-              {languages.map((language) => <option value={language}>{language}</option>)}
-            </select>
-          </label>
-          <label class="select-wrap">
-            <span class="visually-hidden">Filter by topic</span>
-            <select data-tag-filter aria-label="Filter by project type">
-              <option value="">All project types</option>
-              {Object.entries(tags).filter(([, value]) => value.count > 0).map(([id, value]) => <option value={id}>{value.label}</option>)}
-            </select>
-          </label>
-          <label class="select-wrap sort-select">
-            <span class="visually-hidden">Sort repositories</span>
-            <select data-sort aria-label="Sort repositories">
-              <option value="recent">Most recent</option>
-              <option value="name">Name A–Z</option>
-              <option value="stars">Most stars</option>
-            </select>
-          </label>
-        </div>
-        <div class="active-filters" data-active-filters aria-live="polite"></div>
-        <div class="catalogue-list" data-catalogue>
-          {ownProjects.map((project, index) => (
-            <article
-              class="catalogue-row"
-              data-project
-              data-name={project.name}
-              data-search={`${project.name} ${project.title} ${project.description || ''} ${project.summary || ''} ${project.primaryLanguage || ''} ${(project.topics || []).join(' ')}`}
-              data-language={project.primaryLanguage || ''}
-              data-tags={(project.tags || []).join(' ')}
-              data-date={project.activeAt || project.pushedAt}
-              data-stars={project.stars}
-              data-order={index}
-              data-recent={project.recent && !project.archived ? 'true' : 'false'}
-            >
-              <a class="catalogue-print" href={project.url} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} on GitHub`}>
-                <span class="catalogue-mark" set:html={printShape(project, index)}></span>
-                {project.image && <img src={assetUrl(project.image.file)} alt="" loading="lazy" />}
-              </a>
-              <div class="catalogue-main">
-                <div class="catalogue-title-row">
-                  <a class="catalogue-title" href={project.url} target="_blank" rel="noreferrer">{project.title}</a>
-                  {project.pinned && <span class="mini-stamp">PINNED</span>}
-                  {project.archived && <span class="archive-tag">ARCHIVED</span>}
-                </div>
-                <p>{project.description || project.summary || project.subtitle || 'A public GitHub repository.'}</p>
-                <div class="catalogue-tags">
-                  <span class="language-chip"><i style={`--language-color:${project.languages?.[0]?.color || '#1e4fff'}`}></i>{project.primaryLanguage || 'Mixed'}</span>
-                  {project.tags.map((tag) => tags[tag] && <span>{tags[tag].label}</span>)}
-                  {project.homepage && <a class="live-chip" href={project.homepage} target="_blank" rel="noreferrer">Live ↗</a>}
-                </div>
-              </div>
-              <div class="catalogue-stats">
-                <span class="mono">{project.stars} ★</span>
-                <time class="mono" datetime={project.activeAt || project.pushedAt}>{compactDate(project.activeAt || project.pushedAt)}</time>
-              </div>
-              <span class="catalogue-open mono" aria-hidden="true">↗</span>
-            </article>
-          ))}
-        </div>
-        <p class="empty-state" data-empty hidden>No prints match that selection. Clear a filter or try another search.</p>
-        <p class="section-footnote mono">PIN A REPOSITORY ON GITHUB TO MOVE IT INTO THE FRONT RUN</p>
-      </section>
-
       <section class="year-section page-wrap" id="year" aria-labelledby="year-title">
         <div class="year-top">
           <div class="section-heading">
             <div>
-              <h2 id="year-title">A year in ink</h2>
+              <h2 id="year-title">A year of activity</h2>
               <p>Each mark is a day with public GitHub activity.</p>
             </div>
           </div>
@@ -335,12 +228,12 @@ const initialProject = run[0];
         <div class="community-inner page-wrap">
           <div class="community-heading">
             <h2 id="community-title">Made with<br />other people.</h2>
-            <p>Open-source work is a shared print. A few projects and communities Jürgen contributes to.</p>
+            <p>Websites and open-source projects are better built together. A few projects and communities Jürgen contributes to.</p>
             <a class="paper-button" href="https://www.meetup.com/cloud-native-linz/" target="_blank" rel="noreferrer">Meet Cloud Native Linz <span aria-hidden="true">↗</span></a>
           </div>
           <div class="community-list">
             {communityProjects.map((project, index) => {
-              const avatar = portfolio.ownerAvatars[project.owner] || portfolio.ownerAvatars[project.owner.toLowerCase()];
+              const avatar = ownerAvatars[project.owner] || ownerAvatars[project.owner.toLowerCase()];
               return (
                 <a class="community-row" href={project.homepage || project.url} target="_blank" rel="noreferrer">
                   <span class="community-index mono">{String(index + 1).padStart(2, '0')}</span>
@@ -374,33 +267,11 @@ const initialProject = run[0];
         </div>
       </section>
 
-      {backCatalogue.length > 0 && (
-        <section class="back-section page-wrap" aria-labelledby="back-title">
-          <div class="section-heading">
-            <div>
-              <h2 id="back-title">Back catalogue</h2>
-              <p>Older and archived work, still part of the record.</p>
-            </div>
-            <span class="mono section-count">{String(backCatalogue.length).padStart(2, '0')} PRINTS</span>
-          </div>
-          <div class="back-list">
-            {backCatalogue.slice(0, 12).map((project) => (
-              <a href={project.url} target="_blank" rel="noreferrer">
-                <span>{project.title}</span>
-                <span class="mono">{project.primaryLanguage || 'Repository'}</span>
-                <time class="mono" datetime={project.activeAt || project.pushedAt}>{compactDate(project.activeAt || project.pushedAt)}</time>
-                <span aria-hidden="true">↗</span>
-              </a>
-            ))}
-            {backCatalogue.length > 12 && <span class="back-rest mono">+ {backCatalogue.length - 12} MORE IN THE CATALOGUE ABOVE</span>}
-          </div>
-        </section>
-      )}
     </main>
 
     <footer class="colophon page-wrap">
       <div class="colophon-close">
-        <span class="mono">THE NEXT PRINT IS ALREADY IN MOTION.</span>
+        <span class="mono">THE NEXT WEBSITE IS ALREADY IN PROGRESS.</span>
         <a class="ink-button" href={contactUrl} target="_blank" rel="noreferrer">Get in touch <span aria-hidden="true">↗</span></a>
       </div>
       <div class="footer-links">
@@ -410,8 +281,8 @@ const initialProject = run[0];
         </div>
       </div>
       <div class="colophon-bottom">
-        <span>Printed {displayDate(portfolio.generatedAt)} · Data from public GitHub and Credly</span>
-        <span class="mono">MADE OF OPEN SOURCE & SPOT INK</span>
+        <span>Updated {displayDate(portfolio.generatedAt)} · Data from public GitHub and Credly</span>
+        <span class="mono">MADE WITH OPEN SOURCE</span>
         <a href="#top" class="back-to-top">BACK TO TOP ↑</a>
       </div>
     </footer>
@@ -429,6 +300,7 @@ const initialProject = run[0];
       const language = stage.querySelector('[data-run-language]');
       const pushed = stage.querySelector('[data-run-pushed]');
       const pinned = stage.querySelector('[data-run-pinned]');
+      const projectIndex = stage.querySelector('[data-run-index]');
       const counter = stage.querySelector('[data-run-count]');
       let active = 0;
 
@@ -444,6 +316,7 @@ const initialProject = run[0];
           source.href = item.url;
           language.textContent = item.language;
           pushed.textContent = item.pushed;
+          projectIndex.textContent = `PROJECT ${String(next + 1).padStart(2, '0')}`;
           counter.textContent = `${String(next + 1).padStart(2, '0')} / ${String(run.length).padStart(2, '0')}`;
           pinned.hidden = buttons[next].dataset.pinned !== 'true';
           if (item.homepage) {
@@ -501,72 +374,6 @@ const initialProject = run[0];
         }
       });
 
-      const search = document.querySelector('[data-search]');
-      const languageFilter = document.querySelector('[data-language-filter]');
-      const tagFilter = document.querySelector('[data-tag-filter]');
-      const sortSelect = document.querySelector('[data-sort]');
-      const rows = [...document.querySelectorAll('[data-project]')];
-      const catalogue = document.querySelector('[data-catalogue]');
-      const empty = document.querySelector('[data-empty]');
-      const activeFilters = document.querySelector('[data-active-filters]');
-
-      function readHash() {
-        const params = new URLSearchParams(location.hash.split('?')[1] || '');
-        search.value = params.get('q') || '';
-        languageFilter.value = params.get('language') || '';
-        tagFilter.value = params.get('type') || '';
-        sortSelect.value = params.get('sort') || 'recent';
-      }
-
-      function updateHash() {
-        const params = new URLSearchParams();
-        if (search.value.trim()) params.set('q', search.value.trim());
-        if (languageFilter.value) params.set('language', languageFilter.value);
-        if (tagFilter.value) params.set('type', tagFilter.value);
-        if (sortSelect.value !== 'recent') params.set('sort', sortSelect.value);
-        const query = params.toString();
-        history.replaceState(null, '', query ? `#prints?${query}` : '#prints');
-      }
-
-      function filterProjects(syncHash = true) {
-        const query = search.value.trim().toLowerCase();
-        const languageValue = languageFilter.value;
-        const tagValue = tagFilter.value;
-        const visible = rows.filter((row) => {
-          const matches = (!query || row.dataset.search.toLowerCase().includes(query))
-            && (!languageValue || row.dataset.language === languageValue)
-            && (!tagValue || row.dataset.tags.split(' ').includes(tagValue));
-          row.hidden = !matches;
-          return matches;
-        });
-        const sort = sortSelect.value;
-        visible.sort((a, b) => {
-          if (sort === 'name') return a.dataset.name.localeCompare(b.dataset.name);
-          if (sort === 'stars') return Number(b.dataset.stars) - Number(a.dataset.stars);
-          return b.dataset.date.localeCompare(a.dataset.date);
-        }).forEach((row) => catalogue.append(row));
-        empty.hidden = visible.length > 0;
-        activeFilters.textContent = `${visible.length} ${visible.length === 1 ? 'print' : 'prints'} shown`;
-        if (syncHash) updateHash();
-      }
-
-      readHash();
-      filterProjects(false);
-      [search, languageFilter, tagFilter, sortSelect].forEach((control) => {
-        control.addEventListener(control === search ? 'input' : 'change', () => filterProjects());
-      });
-      window.addEventListener('hashchange', () => {
-        if (location.hash.startsWith('#prints?')) {
-          readHash();
-          filterProjects(false);
-        }
-      });
-      document.addEventListener('keydown', (event) => {
-        if (event.key === '/' && !['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) {
-          event.preventDefault();
-          search.focus();
-        }
-      });
     </script>
   </body>
 </html>

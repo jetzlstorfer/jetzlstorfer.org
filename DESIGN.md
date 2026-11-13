@@ -1,6 +1,6 @@
 ---
 name: Jürgen Etzlstorfer portfolio
-description: A living project catalogue printed from public GitHub work.
+description: A living portfolio of websites and projects, updated from public GitHub data.
 colors:
   federal-blue: "#1e4fff"
   fluoro-pink: "#ff3ea5"
@@ -74,9 +74,9 @@ components:
 
 **Creative North Star: "Two-Ink Riso"**
 
-This is a living catalogue that behaves like a small print shop: real projects take the lead, while registration marks, ink overlaps, paper grain and a compact press log give the interface its character. The identity translates the public-only, automatically refreshed source data into something tactile and personal without pretending the site is a terminal or a product dashboard.
+This is a living portfolio of websites and projects. Its visual style borrows from two-ink risograph printing through registration marks, color overlaps, paper-like texture and bold geometric artwork; these are visual motifs, not descriptions of the work. The public-only, automatically refreshed source data stays tactile and personal without making the site feel like a terminal or product dashboard.
 
-The composition is editorial and work-first. Use the featured print as the opening sightline, then let the repository rail, press log, full catalogue, contribution calendar, community work and credentials recede in that order. Keep the system honest: every project, count and link comes from public source data.
+The composition is editorial and work-first. Lead with featured websites, followed by the contribution calendar, community work and credentials. Keep the system honest: every project, count and link comes from public source data.
 
 **Key Characteristics:**
 - Warm paper and vivid spot inks with visible, restrained grain.
@@ -94,16 +94,16 @@ Warm paper is the ground; federal blue, fluoro pink and sunflower act as separat
 - **Fluoro Pink** (`#ff3ea5`): Current-project emphasis, registration offsets, rules and primary actions.
 
 ### Tertiary
-- **Sunflower** (`#ffd22a`): Language marks, selected project tiles and small print accents.
+- **Sunflower** (`#ffd22a`): Language marks, selected project tiles and small graphic accents.
 
 ### Neutral
 - **Warm Paper** (`#fbf5ea`): Page background and the dominant unprinted surface.
-- **Deep Paper** (`#f1e7d6`): Recessed artwork and print surfaces.
+- **Deep Paper** (`#f1e7d6`): Recessed artwork surfaces.
 - **Near-Black** (`#17191d`): Primary text and registration details.
 - **Muted Ink** (`#56534e`): Supporting copy and secondary metadata.
 - **Blue Rule** (`rgba(30, 79, 255, .54)`) and **Pink Rule** (`rgba(255, 62, 165, .62)`): Fine dividers and section boundaries.
 
-**The Spot-Ink Rule.** Keep the blue, pink and sunflower distinct; use overlap and multiply blending for print interaction rather than inventing extra accent colors.
+**The Spot-Ink Rule.** Keep the blue, pink and sunflower distinct; use overlap and multiply blending for the graphic treatment rather than inventing extra accent colors.
 
 ## Typography
 
@@ -115,7 +115,7 @@ Warm paper is the ground; federal blue, fluoro pink and sunflower act as separat
 
 ### Hierarchy
 - **Display** (400, `clamp(3.4rem, 6.5vw, 5.2rem)`, `.86` line-height): The oversized two-line name at the opening.
-- **Headline** (400, `clamp(2.8rem, 6vw, 5.4rem)`, `.9` line-height): Section titles such as the press log and year in ink.
+- **Headline** (400, `clamp(2.8rem, 6vw, 5.4rem)`, `.9` line-height): Section titles such as year in review.
 - **Title** (400, `clamp(1.65rem, 3.25vw, 3.2rem)`, `.95` line-height): The active featured project.
 - **Body** (400, `1rem`, `1.55` line-height): Project descriptions and explanatory copy; keep reading measures near 52–68 characters where the layout allows.
 - **Label** (400, `.72rem`, `1.4` line-height, `.015em` tracking): Dates, counters, language tags and uppercase source notes.
@@ -124,11 +124,11 @@ Warm paper is the ground; federal blue, fluoro pink and sunflower act as separat
 
 ## Layout
 
-Use a centered, fluid page frame capped at 1320px. At wide widths the frame keeps 36px gutters; below 980px it becomes a 760px maximum frame with 22px gutters, and below 680px the page keeps 18px gutters. The opening is intentionally compact: name and context lead directly into a featured two-column print and a neighboring horizontal project rail.
+Use a centered, fluid page frame capped at 1320px. At wide widths the frame keeps 36px gutters; below 980px it becomes a 760px maximum frame with 22px gutters, and below 680px the page keeps 18px gutters. The opening is intentionally compact: name and context lead directly into a featured website and a neighboring horizontal project rail.
 
-At 980px and below, the featured artwork scales to its grid track rather than enforcing a fixed minimum height. At 680px and below, the print stacks artwork above project information, the rail becomes a horizontal swipe row, and secondary navigation items hide while GitHub remains visible. Let the contribution calendar scroll within its own region on narrow screens; avoid page-wide horizontal overflow.
+At 980px and below, the featured website image scales to its grid track rather than enforcing a fixed minimum height. At 680px and below, the featured area stacks its image above project information, the rail becomes a horizontal swipe row, and secondary navigation items hide while GitHub remains visible. Let the contribution calendar scroll within its own region on narrow screens; avoid page-wide horizontal overflow.
 
-Use an 8px-based spacing rhythm, with 4px reserved for tight label and stamp details. Preserve generous section breaks so the project catalogue reads as a sequence of prints rather than a dense dashboard.
+Use an 8px-based spacing rhythm, with 4px reserved for tight label and stamp details. Preserve generous section breaks so the project list reads clearly rather than becoming a dense dashboard.
 
 ## Elevation & Depth
 
@@ -136,14 +136,14 @@ The page is flat at rest. Paper tone, grain, thin rules, multiply-blended inks a
 
 ### Shadow Vocabulary
 - **Primary action** (`4px 4px 0 var(--blue)`): Firm blue registration offset under the pink action.
-- **Active tile** (`3px 3px 0 var(--pink)`): Pink offset that makes the selected print tactile.
+- **Active tile** (`3px 3px 0 var(--pink)`): Pink offset that makes the selected project tactile.
 - **Arrow control** (`2px 2px 0 var(--pink)`): Small, consistent offset for navigation buttons.
 
 **The Offset-Only Rule.** Use hard offset shadows as ink registration; do not add soft elevation or blurred drop shadows.
 
 ## Shapes
 
-The interface uses square corners, thin blue or pink rules, clipped geometric print shapes and small registration crosses. Circles belong to the artwork, status marks and swatches, not to general-purpose cards or controls. Keep the print texture visible but subtle enough that text remains crisp.
+The interface uses square corners, thin blue or pink rules, clipped geometric shapes and small registration crosses. Circles belong to the artwork, status marks and swatches, not to general-purpose cards or controls. Keep the paper-like texture visible but subtle enough that text remains crisp.
 
 ## Components
 
@@ -171,19 +171,20 @@ The interface uses square corners, thin blue or pink rules, clipped geometric pr
 ### Navigation
 - **Style:** Compact, bold Mona Sans links with open space and no pill backgrounds. Keep the GitHub link at the right edge; on mobile hide only the two secondary section links.
 
-### Featured Print
-The featured artwork is the signature component: a generous, geometric print with ink overlays and a small paper-backed language/date caption. Use the selected rail tile's language-driven shapes and ink colors in the large preview, updating them together when the project changes. Keep the project title, concise description and direct source/live actions adjacent to it on wider screens; stack them cleanly on mobile.
+### Featured Website
+The featured website is the signature component: show a generous screenshot or geometric preview with a small language/date caption. Use the selected rail tile's language-driven shapes and colors in the large preview, updating them together when the project changes. Keep the project title, concise description and direct source/live actions adjacent to it on wider screens; stack them cleanly on mobile.
 
 ## Do's and Don'ts
 
 ### Do:
 - **Do** lead with real public projects and direct source or live-demo links.
-- **Do** let GitHub pins and recent activity drive the featured run; keep older work discoverable in the catalogue.
+- **Do** honor the explicit `featured` repository order in `portfolio.config.mjs`; use GitHub pins and repository activity to fill remaining slots.
 - **Do** use the established federal-blue, fluoro-pink, sunflower, warm-paper and near-black palette.
-- **Do** keep print grain and off-register layers subtle around readable text.
+- **Do** keep paper-like texture and off-register graphic layers subtle around readable text.
 - **Do** preserve keyboard operation, visible focus, and reduced-motion behavior.
 
 ### Don't:
 - **Don't** expose private repository or contribution data, or invent testimonials, customer claims, talk lists or usage metrics.
 - **Don't** add fake terminal chrome, a generic rounded-card grid, soft dashboard shadows or unrelated accent colors.
+- **Don't** describe websites or projects as prints; the risograph influence is visual only.
 - **Don't** add trackers or runtime third-party asset requests.

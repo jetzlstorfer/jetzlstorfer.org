@@ -131,7 +131,7 @@
         "purpose": "Hard blue ink offset under primary pink actions."
       },
       {
-        "name": "selected-print",
+        "name": "selected-project",
         "value": "3px 3px 0 var(--pink)",
         "purpose": "Hard pink offset under the active project tile."
       },
@@ -197,16 +197,16 @@
       "css": ".ds-language-chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 7px; border: 1px solid rgba(30, 79, 255, .3); color: var(--muted); font: .63rem var(--body); } .ds-language-chip i { width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }"
     },
     {
-      "name": "Featured Project Print",
+      "name": "Featured Project",
       "kind": "custom",
-      "description": "A large image-like print paired with project metadata and source action.",
-      "html": "<article class=\"ds-feature-print\"><span class=\"ds-feature-index\">PRINT 01</span><h3>Project name</h3><p>A concise description of the work.</p><a href=\"#\">Open source ↗</a></article>",
+      "description": "A large website preview paired with project metadata and source action.",
+      "html": "<article class=\"ds-feature-print\"><span class=\"ds-feature-index\">PROJECT 01</span><h3>Project name</h3><p>A concise description of the work.</p><a href=\"#\">Open source ↗</a></article>",
       "css": ".ds-feature-print { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 32px; align-items: center; padding: 18px 0; border-bottom: 1px solid var(--line-blue); color: var(--ink); } .ds-feature-index { grid-column: 2; color: var(--blue); font: .72rem var(--mono); } .ds-feature-print h3 { grid-column: 2; margin: 0; color: var(--blue); font: 400 2.4rem/.95 var(--display); text-transform: uppercase; } .ds-feature-print p { grid-column: 2; margin: 0; color: var(--muted); font: .95rem/1.55 var(--body); } .ds-feature-print a { grid-column: 2; width: fit-content; color: var(--ink); background: var(--pink); padding: 14px 18px; font: 800 .75rem var(--body); text-decoration: none; } @media (max-width: 680px) { .ds-feature-print { grid-template-columns: minmax(0, 1fr); gap: 12px; } .ds-feature-index, .ds-feature-print h3, .ds-feature-print p, .ds-feature-print a { grid-column: 1; } }"
     },
     {
       "name": "Project Rail Tile",
       "kind": "custom",
-      "description": "A compact selectable print from the featured project run.",
+      "description": "A compact selectable project from the featured websites.",
       "html": "<button class=\"ds-project-tile\" type=\"button\"><span class=\"ds-project-mark\" aria-hidden=\"true\">✳</span><strong>Repository name</strong><small>Go · 01</small></button>",
       "css": ".ds-project-tile { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-width: 140px; min-height: 116px; padding: 8px 10px; overflow: hidden; border: 1px solid rgba(30, 79, 255, .3); color: var(--ink); background: transparent; text-align: left; cursor: pointer; transition: background .2s ease, border-color .2s ease, transform .2s ease; } .ds-project-tile:hover, .ds-project-tile[aria-current=\"true\"] { border-color: var(--blue); background: rgba(255, 210, 42, .24); } .ds-project-tile[aria-current=\"true\"] { transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--pink); } .ds-project-mark { display: grid; place-items: center; width: 100%; height: 71px; color: var(--blue); } .ds-project-tile strong { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 800 .76rem var(--body); } .ds-project-tile small { color: var(--muted); font: .58rem var(--mono); } .ds-project-tile:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }"
     },
@@ -214,13 +214,13 @@
       "name": "Masthead Link",
       "kind": "nav",
       "description": "A quiet, bold navigation link that leaves the project work in focus.",
-      "html": "<a class=\"ds-masthead-link\" href=\"#\">Prints</a>",
+      "html": "<a class=\"ds-masthead-link\" href=\"#\">Websites</a>",
       "css": ".ds-masthead-link { color: var(--ink); font: 700 .78rem var(--body); text-decoration: none; transition: color .18s ease; } .ds-masthead-link:hover { color: var(--blue); } .ds-masthead-link:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }"
     }
   ],
   "narrative": {
     "northStar": "Two-Ink Riso",
-    "overview": "This is a living catalogue that behaves like a small print shop: real projects take the lead, while registration marks, ink overlaps, paper grain and a compact press log give the interface its character. The identity translates the public-only, automatically refreshed source data into something tactile and personal without pretending the site is a terminal or a product dashboard.\n\nThe composition is editorial and work-first. Use the featured print as the opening sightline, then let the repository rail, press log, full catalogue, contribution calendar, community work and credentials recede in that order. Keep the system honest: every project, count and link comes from public source data.",
+    "overview": "This is a living portfolio of websites and projects. Its visual style borrows from two-ink risograph printing through registration marks, color overlaps, paper-like texture and bold geometric artwork; these are visual motifs, not descriptions of the work. The public-only, automatically refreshed source data stays tactile and personal without making the site feel like a terminal or product dashboard.\n\nThe composition is editorial and work-first. Lead with featured websites, followed by the contribution calendar, community work and credentials. Keep the system honest: every project, count and link comes from public source data.",
     "keyCharacteristics": [
       "Warm paper and vivid spot inks with visible, restrained grain.",
       "Condensed display lettering paired with readable sans-serif and monospaced metadata.",
@@ -229,7 +229,7 @@
     "rules": [
       {
         "name": "The Spot-Ink Rule",
-        "body": "Keep the blue, pink and sunflower distinct; use overlap and multiply blending for print interaction rather than inventing extra accent colors.",
+        "body": "Keep the blue, pink and sunflower distinct; use overlap and multiply blending for graphic interaction rather than inventing extra accent colors.",
         "section": "colors"
       },
       {
@@ -245,14 +245,15 @@
     ],
     "dos": [
       "Do lead with real public projects and direct source or live-demo links.",
-      "Do let GitHub pins and recent activity drive the featured run; keep older work discoverable in the catalogue.",
+      "Do honor the explicit featured repository order in portfolio.config.mjs; use GitHub pins and repository activity to fill remaining slots.",
       "Do use the established federal-blue, fluoro-pink, sunflower, warm-paper and near-black palette.",
-      "Do keep print grain and off-register layers subtle around readable text.",
+      "Do keep paper-like texture and off-register layers subtle around readable text.",
       "Do preserve keyboard operation, visible focus, and reduced-motion behavior."
     ],
     "donts": [
       "Don't expose private repository or contribution data, or invent testimonials, customer claims, talk lists or usage metrics.",
       "Don't add fake terminal chrome, a generic rounded-card grid, soft dashboard shadows or unrelated accent colors.",
+      "Don't describe websites or projects as prints; the risograph influence is visual only.",
       "Don't add trackers or runtime third-party asset requests."
     ]
   }

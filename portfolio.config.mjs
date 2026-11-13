@@ -1,12 +1,12 @@
 /**
- * Curation for the self-printing portfolio.
+ * Curation for the self-updating website portfolio.
  *
  * Everything on the site is generated from public GitHub data and the public
- * Credly feed. GitHub pins pick the featured prints; this file is the only
- * other control. Every key is optional.
+ * Credly feed. The featured list and GitHub pins control the featured websites.
+ * Every key is optional.
  */
 export default {
-  /** GitHub account the site is printed from. */
+  /** GitHub account the site is updated from. */
   login: 'jetzlstorfer',
 
   /** One line under the name. Falls back to the GitHub bio. */
@@ -18,24 +18,25 @@ export default {
    */
   exclude: ['jetzlstorfer', 'jetzlstorfer.github.io', 'jetzlstorfer.org'],
 
-  /** Extra public repositories (`owner/name`) to print in the index. */
+  /** Extra public repositories (`owner/name`) to include in the index. */
   include: [],
 
   /**
-   * Repositories forced into the front run in addition to GitHub pins,
-   * in this order. The run is otherwise the most recently pushed work.
+   * Featured public repositories, in display order. Use `name` for your own
+   * repos and `owner/name` for other repositories. GitHub pins and recent
+   * repositories fill any remaining slots.
    */
-  featured: [],
+  featured: [ 'splitty', 'wichteln', 'plattentests-go', 'music-timetraveler', 'wattpilot-exporter', 'cloudnativelinz/cloudnativelinz.github.io' ],
 
-  /** How many prints stand in the front run. */
+  /** How many websites to feature. */
   runSize: 8,
 
   /** Forks are skipped unless listed in `include`. */
   includeForks: false,
 
   /**
-   * Repos pushed within this many months are printed in the main index;
-   * older or archived ones move to the back catalogue.
+   * Repos pushed within this many months are eligible for automatic featuring;
+   * older or archived ones are not automatically featured.
    */
   recentMonths: 24,
 
@@ -44,13 +45,13 @@ export default {
    * Supported keys: title, description, homepage, tags (array), image (URL), hidden.
    */
   overrides: {
-    wichteln: { homepage: 'https://wichteln.jetzlstorfer.org' },
+    'cloudnativelinz/cloudnativelinz.github.io': { title: 'cloudnativelinz.at' },
   },
 
   /** Credly user for the badge shelf. Set to null to drop the section. */
   credly: 'jetzlstorfer',
 
-  /** Links printed in the masthead and the close. GitHub social accounts are merged in. */
+  /** Links shown in the masthead and footer. GitHub social accounts are merged in. */
   links: [
     { label: 'GitHub', url: 'https://github.com/jetzlstorfer' },
     { label: 'LinkedIn', url: 'https://www.linkedin.com/in/juergenetzlstorfer/' },
