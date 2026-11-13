@@ -1,0 +1,51 @@
+---
+import { getCollection, render } from 'astro:content';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import { isVisible, postArt, readingMinutes, sortPosts } from '../../lib/blog.mjs';
+
+export async function getStaticPaths() {
+  const posts = sortPosts(await getCollection('blog', (post) => isVisible(post, { dev: import.meta.env.DEV })));
+  return posts.map((post, index) => ({
+    params: { slug: post.id },
+    props: { post, newer: posts[index - 1] ?? null, older: posts[index + 1] ?? null },
+  }));
+}
+
+const { post, newer, older } = Astro.props;
+const { Content } = await render(post);
+const displayDate = (date: Date) => date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+---
+
+<BlogLayout title={`${post.data.title} — Jürgen Etzlstorfer`} description={post.data.description}>
+  <article class="post page-wrap" aria-labelledby="post-title">
+    <header class="post-header">
+      <div class="post-header-copy">
+        <div class="front-title-row">
+          <a class="run-index mono" href="/blog/">← ALL POSTS</a>
+          {post.data.draft && <span class="pinned-stamp">DRAFT</span>}
+        </div>
+        <h1 id="post-title" class="ink-title post-title" data-text={post.data.title}>{post.data.title}</h1>
+        <p class="post-lead">{post.data.description}</p>
+        <div class="post-meta mono">
+          <time datetime={post.data.pubDate.toISOString()}>{displayDate(post.data.pubDate)}</time>
+          {post.data.updatedDate && <span>Updated <time datetime={post.data.updatedDate.toISOString()}>{displayDate(post.data.updatedDate)}</time></span>}
+          <span>{readingMinutes(post.body)} min read</span>
+          {post.data.repo && <a class="text-link" href={`https://github.com/${post.data.repo}`} target="_blank" rel="noreferrer">{post.data.repo} ↗</a>}
+        </div>
+        <div class="post-tags">{post.data.tags.map((tag) => <span class="post-tag mono">{tag}</span>)}</div>
+      </div>
+      <div class="post-header-art front-art" aria-hidden="true">
+        <div class="front-geometry" set:html={postArt(post.id)}></div>
+      </div>
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    <nav class="post-pager" aria-label="More posts">
+      {newer ? <a class="post-pager-link" href={`/blog/${newer.id}/`}><span class="mono">← NEWER</span><strong>{newer.data.title}</strong></a> : <span></span>}
+      {older && <a class="post-pager-link is-older" href={`/blog/${older.id}/`}><span class="mono">OLDER →</span><strong>{older.data.title}</strong></a>}
+    </nav>
+  </article>
+</BlogLayout>

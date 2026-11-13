@@ -1,0 +1,73 @@
+---
+import '../styles/global.css';
+import '@fontsource/anton';
+import '@fontsource-variable/mona-sans';
+import '@fontsource/monaspace-neon';
+import portfolio from '../data/portfolio.json';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const { profile, links } = portfolio;
+const contactUrl = links.find((link) => link.label === 'LinkedIn')?.url ?? `https://github.com/${profile.login}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#fbf5ea" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title={`${profile.name} — blog`} href="/blog/rss.xml" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+  </head>
+  <body>
+    <div class="paper-grain" aria-hidden="true"></div>
+    <header class="masthead page-wrap">
+      <a class="wordmark" href="/" aria-label="Jürgen Etzlstorfer, home">J.E<span>.</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/#featured-websites">Featured</a>
+        <a href="/#year">Year in review</a>
+        <a href="/#community">Community</a>
+        <a href="/blog/" aria-current={Astro.url.pathname.startsWith('/blog') ? 'page' : undefined}>Blog</a>
+      </nav>
+      <a class="masthead-link" href={`https://github.com/${profile.login}`} target="_blank" rel="noreferrer" aria-label="GitHub">
+        <span class="status-dot" aria-hidden="true"></span><span class="masthead-label">GitHub</span><span aria-hidden="true">↗</span>
+      </a>
+    </header>
+
+    <main id="top">
+      <slot />
+    </main>
+
+    <footer class="colophon page-wrap">
+      <div class="colophon-close">
+        <span class="mono">THE NEXT POST IS ALREADY IN PROGRESS.</span>
+        <a class="ink-button" href={contactUrl} target="_blank" rel="noreferrer">Get in touch <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="footer-links">
+        <span class="footer-name">{profile.name}</span>
+        <div>
+          <a href="/blog/rss.xml">RSS feed</a>
+          {links.map((link) => <a href={link.url} target="_blank" rel="noreferrer">{link.label} ↗</a>)}
+        </div>
+      </div>
+      <div class="colophon-bottom">
+        <span>Written by hand · Projects from public GitHub data</span>
+        <span class="mono">MADE WITH OPEN SOURCE</span>
+        <a href="#top" class="back-to-top">BACK TO TOP ↑</a>
+      </div>
+    </footer>
+  </body>
+</html>

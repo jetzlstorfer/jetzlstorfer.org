@@ -4,6 +4,8 @@ import '@fontsource/anton';
 import '@fontsource-variable/mona-sans';
 import '@fontsource/monaspace-neon';
 import portfolio from '../data/portfolio.json';
+import { getCollection } from 'astro:content';
+import { isVisible } from '../lib/blog.mjs';
 
 const assets = import.meta.glob<string>('../assets/fetched/**/*.{webp,png,jpg,jpeg}', {
   eager: true,
@@ -74,6 +76,7 @@ const runItems = run.map((project) => ({
 const contributionByWeek = Array.from({ length: Math.ceil(calendar.days.length / 7) }, (_, weekIndex) =>
   calendar.days.slice(weekIndex * 7, weekIndex * 7 + 7));
 const initialProject = run[0];
+const hasBlog = (await getCollection('blog', (post) => isVisible(post, { dev: import.meta.env.DEV }))).length > 0;
 ---
 
 <!doctype html>
@@ -100,6 +103,7 @@ const initialProject = run[0];
         <a href="#featured-websites">Featured</a>
         <a href="#year">Year in review</a>
         <a href="#community">Community</a>
+        {hasBlog && <a href="/blog/">Blog</a>}
       </nav>
       <a class="masthead-link" href={`https://github.com/${profile.login}`} target="_blank" rel="noreferrer" aria-label="GitHub">
         <span class="status-dot" aria-hidden="true"></span><span class="masthead-label">GitHub</span><span aria-hidden="true">↗</span>

@@ -27,6 +27,23 @@ ESLint checks authored JavaScript and Astro components; generated data, download
 
 Pull requests to `main` run all three checks without deploying or using `PORTFOLIO_TOKEN`. Public data is fetched using the read-only built-in `GITHUB_TOKEN`; it must have access to the public GitHub GraphQL queries. Pushes to `main` and manual deployments run the same checks before publishing.
 
+## Blog
+
+Posts are Markdown files in `src/content/blog/`; the file name becomes the URL (`/blog/<file-name>/`). Front matter is validated by `src/content.config.ts`:
+
+```md
+---
+title: A portfolio that builds itself
+description: One or two sentences used on the index, in the feed and as the meta description.
+pubDate: 2026-11-20
+tags: [astro, github-actions]
+repo: jetzlstorfer/jetzlstorfer.org   # optional, links the post to its source
+draft: true                           # optional, defaults to false
+---
+```
+
+Drafts show up in `npm run dev` with a DRAFT stamp but are left out of production builds and `/blog/rss.xml`. Set `draft: false` (or remove it) to publish; the homepage navigation shows a Blog link as soon as one post is published.
+
 ## Curation
 
 `portfolio.config.mjs` controls featured-project selection and order, exclusions, extra repositories, recency and factual overrides such as a live URL. Put repository names in `featured` in the order you want them shown (`name` for your own repos, `owner/name` for other public repos). GitHub pins and recently active repositories fill any remaining slots. Only public repositories are requested and written.
