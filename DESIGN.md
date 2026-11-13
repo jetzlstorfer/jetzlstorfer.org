@@ -174,6 +174,9 @@ The interface uses square corners, thin blue or pink rules, clipped geometric sh
 ### Featured Website
 The featured website is the signature component: show a generous screenshot or geometric preview with a small language/date caption. Use the selected rail tile's language-driven shapes and colors in the large preview, updating them together when the project changes. Keep the project title, concise description and direct source/live actions adjacent to it on wider screens; stack them cleanly on mobile.
 
+### Blog
+The blog reuses the masthead, colophon, ink titles and rules. The index is a ruled list: a small seeded geometric print per post, mono date and reading time, a Title-size Anton headline, the description and fine-bordered tag chips. Articles open with a Headline-size ink title, a muted lead and mono metadata, then a single prose column near 68 characters at body size 1.06rem. Prose headings use Anton in federal blue; links are blue with a pink underline; code blocks sit on deep paper with a blue rule and a hard pink offset, highlighted through Shiki's `css-variables` theme mapped to the spot inks. Blockquotes use pink top and bottom rules with a registration mark, never a thick side bar. Drafts carry the rotated pink `DRAFT` stamp.
+
 ## Do's and Don'ts
 
 ### Do:
