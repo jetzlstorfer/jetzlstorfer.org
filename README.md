@@ -2,6 +2,8 @@
 
 A self-updating portfolio of public GitHub projects, community work and Credly credentials. The site is built as a static Astro page; project details, screenshots, activity and badges are refreshed by GitHub Actions.
 
+Browse featured projects with the arrow buttons or Left/Right arrow keys without clicking first. On mobile, swipe left or right across the featured card; vertical page scrolling and horizontal thumbnail scrolling remain available.
+
 ## Run locally
 
 ```sh
@@ -15,6 +17,7 @@ The fetch script uses `GITHUB_TOKEN`, `GH_TOKEN`, or `gh auth token` and writes 
 ## Code checks
 
 ```sh
+npm test
 npm run lint
 npm run check
 npm run build
