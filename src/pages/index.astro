@@ -363,7 +363,10 @@ const initialProject = run[0];
       });
       stage.querySelector('[data-run-prev]').addEventListener('click', () => selectProject(active - 1));
       stage.querySelector('[data-run-next]').addEventListener('click', () => selectProject(active + 1));
-      stage.addEventListener('keydown', (event) => {
+      document.addEventListener('keydown', (event) => {
+        if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey ||
+          event.target.closest('input, textarea, select, [contenteditable]:not([contenteditable="false"]), [role="textbox"]')) return;
+
         if (event.key === 'ArrowLeft') {
           event.preventDefault();
           selectProject(active - 1);
@@ -373,6 +376,31 @@ const initialProject = run[0];
           selectProject(active + 1);
         }
       });
+
+      const front = stage.querySelector('[data-run-front]');
+      let touchStart = null;
+      front.addEventListener('touchstart', (event) => {
+        touchStart = event.touches.length === 1 && !event.target.closest('a, button')
+          ? { x: event.touches[0].clientX, y: event.touches[0].clientY }
+          : null;
+      }, { passive: true });
+      front.addEventListener('touchmove', (event) => {
+        if (event.touches.length !== 1) touchStart = null;
+      }, { passive: true });
+      front.addEventListener('touchend', (event) => {
+        const start = touchStart;
+        touchStart = null;
+        if (!start || event.touches.length || event.changedTouches.length !== 1) return;
+
+        const dx = event.changedTouches[0].clientX - start.x;
+        const dy = event.changedTouches[0].clientY - start.y;
+        if (Math.abs(dx) >= 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+          selectProject(active + (dx < 0 ? 1 : -1));
+        }
+      }, { passive: true });
+      front.addEventListener('touchcancel', () => {
+        touchStart = null;
+      }, { passive: true });
 
     </script>
   </body>
