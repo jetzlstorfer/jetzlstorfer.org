@@ -150,9 +150,13 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 /* Keep accents inside the mask without changing the tight name spacing. */
 .opening-name .ink-title {
   padding-block: .25em .05em;
+  padding-inline-end: .08em;
   margin-block: -.25em -.05em;
 }
-.opening-name .ink-title::after { padding-block: inherit; }
+.opening-name .ink-title::after {
+  padding-block: inherit;
+  padding-inline-end: inherit;
+}
 .opening-meta {
   margin-top: clamp(18px, 2.4vw, 32px);
   display: flex;
