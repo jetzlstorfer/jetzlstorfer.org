@@ -11,10 +11,12 @@
  * it is written: a private repository must never reach the build.
  */
 import { execSync } from 'node:child_process';
-import { access, mkdir, rm, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import config from '../portfolio.config.mjs';
+import { pruneImages, refreshSource, SourceUnavailableError } from './snapshots.mjs';
+import { fetchCredlyFeed } from './credly.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA_FILE = path.join(ROOT, 'src', 'data', 'portfolio.json');
@@ -23,6 +25,7 @@ const UA = 'jetzlstorfer.org-portfolio-printer';
 const LOGIN = config.login;
 const NOW = new Date();
 const DAY = 86_400_000;
+const CACHE_DIR = path.join(ROOT, '.portfolio-cache');
 
 let sharp = null;
 try {
@@ -50,14 +53,11 @@ function resolveToken() {
   }
 }
 const TOKEN = resolveToken();
-if (!TOKEN) {
-  console.error('No GitHub token. Set GITHUB_TOKEN or log in with `gh auth login`.');
-  process.exit(1);
-}
 
 /* ---------------------------------------------------------------- graphql */
 
 async function gql(query, variables = {}, label = 'query') {
+  if (!TOKEN) throw new SourceUnavailableError('No GitHub token. Set GITHUB_TOKEN or log in with `gh auth login`.');
   let lastError;
   for (let attempt = 1; attempt <= 4; attempt++) {
     try {
@@ -78,7 +78,7 @@ async function gql(query, variables = {}, label = 'query') {
       }
       const json = await res.json();
       if (!res.ok) throw new Error(`${label}: HTTP ${res.status} ${JSON.stringify(json).slice(0, 400)}`);
-      for (const e of json.errors ?? []) warn(`${label}: ${e.type ?? 'error'} ${e.message}`);
+      if (json.errors?.length) throw new Error(`${label}: ${json.errors.map((e) => `${e.type ?? 'error'} ${e.message}`).join('; ')}`);
       if (!json.data) throw new Error(`${label}: no data returned`);
       return json.data;
     } catch (err) {
@@ -86,7 +86,7 @@ async function gql(query, variables = {}, label = 'query') {
       if (attempt < 4) await sleep(attempt * 2000);
     }
   }
-  throw lastError;
+  throw new SourceUnavailableError(lastError.message);
 }
 
 const REPO_FIELDS = `
@@ -130,13 +130,21 @@ async function fetchProfile() {
   let after = null;
   let user = null;
   const own = [];
+  const cursors = new Set();
   do {
     const data = await gql(query, { login: LOGIN, after }, 'profile');
     if (!data.user) throw new Error(`GitHub user "${LOGIN}" not found`);
     user ??= data.user;
-    own.push(...data.user.repositories.nodes);
-    after = data.user.repositories.pageInfo.hasNextPage ? data.user.repositories.pageInfo.endCursor : null;
+    const repositories = data.user.repositories;
+    if (!Array.isArray(repositories?.nodes) || !repositories.pageInfo ||
+        (repositories.pageInfo.hasNextPage && (!repositories.pageInfo.endCursor || cursors.has(repositories.pageInfo.endCursor)))) {
+      throw new SourceUnavailableError('Invalid GitHub repository pagination');
+    }
+    own.push(...repositories.nodes);
+    after = repositories.pageInfo.hasNextPage ? repositories.pageInfo.endCursor : null;
+    cursors.add(after);
   } while (after);
+  if (own.length !== user.repositories.totalCount) throw new SourceUnavailableError('Incomplete GitHub repository list');
   user.repositories.nodes = own;
   return user;
 }
@@ -325,22 +333,35 @@ function sniffExt(buf, type = '') {
 }
 
 /** Downloads an image, normalises it to webp, and returns its repo-relative path and size. */
-async function downloadImage(url, destNoExt, { minWidth = 0, minHeight = 0, maxWidth = 1600 } = {}) {
-  const res = await fetch(url, {
-    headers: { 'user-agent': UA, accept: 'image/avif,image/webp,image/png,image/jpeg,image/*' },
-    redirect: 'follow',
-    signal: AbortSignal.timeout(30_000),
-  });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const buf = Buffer.from(await res.arrayBuffer());
+async function downloadImage(url, destNoExt, { minWidth = 0, minHeight = 0, maxWidth = 1600, curated = false } = {}) {
+  let buf;
+  let contentType = '';
+  if (curated) {
+    const file = path.resolve(ROOT, url);
+    const relative = path.relative(path.join(ROOT, 'src', 'assets', 'curated'), file);
+    if (relative.startsWith('..') || path.isAbsolute(relative) || !/\.(webp|png|jpe?g)$/i.test(relative)) {
+      throw new Error(`invalid curated image path: ${url}`);
+    }
+    buf = await readFile(file);
+  } else {
+    const res = await fetch(url, {
+      headers: { 'user-agent': UA, accept: 'image/avif,image/webp,image/png,image/jpeg,image/*' },
+      redirect: 'follow',
+      signal: AbortSignal.timeout(30_000),
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    buf = Buffer.from(await res.arrayBuffer());
+    contentType = res.headers.get('content-type') ?? '';
+  }
   if (buf.length > 12_000_000) throw new Error('image larger than 12 MB');
-  const ext = sniffExt(buf, res.headers.get('content-type') ?? '');
-  if (!ext) throw new Error(`not a raster image (${res.headers.get('content-type')})`);
+  const ext = sniffExt(buf, contentType);
+  if (!ext) throw new Error(`not a raster image (${contentType})`);
   await mkdir(path.dirname(destNoExt), { recursive: true });
 
   if (!sharp) {
     const file = `${destNoExt}.${ext}`;
-    await writeFile(file, buf);
+    await writeFile(`${file}.tmp`, buf);
+    await rename(`${file}.tmp`, file);
     return { file: path.relative(ROOT, file).replaceAll('\\', '/'), width: null, height: null };
   }
   const img = sharp(buf, { animated: false });
@@ -349,18 +370,23 @@ async function downloadImage(url, destNoExt, { minWidth = 0, minHeight = 0, maxW
     throw new Error(`too small (${meta.width}x${meta.height})`);
   }
   const file = `${destNoExt}.webp`;
-  const out = await img
-    .rotate()
-    .resize({ width: maxWidth, withoutEnlargement: true })
-    .webp({ quality: 90 })
-    .toFile(file);
-  return { file: path.relative(ROOT, file).replaceAll('\\', '/'), width: out.width, height: out.height };
+  try {
+    const out = await img
+      .rotate()
+      .resize({ width: maxWidth, withoutEnlargement: true })
+      .webp({ quality: 90 })
+      .toFile(`${file}.tmp`);
+    await rename(`${file}.tmp`, file);
+    return { file: path.relative(ROOT, file).replaceAll('\\', '/'), width: out.width, height: out.height };
+  } finally {
+    await rm(`${file}.tmp`, { force: true });
+  }
 }
 
 async function pool(items, limit, fn) {
   const out = new Array(items.length);
   let next = 0;
-  await Promise.all(
+  const results = await Promise.allSettled(
     Array.from({ length: Math.min(limit, items.length) }, async () => {
       while (next < items.length) {
         const i = next++;
@@ -368,6 +394,8 @@ async function pool(items, limit, fn) {
       }
     }),
   );
+  const failure = results.find((result) => result.status === 'rejected');
+  if (failure) throw failure.reason;
   return out;
 }
 
@@ -590,24 +618,20 @@ function graphqlCalendar(user) {
 
 /* ------------------------------------------------------------------ credly */
 
-async function fetchCredly(user) {
-  const res = await fetch(`https://www.credly.com/users/${user}/badges.json`, {
-    headers: { 'user-agent': 'Mozilla/5.0 (compatible; jetzlstorfer.org portfolio build)', accept: 'application/json' },
-    signal: AbortSignal.timeout(30_000),
-  });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const json = await res.json();
-  const badges = (json.data ?? []).filter((b) => b.public !== false && b.state !== 'pending');
+async function fetchCredly(user, previous = []) {
+  const badges = await fetchCredlyFeed(user, { previousCount: previous.length });
   return pool(badges, 4, async (b) => {
     const issuer =
       b.issuer?.entities?.find((e) => e.primary)?.entity?.name ??
       b.badge_template?.issuer?.entities?.find((e) => e.primary)?.entity?.name ??
       null;
-    let image = null;
+    let image;
     try {
       image = await downloadImage(b.image_url ?? b.badge_template?.image_url, path.join(ASSET_DIR, 'badges', b.id), { maxWidth: 360 });
     } catch (err) {
-      warn(`badge image ${b.id}: ${err.message}`);
+      image = previous.find((badge) => badge.id === b.id)?.image ?? null;
+      if (!image) throw new SourceUnavailableError(`badge image ${b.id}: ${err.message}`);
+      warn(`badge image ${b.id}: ${err.message}; keeping previous image`);
     }
     return {
       id: b.id,
@@ -624,12 +648,7 @@ async function fetchCredly(user) {
 
 /* -------------------------------------------------------------------- main */
 
-async function main() {
-  const t0 = Date.now();
-  await rm(ASSET_DIR, { recursive: true, force: true });
-  await mkdir(ASSET_DIR, { recursive: true });
-  await mkdir(path.dirname(DATA_FILE), { recursive: true });
-
+async function fetchGitHub(previous) {
   console.log(`> profile ${LOGIN}`);
   const user = await fetchProfile();
   const pinnedNames = user.pinnedItems.nodes
@@ -698,13 +717,7 @@ async function main() {
     const p = buildProject(repo, null, { pinned });
     p.title = standalone.title ?? p.title;
     if (standalone.image) {
-      const file = path.resolve(ROOT, standalone.image);
-      const relative = path.relative(path.join(ROOT, 'src', 'assets', 'curated'), file);
-      if (relative.startsWith('..') || path.isAbsolute(relative) || !/\.(webp|png|jpe?g)$/i.test(relative)) {
-        throw new Error(`invalid curated image path: ${standalone.image}`);
-      }
-      await access(file);
-      p.image = { file: path.relative(ROOT, file).replaceAll('\\', '/'), alt: p.title, source: null, width: null, height: null };
+      p.imageCandidates.unshift({ src: standalone.image, alt: p.title, curated: true });
     }
     p.source = 'own';
     projects.push(p);
@@ -759,12 +772,14 @@ async function main() {
   const wantsImage = projects.filter((p) => p.run || p.source === 'community' || p.recent);
   console.log(`> images for ${wantsImage.length} projects`);
   await pool(wantsImage, 4, async (p) => {
+    p.image = previous?.projects.find((project) => project.id === p.id)?.image ?? null;
     for (const c of p.imageCandidates) {
       try {
-        const img = await downloadImage(c.src, path.join(ASSET_DIR, 'projects', p.id), { minWidth: 360, minHeight: 200 });
-        p.image = { ...img, alt: c.alt && hasWords(c.alt) ? c.alt : null, source: c.src };
+        const img = await downloadImage(c.src, path.join(ASSET_DIR, 'projects', p.id), { minWidth: 360, minHeight: 200, curated: c.curated });
+        p.image = { ...img, alt: c.alt && hasWords(c.alt) ? c.alt : null, source: c.curated ? null : c.src };
         return;
       } catch (err) {
+        if (c.curated) throw err;
         warn(`image ${p.nameWithOwner} <${c.src}>: ${err.message}`);
       }
     }
@@ -780,15 +795,17 @@ async function main() {
       ownerAvatars[login] = await downloadImage(`${repo.owner.avatarUrl}${sep}s=240`, path.join(ASSET_DIR, 'owners', slug(login)), { maxWidth: 240 });
     } catch (err) {
       warn(`avatar ${login}: ${err.message}`);
+      if (previous?.ownerAvatars[login]) ownerAvatars[login] = previous.ownerAvatars[login];
     }
   });
 
-  let avatar = null;
+  let avatar;
   try {
     const sep = user.avatarUrl.includes('?') ? '&' : '?';
     avatar = await downloadImage(`${user.avatarUrl}${sep}s=600`, path.join(ASSET_DIR, 'avatar'), { maxWidth: 600 });
   } catch (err) {
     warn(`avatar: ${err.message}`);
+    avatar = previous?.profile.avatar ?? null;
   }
 
   console.log('> contribution calendar');
@@ -801,16 +818,6 @@ async function main() {
   }
 
   const ledger = buildLedger(details, projectsByKey);
-
-  let badges = [];
-  if (config.credly) {
-    console.log('> credly badges');
-    try {
-      badges = await fetchCredly(config.credly);
-    } catch (err) {
-      warn(`credly: ${err.message}`);
-    }
-  }
 
   // Merge GitHub social accounts into the configured links.
   const links = [...(config.links ?? [])];
@@ -828,14 +835,7 @@ async function main() {
     delete p.imageCandidates;
   }
 
-  const data = {
-    generatedAt: NOW.toISOString(),
-    build: {
-      run: process.env.GITHUB_RUN_NUMBER ? Number(process.env.GITHUB_RUN_NUMBER) : null,
-      sha: process.env.GITHUB_SHA?.slice(0, 7) ?? null,
-      repository: process.env.GITHUB_REPOSITORY ?? null,
-      trigger: process.env.GITHUB_EVENT_NAME ?? 'local',
-    },
+  return {
     profile: {
       login: user.login,
       name: user.name ?? user.login,
@@ -857,16 +857,52 @@ async function main() {
     ownerAvatars,
     ledger,
     calendar,
-    badges: badges.sort((a, b) => (b.issuedAt ?? '').localeCompare(a.issuedAt ?? '')),
+  };
+}
+
+async function main() {
+  const t0 = Date.now();
+  await mkdir(ASSET_DIR, { recursive: true });
+  await mkdir(path.dirname(DATA_FILE), { recursive: true });
+  const github = await refreshSource({
+    root: ROOT, cache: CACHE_DIR, source: 'github', identity: JSON.stringify(config),
+    fetchData: fetchGitHub, warn, now: NOW,
+  });
+  const credly = config.credly ? await refreshSource({
+    root: ROOT, cache: CACHE_DIR, source: 'credly', identity: config.credly,
+    fetchData: async (previous) => {
+      console.log('> credly badges');
+      return fetchCredly(config.credly, previous);
+    },
+    warn, now: NOW,
+  }) : { data: [], freshness: null };
+  const data = {
+    ...github.data,
+    generatedAt: NOW.toISOString(),
+    sources: { github: github.freshness, credly: credly.freshness },
+    build: {
+      run: process.env.GITHUB_RUN_NUMBER ? Number(process.env.GITHUB_RUN_NUMBER) : null,
+      sha: process.env.GITHUB_SHA?.slice(0, 7) ?? null,
+      repository: process.env.GITHUB_REPOSITORY ?? null,
+      trigger: process.env.GITHUB_EVENT_NAME ?? 'local',
+    },
+    badges: credly.data.sort((a, b) => (b.issuedAt ?? '').localeCompare(a.issuedAt ?? '')),
     warnings: warnings.length,
   };
-
+  await pruneImages(ROOT, [github.data, credly.data]);
+  if (!config.credly) await rm(path.join(CACHE_DIR, 'credly'), { recursive: true, force: true });
   await writeFile(DATA_FILE, `${JSON.stringify(data, null, 2)}\n`);
-  const imgs = projects.filter((p) => p.image).length;
+  await writeFile(path.join(CACHE_DIR, 'status.json'), `${JSON.stringify(data.sources, null, 2)}\n`);
+  const imgs = data.projects.filter((p) => p.image).length;
   console.log(
-    `✓ ${projects.length} projects (${run.length} in the run, ${imgs} with images), ${ledger.length} ledger lines, ` +
-      `${calendar.total} contributions, ${badges.length} badges, ${warnings.length} warnings in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
+    `✓ ${data.projects.length} projects (${imgs} with images), ${data.ledger.length} ledger lines, ` +
+      `${data.calendar.total} contributions, ${data.badges.length} badges, ${warnings.length} warnings in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
   );
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    const lines = Object.entries(data.sources).filter(([, status]) => status).map(([source, status]) =>
+      `| ${source} | ${status.stale ? 'Previous snapshot (refresh failed)' : 'Fresh'} | ${status.lastSuccessAt} |`);
+    await writeFile(process.env.GITHUB_STEP_SUMMARY, `## Portfolio sources\n\n| Source | Status | Last successful refresh |\n| --- | --- | --- |\n${lines.join('\n')}\n`);
+  }
 }
 
 main().catch((err) => {
