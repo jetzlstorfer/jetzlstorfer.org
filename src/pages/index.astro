@@ -18,7 +18,7 @@ const ownerAvatars: Record<string, { file: string } | undefined> = portfolio.own
 const contactUrl = links.find((link) => link.label === 'LinkedIn')?.url ?? `https://github.com/${profile.login}`;
 const run = projects.filter((project): project is Project & { run: number } => Boolean(project.run)).sort((a, b) => a.run - b.run);
 const communityProjects = projects.filter((project) => project.source === 'community');
-const compactDate = (date: string) => new Date(date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' });
+const compactDate = (date: string | null) => date ? new Date(date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' }) : '';
 const displayDate = (date: string) => new Date(date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 const monthLabels = calendar.days.flatMap((day, index, days) => {
   const date = new Date(`${day.date}T00:00:00Z`);
@@ -63,7 +63,7 @@ const printShape = (project: Project, index: number) => {
 const runItems = run.map((project) => ({
   title: project.title,
   name: project.name,
-  url: project.url,
+  sourceUrl: project.sourceUrl,
   homepage: project.homepage,
   description: project.description || project.summary || project.subtitle || 'A public project from GitHub.',
   language: project.primaryLanguage || 'Repository',
@@ -151,7 +151,7 @@ const initialProject = run[0];
                 <p class="front-description" data-run-description>{initialProject?.description || initialProject?.summary || initialProject?.subtitle}</p>
                 <div class="front-actions">
                   <a class="ink-button" data-run-live href={initialProject?.homepage || '#'} target="_blank" rel="noreferrer" hidden={!initialProject?.homepage}>Live site <span aria-hidden="true">↗</span></a>
-                  <a class="outline-button" data-run-source href={initialProject?.url} target="_blank" rel="noreferrer">Open source <span aria-hidden="true">↗</span></a>
+                  <a class="outline-button" data-run-source href={initialProject?.sourceUrl || undefined} target="_blank" rel="noreferrer" hidden={!initialProject?.sourceUrl}>Open source <span aria-hidden="true">↗</span></a>
                 </div>
               </div>
             </div>
@@ -169,7 +169,7 @@ const initialProject = run[0];
                     data-index={index}
                     data-title={project.title}
                     data-name={project.name}
-                    data-url={project.url}
+                    data-source-url={project.sourceUrl || ''}
                     data-homepage={project.homepage || ''}
                     data-description={project.description || project.summary || project.subtitle || 'A public project from GitHub.'}
                     data-language={project.primaryLanguage || 'Repository'}
@@ -235,7 +235,7 @@ const initialProject = run[0];
             {communityProjects.map((project, index) => {
               const avatar = ownerAvatars[project.owner] || ownerAvatars[project.owner.toLowerCase()];
               return (
-                <a class="community-row" href={project.homepage || project.url} target="_blank" rel="noreferrer">
+                <a class="community-row" href={project.homepage || project.sourceUrl || undefined} target="_blank" rel="noreferrer">
                   <span class="community-index mono">{String(index + 1).padStart(2, '0')}</span>
                   {avatar && <img src={assetUrl(avatar.file)} alt="" loading="lazy" />}
                   <span class="community-copy"><strong>{project.owner}</strong><small>{project.title}</small></span>
@@ -313,7 +313,13 @@ const initialProject = run[0];
           title.textContent = item.title;
           title.dataset.text = item.title;
           description.textContent = item.description;
-          source.href = item.url;
+          if (item.sourceUrl) {
+            source.href = item.sourceUrl;
+            source.hidden = false;
+          } else {
+            source.hidden = true;
+            source.removeAttribute('href');
+          }
           language.textContent = item.language;
           pushed.textContent = item.pushed;
           projectIndex.textContent = `PROJECT ${String(next + 1).padStart(2, '0')}`;

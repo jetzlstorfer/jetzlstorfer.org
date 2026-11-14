@@ -29,7 +29,7 @@ Pull requests to `main` run all three checks without deploying or using `PORTFOL
 
 ## Curation
 
-`portfolio.config.mjs` controls featured-project selection and order, exclusions, extra repositories, recency and factual overrides such as a live URL. Put repository names in `featured` in the order you want them shown (`name` for your own repos, `owner/name` for other public repos). GitHub pins and recently active repositories fill any remaining slots. Only public repositories are requested and written.
+`portfolio.config.mjs` controls featured-project selection and order, exclusions, extra repositories, recency and factual overrides such as a live URL. Put repository names in `featured` in the order you want them shown (`name` for your own repos, `owner/name` for other public repos). Use `standaloneProjects` to list a project using only its explicitly provided public display details, without fetching or publishing repository metadata or a source link. GitHub pins and recently active repositories fill any remaining slots. Only public repository data is requested and written.
 
 ## Dependency updates
 
