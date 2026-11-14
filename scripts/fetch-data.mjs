@@ -462,6 +462,7 @@ function buildProject(repo, d, ctx) {
     nameWithOwner: repo.nameWithOwner,
     own: isOwn(repo),
     url: repo.url,
+    sourceUrl: o.hideSource ? null : repo.url,
     title: o.title ?? repo.name,
     subtitle,
     description: descriptionText ?? summary ?? null,
@@ -676,6 +677,29 @@ async function main() {
     p.source = source;
     projects.push(p);
   }
+  for (const standalone of config.standaloneProjects ?? []) {
+    if (projects.some((p) => p.own && p.name.toLowerCase() === standalone.name.toLowerCase())) continue;
+    const repo = {
+      name: standalone.name,
+      nameWithOwner: `${LOGIN}/${standalone.name}`,
+      owner: { login: LOGIN },
+      url: null,
+      description: null,
+      homepageUrl: standalone.homepage,
+      isPrivate: false,
+      isFork: false,
+      isArchived: false,
+      isTemplate: false,
+      stargazerCount: 0,
+      forkCount: 0,
+      createdAt: null,
+      pushedAt: null,
+    };
+    const p = buildProject(repo, null, { pinned });
+    p.title = standalone.title ?? p.title;
+    p.source = 'own';
+    projects.push(p);
+  }
   const projectsByKey = new Map(projects.map((p) => [p.nameWithOwner.toLowerCase(), p]));
   const missingFeatured = (config.featured ?? []).filter((name) => !projects.some((p) => listHas([name], p)));
   if (missingFeatured.length) {
@@ -705,7 +729,7 @@ async function main() {
 
   // Configured projects lead in config order; GitHub pins then recent own work fill the run.
   const runSize = config.runSize ?? 8;
-  const byActive = (a, b) => b.activeAt.localeCompare(a.activeAt);
+  const byActive = (a, b) => (b.activeAt ?? '').localeCompare(a.activeAt ?? '');
   const own = projects.filter((p) => p.own).sort(byActive);
   const curated = projects.filter((p) => p.featured).sort((a, b) => listIndex(config.featured, a) - listIndex(config.featured, b));
   const pinnedRank = new Map(pinnedNames.map((name, index) => [name, index]));
