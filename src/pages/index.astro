@@ -189,7 +189,7 @@ const initialProject = run[0];
         </section>
 
         <div class="data-updated mono">
-          <span>Data updated · <time datetime={portfolio.generatedAt}>{compactDate(portfolio.generatedAt)}</time></span>
+          <span>GitHub data · <time datetime={portfolio.sources.github.lastSuccessAt}>{compactDate(portfolio.sources.github.lastSuccessAt)}</time>{portfolio.sources.github.stale && ' · refresh delayed'}</span>
         </div>
       </section>
 
@@ -281,7 +281,8 @@ const initialProject = run[0];
         </div>
       </div>
       <div class="colophon-bottom">
-        <span>Updated {displayDate(portfolio.generatedAt)} · Data from public GitHub and Credly</span>
+        <span>Built {displayDate(portfolio.generatedAt)} · GitHub updated {displayDate(portfolio.sources.github.lastSuccessAt)}{portfolio.sources.github.stale && ' (refresh delayed)'}</span>
+        {portfolio.sources.credly && <span>Credly updated {displayDate(portfolio.sources.credly.lastSuccessAt)}{portfolio.sources.credly.stale && ' (refresh delayed)'}</span>}
         <span class="mono">MADE WITH OPEN SOURCE</span>
         <a href="#top" class="back-to-top">BACK TO TOP ↑</a>
       </div>
