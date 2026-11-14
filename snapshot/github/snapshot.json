@@ -1,0 +1,3403 @@
+{
+  "identity": "{\"login\":\"jetzlstorfer\",\"tagline\":\"Solution Engineer at Microsoft Austria, Cloud Native Linz organizer, tech & music aficionado.\",\"exclude\":[\"jetzlstorfer\",\"jetzlstorfer.github.io\",\"jetzlstorfer.org\"],\"include\":[],\"standaloneProjects\":[{\"name\":\"fokus\",\"title\":\"Fokus\",\"homepage\":\"https://fokus.jetzlstorfer.org\"}],\"featured\":[\"splitty\",\"wichteln\",\"plattentests-go\",\"music-timetraveler\",\"wattpilot-exporter\",\"cloudnativelinz/cloudnativelinz.github.io\",\"fokus\"],\"runSize\":8,\"includeForks\":false,\"recentMonths\":24,\"overrides\":{\"cloudnativelinz/cloudnativelinz.github.io\":{\"title\":\"cloudnativelinz.at\"},\"plattentests-go\":{\"title\":\"plattentests\"},\"music-timetraveler\":{\"title\":\"Music Time Traveler\"},\"spotify-yearly-discoveries\":{\"title\":\"Spotify Yearly Discoveries\"}},\"credly\":\"jetzlstorfer\",\"links\":[{\"label\":\"GitHub\",\"url\":\"https://github.com/jetzlstorfer\"},{\"label\":\"LinkedIn\",\"url\":\"https://www.linkedin.com/in/juergenetzlstorfer/\"},{\"label\":\"Cloud Native Linz\",\"url\":\"https://www.meetup.com/cloud-native-linz/\"},{\"label\":\"Medium\",\"url\":\"https://medium.com/@jetzlstorfer\"},{\"label\":\"Credly\",\"url\":\"https://www.credly.com/users/jetzlstorfer\"}]}",
+  "lastSuccessAt": "2026-11-14T19:39:52.469Z",
+  "data": {
+    "profile": {
+      "login": "jetzlstorfer",
+      "name": "Jürgen Etzlstorfer",
+      "bio": "Solution Engineer @microsoft Austria | @CloudNativeLinz organizer | likes penguins 🐧",
+      "tagline": "Solution Engineer at Microsoft Austria, Cloud Native Linz organizer, tech & music aficionado.",
+      "company": "@microsoft",
+      "location": "Austria",
+      "url": "https://github.com/jetzlstorfer",
+      "createdAt": "2014-05-23T07:40:23Z",
+      "followers": 78,
+      "publicRepos": 62,
+      "avatar": {
+        "file": "src/assets/fetched/avatar.webp",
+        "width": 460,
+        "height": 460
+      }
+    },
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/jetzlstorfer"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/juergenetzlstorfer/"
+      },
+      {
+        "label": "Cloud Native Linz",
+        "url": "https://www.meetup.com/cloud-native-linz/"
+      },
+      {
+        "label": "Medium",
+        "url": "https://medium.com/@jetzlstorfer"
+      },
+      {
+        "label": "Credly",
+        "url": "https://www.credly.com/users/jetzlstorfer"
+      }
+    ],
+    "tags": {
+      "live": {
+        "label": "Live sites",
+        "count": 5
+      },
+      "ai": {
+        "label": "AI & agents",
+        "count": 4
+      },
+      "azure": {
+        "label": "Azure",
+        "count": 5
+      },
+      "cloud-native": {
+        "label": "Cloud native",
+        "count": 6
+      },
+      "music": {
+        "label": "Music",
+        "count": 4
+      },
+      "home": {
+        "label": "Home & energy",
+        "count": 1
+      },
+      "teaching": {
+        "label": "Teaching",
+        "count": 5
+      }
+    },
+    "projects": [
+      {
+        "key": "splitty",
+        "id": "jetzlstorfer-splitty",
+        "name": "splitty",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/splitty",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/splitty",
+        "sourceUrl": "https://github.com/jetzlstorfer/splitty",
+        "title": "splitty",
+        "subtitle": null,
+        "description": "Split expenses with your spouse 💸",
+        "summary": "A private, offline-first expense ledger for two people. Record shared expenses in EUR, see who owes whom, and keep both devices in sync when you sign in.",
+        "homepage": "https://splitty.jetzlstorfer.org",
+        "pinned": false,
+        "featured": true,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 1,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": "TypeScript",
+        "languages": [
+          {
+            "name": "TypeScript",
+            "color": "#3178c6",
+            "bytes": 546195,
+            "share": 0.917479813411588
+          },
+          {
+            "name": "CSS",
+            "color": "#663399",
+            "bytes": 44611,
+            "share": 0.07493604290794378
+          }
+        ],
+        "createdAt": "2026-10-16T05:31:57Z",
+        "pushedAt": "2026-11-14T13:35:41Z",
+        "commitCount": 202,
+        "lastCommitAt": "2026-11-14T13:35:41Z",
+        "activeAt": "2026-11-14T13:35:41Z",
+        "image": {
+          "file": "src/assets/fetched/projects/jetzlstorfer-splitty.webp",
+          "width": 786,
+          "height": 1702,
+          "alt": "Splitty expense ledger with a shared balance and recent expenses in the light theme",
+          "source": "https://raw.githubusercontent.com/jetzlstorfer/splitty/main/docs/screenshots/expenses.png"
+        },
+        "tags": [
+          "live"
+        ],
+        "source": "own",
+        "recent": true,
+        "run": 1
+      },
+      {
+        "key": "wattpilot-exporter",
+        "id": "jetzlstorfer-wattpilot-exporter",
+        "name": "wattpilot-exporter",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/wattpilot-exporter",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/wattpilot-exporter",
+        "sourceUrl": "https://github.com/jetzlstorfer/wattpilot-exporter",
+        "title": "wattpilot-exporter",
+        "subtitle": "Wattpilot Data Exporter ⚡",
+        "description": "A lightweight Go web application that fetches EV charging session data from Fronius Wattpilot and calculates monthly charging costs based on the official Austrian government electricity rates (BMF Sachbezug).",
+        "summary": null,
+        "homepage": null,
+        "pinned": false,
+        "featured": true,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 1,
+        "forks": 1,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": "Go",
+        "languages": [
+          {
+            "name": "Go",
+            "color": "#00ADD8",
+            "bytes": 143408,
+            "share": 0.5266118785849105
+          },
+          {
+            "name": "HTML",
+            "color": "#e34c26",
+            "bytes": 76319,
+            "share": 0.2802527889777543
+          },
+          {
+            "name": "CSS",
+            "color": "#663399",
+            "bytes": 23702,
+            "share": 0.08703666982469282
+          },
+          {
+            "name": "Bicep",
+            "color": "#519aba",
+            "bytes": 15028,
+            "share": 0.05518467108790329
+          },
+          {
+            "name": "JavaScript",
+            "color": "#f1e05a",
+            "bytes": 9024,
+            "share": 0.033137241941525106
+          },
+          {
+            "name": "Makefile",
+            "color": "#427819",
+            "bytes": 3728,
+            "share": 0.013689676192154875
+          }
+        ],
+        "createdAt": "2024-09-03T13:23:08Z",
+        "pushedAt": "2026-11-14T13:31:07Z",
+        "commitCount": 319,
+        "lastCommitAt": "2026-11-14T13:31:07Z",
+        "activeAt": "2026-11-14T13:31:07Z",
+        "image": {
+          "file": "src/assets/fetched/projects/jetzlstorfer-wattpilot-exporter.webp",
+          "width": 1183,
+          "height": 1143,
+          "alt": "Dashboard Screenshot",
+          "source": "https://raw.githubusercontent.com/jetzlstorfer/wattpilot-exporter/main/assets/screenshot-dashboard.png"
+        },
+        "tags": [
+          "home",
+          "azure"
+        ],
+        "source": "own",
+        "recent": true,
+        "run": 5
+      },
+      {
+        "key": "CloudNativeLinz/cloudnativelinz.github.io",
+        "id": "cloudnativelinz-cloudnativelinz-github-io",
+        "name": "cloudnativelinz.github.io",
+        "owner": "CloudNativeLinz",
+        "nameWithOwner": "CloudNativeLinz/cloudnativelinz.github.io",
+        "own": false,
+        "url": "https://github.com/CloudNativeLinz/cloudnativelinz.github.io",
+        "sourceUrl": "https://github.com/CloudNativeLinz/cloudnativelinz.github.io",
+        "title": "cloudnativelinz.at",
+        "subtitle": "Cloud Native Linz Website",
+        "description": "Website and main repo for Cloud Native Linz community",
+        "summary": "Official website for the Cloud Native Linz community.",
+        "homepage": "https://cloudnativelinz.at",
+        "pinned": true,
+        "featured": true,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 4,
+        "forks": 18,
+        "license": "MIT",
+        "topics": [],
+        "primaryLanguage": "SCSS",
+        "languages": [
+          {
+            "name": "SCSS",
+            "color": "#c6538c",
+            "bytes": 121773,
+            "share": 0.5580183664491531
+          },
+          {
+            "name": "HTML",
+            "color": "#e34c26",
+            "bytes": 56150,
+            "share": 0.25730442114524527
+          },
+          {
+            "name": "Python",
+            "color": "#3572A5",
+            "bytes": 29254,
+            "share": 0.13405491604956374
+          },
+          {
+            "name": "Ruby",
+            "color": "#701516",
+            "bytes": 4488,
+            "share": 0.020566023902045604
+          },
+          {
+            "name": "JavaScript",
+            "color": "#f1e05a",
+            "bytes": 3336,
+            "share": 0.015287044504729086
+          },
+          {
+            "name": "Makefile",
+            "color": "#427819",
+            "bytes": 2125,
+            "share": 0.009737700711195835
+          }
+        ],
+        "createdAt": "2022-07-10T17:52:48Z",
+        "pushedAt": "2026-11-13T12:20:04Z",
+        "commitCount": 446,
+        "lastCommitAt": "2026-11-13T12:20:04Z",
+        "activeAt": "2026-11-13T12:20:04Z",
+        "image": {
+          "file": "src/assets/fetched/projects/cloudnativelinz-cloudnativelinz-github-io.webp",
+          "width": 1212,
+          "height": 1081,
+          "alt": "Cloud Native Linz homepage",
+          "source": "https://raw.githubusercontent.com/CloudNativeLinz/cloudnativelinz.github.io/main/images/homepage-preview.png"
+        },
+        "tags": [
+          "live",
+          "cloud-native"
+        ],
+        "source": "community",
+        "recent": true,
+        "run": 6
+      },
+      {
+        "key": "music-timetraveler",
+        "id": "jetzlstorfer-music-timetraveler",
+        "name": "music-timetraveler",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/music-timetraveler",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/music-timetraveler",
+        "sourceUrl": "https://github.com/jetzlstorfer/music-timetraveler",
+        "title": "Music Time Traveler",
+        "subtitle": null,
+        "description": "Find the very first time you listened to any song — powered by your Spotify Extended Streaming History (recommended), your Last.fm scrobbles, or both.",
+        "summary": null,
+        "homepage": "https://musictimetraveler.jetzlstorfer.org",
+        "pinned": true,
+        "featured": true,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 1,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": "Python",
+        "languages": [
+          {
+            "name": "Python",
+            "color": "#3572A5",
+            "bytes": 268184,
+            "share": 0.677417073343235
+          },
+          {
+            "name": "HTML",
+            "color": "#e34c26",
+            "bytes": 112512,
+            "share": 0.28419872086326575
+          },
+          {
+            "name": "Bicep",
+            "color": "#519aba",
+            "bytes": 14497,
+            "share": 0.03661857274206096
+          }
+        ],
+        "createdAt": "2026-04-04T18:05:55Z",
+        "pushedAt": "2026-11-13T12:06:08Z",
+        "commitCount": 234,
+        "lastCommitAt": "2026-11-13T12:05:58Z",
+        "activeAt": "2026-11-13T12:05:58Z",
+        "image": {
+          "file": "src/assets/fetched/projects/jetzlstorfer-music-timetraveler.webp",
+          "width": 1233,
+          "height": 879,
+          "alt": "Music Time Traveler app screenshot",
+          "source": "https://raw.githubusercontent.com/jetzlstorfer/music-timetraveler/main/docs/images/music-time-traveler.png"
+        },
+        "tags": [
+          "live",
+          "music",
+          "azure"
+        ],
+        "source": "own",
+        "recent": true,
+        "run": 4
+      },
+      {
+        "key": "spotify-yearly-discoveries",
+        "id": "jetzlstorfer-spotify-yearly-discoveries",
+        "name": "spotify-yearly-discoveries",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/spotify-yearly-discoveries",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/spotify-yearly-discoveries",
+        "sourceUrl": "https://github.com/jetzlstorfer/spotify-yearly-discoveries",
+        "title": "Spotify Yearly Discoveries",
+        "subtitle": null,
+        "description": "I wanted to know which songs I've discovered in a given year and added to my playlists that are actually from that year. Therefore I made this small program.",
+        "summary": null,
+        "homepage": null,
+        "pinned": true,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 1,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": "Go",
+        "languages": [
+          {
+            "name": "Go",
+            "color": "#00ADD8",
+            "bytes": 36303,
+            "share": 0.48770100890686086
+          },
+          {
+            "name": "HTML",
+            "color": "#e34c26",
+            "bytes": 32231,
+            "share": 0.4329970310463882
+          },
+          {
+            "name": "Bicep",
+            "color": "#519aba",
+            "bytes": 5083,
+            "share": 0.06828593307091903
+          },
+          {
+            "name": "Dockerfile",
+            "color": "#384d54",
+            "bytes": 417,
+            "share": 0.005602052742587692
+          },
+          {
+            "name": "Makefile",
+            "color": "#427819",
+            "bytes": 403,
+            "share": 0.00541397423324422
+          }
+        ],
+        "createdAt": "2021-01-05T12:03:37Z",
+        "pushedAt": "2026-11-12T05:47:03Z",
+        "commitCount": 127,
+        "lastCommitAt": "2026-11-12T05:47:03Z",
+        "activeAt": "2026-11-12T05:47:03Z",
+        "image": {
+          "file": "src/assets/fetched/projects/jetzlstorfer-spotify-yearly-discoveries.webp",
+          "width": 1440,
+          "height": 1800,
+          "alt": "Web UI — initial state",
+          "source": "https://raw.githubusercontent.com/jetzlstorfer/spotify-yearly-discoveries/main/webui-screenshot-tailwind.png"
+        },
+        "tags": [
+          "music",
+          "azure"
+        ],
+        "source": "own",
+        "recent": true,
+        "run": 8
+      },
+      {
+        "key": "wichteln",
+        "id": "jetzlstorfer-wichteln",
+        "name": "wichteln",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/wichteln",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/wichteln",
+        "sourceUrl": "https://github.com/jetzlstorfer/wichteln",
+        "title": "wichteln",
+        "subtitle": "🎄 Wichteln mit dem Christkind",
+        "description": "A little secret santa website 🧑‍🎄",
+        "summary": "Eine warme, familienfreundliche Wichtel-App (Secret Santa auf Österreichisch) – gemacht fürs Handy, ohne Passwörter, ohne Werbung, ohne Tracking. Das Christkind lost aus. Jede Person sieht nur die eigene Zuteilung; der Organisator-Link gewährt keinen Zugriff…",
+        "homepage": "https://wichteln.jetzlstorfer.org",
+        "pinned": false,
+        "featured": true,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 0,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": "TypeScript",
+        "languages": [
+          {
+            "name": "TypeScript",
+            "color": "#3178c6",
+            "bytes": 315925,
+            "share": 0.8782598542743323
+          },
+          {
+            "name": "Bicep",
+            "color": "#519aba",
+            "bytes": 13306,
+            "share": 0.0369901895100871
+          },
+          {
+            "name": "JavaScript",
+            "color": "#f1e05a",
+            "bytes": 11851,
+            "share": 0.0329453431447499
+          },
+          {
+            "name": "CSS",
+            "color": "#663399",
+            "bytes": 11109,
+            "share": 0.030882610496584816
+          },
+          {
+            "name": "PowerShell",
+            "color": "#012456",
+            "bytes": 4513,
+            "share": 0.012545973640389528
+          },
+          {
+            "name": "HTML",
+            "color": "#e34c26",
+            "bytes": 2163,
+            "share": 0.006013060266820862
+          }
+        ],
+        "createdAt": "2026-11-04T13:40:19Z",
+        "pushedAt": "2026-11-14T01:54:54Z",
+        "commitCount": 32,
+        "lastCommitAt": "2026-11-11T15:18:06Z",
+        "activeAt": "2026-11-11T15:18:06Z",
+        "image": {
+          "file": "src/assets/fetched/projects/jetzlstorfer-wichteln.webp",
+          "width": 1281,
+          "height": 807,
+          "alt": "Startseite von Wichteln mit dem Christkind",
+          "source": "https://raw.githubusercontent.com/jetzlstorfer/wichteln/main/docs/screenshot.png"
+        },
+        "tags": [
+          "live"
+        ],
+        "source": "own",
+        "recent": true,
+        "run": 2
+      },
+      {
+        "key": "CloudNativeLinz/asset-generator",
+        "id": "cloudnativelinz-asset-generator",
+        "name": "asset-generator",
+        "owner": "CloudNativeLinz",
+        "nameWithOwner": "CloudNativeLinz/asset-generator",
+        "own": false,
+        "url": "https://github.com/CloudNativeLinz/asset-generator",
+        "sourceUrl": "https://github.com/CloudNativeLinz/asset-generator",
+        "title": "asset-generator",
+        "subtitle": "Cloud-Native Linz Social Media Asset Generation",
+        "description": "Tool for creating social media assets for our meetups",
+        "summary": "Template-driven event asset generation using Python, Pillow, and YAML. The project produces event and speaker images, social copy, PDF slide decks, and optional animated clips from the event data in _data/events.yml.",
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 1,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": "Python",
+        "languages": [
+          {
+            "name": "Python",
+            "color": "#3572A5",
+            "bytes": 210295,
+            "share": 0.7752839641805132
+          },
+          {
+            "name": "HTML",
+            "color": "#e34c26",
+            "bytes": 53112,
+            "share": 0.1958053301578992
+          },
+          {
+            "name": "Makefile",
+            "color": "#427819",
+            "bytes": 7192,
+            "share": 0.026514383463164842
+          }
+        ],
+        "createdAt": "2026-07-21T18:58:12Z",
+        "pushedAt": "2026-11-05T20:46:02Z",
+        "commitCount": 186,
+        "lastCommitAt": "2026-11-05T20:46:02Z",
+        "activeAt": "2026-11-05T20:46:02Z",
+        "image": null,
+        "tags": [],
+        "source": "community",
+        "recent": true
+      },
+      {
+        "key": "plattentests-go",
+        "id": "jetzlstorfer-plattentests-go",
+        "name": "plattentests-go",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/plattentests-go",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/plattentests-go",
+        "sourceUrl": "https://github.com/jetzlstorfer/plattentests-go",
+        "title": "plattentests",
+        "subtitle": "Plattentests.de - Highlights der Woche",
+        "description": "creates a spotify playlist based on most recent record reviews from my favourite music website plattentests.de 💿",
+        "summary": "This project is a Go-based application for crawling and displaying music album reviews from Plattentests.de. It consists of multiple components, including a web crawler, playlist creator, token manager, and a modern web UI for browsing the data. The project…",
+        "homepage": "https://plattentests.jetzlstorfer.org",
+        "pinned": true,
+        "featured": true,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 1,
+        "forks": 0,
+        "license": "Apache-2.0",
+        "topics": [],
+        "primaryLanguage": "Go",
+        "languages": [
+          {
+            "name": "Go",
+            "color": "#00ADD8",
+            "bytes": 137685,
+            "share": 0.7678301555346119
+          },
+          {
+            "name": "CSS",
+            "color": "#663399",
+            "bytes": 23176,
+            "share": 0.12924597221680043
+          },
+          {
+            "name": "Go Template",
+            "color": "#00ADD8",
+            "bytes": 17292,
+            "share": 0.09643257471405388
+          }
+        ],
+        "createdAt": "2019-05-30T12:18:07Z",
+        "pushedAt": "2026-11-02T08:07:57Z",
+        "commitCount": 819,
+        "lastCommitAt": "2026-11-02T08:07:57Z",
+        "activeAt": "2026-11-02T08:07:57Z",
+        "image": {
+          "file": "src/assets/fetched/projects/jetzlstorfer-plattentests-go.webp",
+          "width": 1537,
+          "height": 1310,
+          "alt": "Project Structure",
+          "source": "https://raw.githubusercontent.com/jetzlstorfer/plattentests-go/main/screenshots/screenshot-dark-mode.png"
+        },
+        "tags": [
+          "live",
+          "music"
+        ],
+        "source": "own",
+        "recent": true,
+        "run": 3
+      },
+      {
+        "key": "podcaster",
+        "id": "jetzlstorfer-podcaster",
+        "name": "podcaster",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/podcaster",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/podcaster",
+        "sourceUrl": "https://github.com/jetzlstorfer/podcaster",
+        "title": "podcaster",
+        "subtitle": null,
+        "description": "A multi-agent pipeline that turns a research question into a ready-to-play podcast — a two-host MP3 plus AI-generated episode cover art 🎙️",
+        "summary": "A multi-agent pipeline that turns a research question into a ready-to-play podcast — a two-host MP3 (with embedded cover art when available) plus AI-generated episode cover art 🎙️",
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 0,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": "Python",
+        "languages": [
+          {
+            "name": "Python",
+            "color": "#3572A5",
+            "bytes": 169939,
+            "share": 0.7799338195136055
+          },
+          {
+            "name": "TypeScript",
+            "color": "#3178c6",
+            "bytes": 19186,
+            "share": 0.08805400915144868
+          },
+          {
+            "name": "Bicep",
+            "color": "#519aba",
+            "bytes": 12437,
+            "share": 0.057079522142008086
+          },
+          {
+            "name": "CSS",
+            "color": "#663399",
+            "bytes": 7206,
+            "share": 0.03307188522596368
+          },
+          {
+            "name": "Shell",
+            "color": "#89e051",
+            "bytes": 5634,
+            "share": 0.025857202520549454
+          },
+          {
+            "name": "Makefile",
+            "color": "#427819",
+            "bytes": 2009,
+            "share": 0.009220291065634337
+          },
+          {
+            "name": "Dockerfile",
+            "color": "#384d54",
+            "bytes": 1182,
+            "share": 0.005424780507506116
+          }
+        ],
+        "createdAt": "2026-06-29T14:30:06Z",
+        "pushedAt": "2026-11-01T20:42:27Z",
+        "commitCount": 122,
+        "lastCommitAt": "2026-11-01T20:42:19Z",
+        "activeAt": "2026-11-01T20:42:19Z",
+        "image": null,
+        "tags": [
+          "ai",
+          "music",
+          "azure"
+        ],
+        "source": "own",
+        "recent": true
+      },
+      {
+        "key": "technologieplauscherl/technologieplauscherl.github.io",
+        "id": "technologieplauscherl-technologieplauscherl-github-io",
+        "name": "technologieplauscherl.github.io",
+        "owner": "technologieplauscherl",
+        "nameWithOwner": "technologieplauscherl/technologieplauscherl.github.io",
+        "own": false,
+        "url": "https://github.com/technologieplauscherl/technologieplauscherl.github.io",
+        "sourceUrl": "https://github.com/technologieplauscherl/technologieplauscherl.github.io",
+        "title": "technologieplauscherl.github.io",
+        "subtitle": "technologieplauscherl.at",
+        "description": "Technologieplauscherl Website",
+        "summary": "Die Website für das Tech-Meetup in Linz -> technologieplauscherl.at",
+        "homepage": "https://technologieplauscherl.at",
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 35,
+        "forks": 99,
+        "license": null,
+        "topics": [
+          "hacktoberfest"
+        ],
+        "primaryLanguage": "HTML",
+        "languages": [
+          {
+            "name": "HTML",
+            "color": "#e34c26",
+            "bytes": 218830,
+            "share": 0.8901716233642084
+          },
+          {
+            "name": "SCSS",
+            "color": "#c6538c",
+            "bytes": 17099,
+            "share": 0.06955648031761916
+          },
+          {
+            "name": "CSS",
+            "color": "#663399",
+            "bytes": 9900,
+            "share": 0.040271896318172386
+          }
+        ],
+        "createdAt": "2013-08-12T13:15:54Z",
+        "pushedAt": "2026-11-10T05:44:03Z",
+        "commitCount": 14,
+        "lastCommitAt": "2026-09-15T12:55:25Z",
+        "activeAt": "2026-09-15T12:55:25Z",
+        "image": null,
+        "tags": [
+          "live"
+        ],
+        "source": "community",
+        "recent": true
+      },
+      {
+        "key": "CloudNativeLinz/go-image-generator",
+        "id": "cloudnativelinz-go-image-generator",
+        "name": "go-image-generator",
+        "owner": "CloudNativeLinz",
+        "nameWithOwner": "CloudNativeLinz/go-image-generator",
+        "own": false,
+        "url": "https://github.com/CloudNativeLinz/go-image-generator",
+        "sourceUrl": "https://github.com/CloudNativeLinz/go-image-generator",
+        "title": "go-image-generator",
+        "subtitle": null,
+        "description": "Generating images based on a background and some overlay images and texts",
+        "summary": "This will generate images for all events in _data/events.yml and save them to the artifacts/ directory with filenames like 1.jpg, 2.jpg, etc.",
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": true,
+        "fork": false,
+        "template": false,
+        "stars": 1,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": "Go",
+        "languages": [
+          {
+            "name": "Go",
+            "color": "#00ADD8",
+            "bytes": 46841,
+            "share": 0.9884152774847014
+          },
+          {
+            "name": "Dockerfile",
+            "color": "#384d54",
+            "bytes": 549,
+            "share": 0.011584722515298585
+          }
+        ],
+        "createdAt": "2025-04-30T19:53:56Z",
+        "pushedAt": "2026-09-14T12:51:36Z",
+        "commitCount": 106,
+        "lastCommitAt": "2026-09-14T09:36:14Z",
+        "activeAt": "2026-09-14T09:36:14Z",
+        "image": null,
+        "tags": [],
+        "source": "community",
+        "recent": false
+      },
+      {
+        "key": "hybrid-multi-agents",
+        "id": "jetzlstorfer-hybrid-multi-agents",
+        "name": "hybrid-multi-agents",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/hybrid-multi-agents",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/hybrid-multi-agents",
+        "sourceUrl": "https://github.com/jetzlstorfer/hybrid-multi-agents",
+        "title": "hybrid-multi-agents",
+        "subtitle": "Hybrid Multi-Agent Architecture",
+        "description": "Privacy-preserving medical conversation analysis using purpose-built local and cloud agents.",
+        "summary": null,
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 3,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": "Python",
+        "languages": [
+          {
+            "name": "Python",
+            "color": "#3572A5",
+            "bytes": 160124,
+            "share": 0.805383845445812
+          },
+          {
+            "name": "TypeScript",
+            "color": "#3178c6",
+            "bytes": 24888,
+            "share": 0.12518044231630093
+          },
+          {
+            "name": "Shell",
+            "color": "#89e051",
+            "bytes": 10000,
+            "share": 0.05029750977029127
+          },
+          {
+            "name": "Dockerfile",
+            "color": "#384d54",
+            "bytes": 2339,
+            "share": 0.01176458753527113
+          },
+          {
+            "name": "JavaScript",
+            "color": "#f1e05a",
+            "bytes": 1242,
+            "share": 0.006246950713470176
+          }
+        ],
+        "createdAt": "2026-04-24T19:26:24Z",
+        "pushedAt": "2026-09-03T23:29:22Z",
+        "commitCount": 69,
+        "lastCommitAt": "2026-06-05T13:57:22Z",
+        "activeAt": "2026-06-05T13:57:22Z",
+        "image": null,
+        "tags": [
+          "ai"
+        ],
+        "source": "own",
+        "recent": true
+      },
+      {
+        "key": "marketing-asset-creation-agent",
+        "id": "jetzlstorfer-marketing-asset-creation-agent",
+        "name": "marketing-asset-creation-agent",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/marketing-asset-creation-agent",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/marketing-asset-creation-agent",
+        "sourceUrl": "https://github.com/jetzlstorfer/marketing-asset-creation-agent",
+        "title": "marketing-asset-creation-agent",
+        "subtitle": "Agentsleague - Speaker Asset Creation Agent",
+        "description": "agentic solution for creating marketing assets based on speaker information",
+        "summary": "An AI-powered multi-agent system that automates speaker profile research and creative marketing asset generation for conference and meetup organizers.",
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 0,
+        "forks": 1,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": "Go",
+        "languages": [
+          {
+            "name": "Go",
+            "color": "#00ADD8",
+            "bytes": 5547,
+            "share": 0.5997405124878366
+          },
+          {
+            "name": "Shell",
+            "color": "#89e051",
+            "bytes": 3702,
+            "share": 0.4002594875121635
+          }
+        ],
+        "createdAt": "2026-02-12T17:01:39Z",
+        "pushedAt": "2026-02-12T23:30:05Z",
+        "commitCount": 11,
+        "lastCommitAt": "2026-02-12T23:29:55Z",
+        "activeAt": "2026-02-12T23:29:55Z",
+        "image": null,
+        "tags": [
+          "ai"
+        ],
+        "source": "own",
+        "recent": true
+      },
+      {
+        "key": "dasMulli/azure-days-2026",
+        "id": "dasmulli-azure-days-2026",
+        "name": "azure-days-2026",
+        "owner": "dasMulli",
+        "nameWithOwner": "dasMulli/azure-days-2026",
+        "own": false,
+        "url": "https://github.com/dasMulli/azure-days-2026",
+        "sourceUrl": "https://github.com/dasMulli/azure-days-2026",
+        "title": "azure-days-2026",
+        "subtitle": "🚀 Azure Days 2026 - AI Travel Agent Hackathon",
+        "description": "Build an intelligent travel planning agent using the Microsoft Agent Framework for Python and Azure AI Foundry!",
+        "summary": null,
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 0,
+        "forks": 2,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": "Jupyter Notebook",
+        "languages": [
+          {
+            "name": "Jupyter Notebook",
+            "color": "#DA5B0B",
+            "bytes": 23681,
+            "share": 0.9556111537064687
+          },
+          {
+            "name": "Python",
+            "color": "#3572A5",
+            "bytes": 1100,
+            "share": 0.044388846293531334
+          }
+        ],
+        "createdAt": "2026-01-14T10:34:57Z",
+        "pushedAt": "2026-01-22T09:06:55Z",
+        "commitCount": 1,
+        "lastCommitAt": "2026-01-19T16:27:53Z",
+        "activeAt": "2026-01-19T16:27:53Z",
+        "image": null,
+        "tags": [
+          "ai",
+          "azure"
+        ],
+        "source": "community",
+        "recent": true
+      },
+      {
+        "key": "actions-workflow-demo2023",
+        "id": "jetzlstorfer-actions-workflow-demo2023",
+        "name": "actions-workflow-demo2023",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/actions-workflow-demo2023",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/actions-workflow-demo2023",
+        "sourceUrl": "https://github.com/jetzlstorfer/actions-workflow-demo2023",
+        "title": "actions-workflow-demo2023",
+        "subtitle": "GitHub Actions Workflow Demo",
+        "description": "demo repo for some github actions demos",
+        "summary": "This repository contains some demos around GitHub Actions, and references to other repos where I'm running Codespaces and/or Co-Pilot that can also be used as great demo resources. Each section below holds more information on the concrete demo.",
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 14,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": null,
+        "languages": [],
+        "createdAt": "2023-01-15T10:49:19Z",
+        "pushedAt": "2026-08-17T11:12:09Z",
+        "commitCount": 30,
+        "lastCommitAt": "2025-02-04T17:13:43Z",
+        "activeAt": "2025-02-04T17:13:43Z",
+        "image": {
+          "file": "src/assets/fetched/projects/jetzlstorfer-actions-workflow-demo2023.webp",
+          "width": 990,
+          "height": 400,
+          "alt": "permissions",
+          "source": "https://raw.githubusercontent.com/jetzlstorfer/actions-workflow-demo2023/main/assets/actions-permissions.png"
+        },
+        "tags": [],
+        "source": "own",
+        "recent": true
+      },
+      {
+        "key": "AOAI-RAG-demo",
+        "id": "jetzlstorfer-aoai-rag-demo",
+        "name": "AOAI-RAG-demo",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/AOAI-RAG-demo",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/AOAI-RAG-demo",
+        "sourceUrl": "https://github.com/jetzlstorfer/AOAI-RAG-demo",
+        "title": "AOAI-RAG-demo",
+        "subtitle": "Demo for showcasing RAG with Azure OpenAI services",
+        "description": "Tested with Azure OpenAI models gpt-35-turbo and text-embedding-ada-002.",
+        "summary": null,
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 0,
+        "forks": 0,
+        "license": "MIT",
+        "topics": [],
+        "primaryLanguage": "Python",
+        "languages": [
+          {
+            "name": "Python",
+            "color": "#3572A5",
+            "bytes": 1750,
+            "share": 0.8511673151750972
+          },
+          {
+            "name": "Dockerfile",
+            "color": "#384d54",
+            "bytes": 306,
+            "share": 0.14883268482490272
+          }
+        ],
+        "createdAt": "2024-10-04T09:03:16Z",
+        "pushedAt": "2024-10-21T08:41:36Z",
+        "commitCount": 9,
+        "lastCommitAt": "2024-10-21T08:41:33Z",
+        "activeAt": "2024-10-21T08:41:33Z",
+        "image": null,
+        "tags": [
+          "ai",
+          "azure"
+        ],
+        "source": "own",
+        "recent": false
+      },
+      {
+        "key": "fhhgb2022",
+        "id": "jetzlstorfer-fhhgb2022",
+        "name": "fhhgb2022",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/fhhgb2022",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/fhhgb2022",
+        "sourceUrl": "https://github.com/jetzlstorfer/fhhgb2022",
+        "title": "fhhgb2022",
+        "subtitle": "Demo repo for FH Hagenberg presentation",
+        "description": "Find the slides here: https://aka.ms/fhhgb2022-slides",
+        "summary": null,
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 7,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": null,
+        "languages": [],
+        "createdAt": "2022-12-13T09:17:27Z",
+        "pushedAt": "2026-08-17T19:09:36Z",
+        "commitCount": 40,
+        "lastCommitAt": "2024-03-27T06:14:24Z",
+        "activeAt": "2024-03-27T06:14:24Z",
+        "image": null,
+        "tags": [
+          "teaching"
+        ],
+        "source": "own",
+        "recent": false
+      },
+      {
+        "key": "fhhgb2024",
+        "id": "jetzlstorfer-fhhgb2024",
+        "name": "fhhgb2024",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/fhhgb2024",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/fhhgb2024",
+        "sourceUrl": "https://github.com/jetzlstorfer/fhhgb2024",
+        "title": "fhhgb2024",
+        "subtitle": "Demo repo for FH Hagenberg presentation",
+        "description": "Find the slides here: https://aka.ms/fhhgb2024-slides",
+        "summary": null,
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 5,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": null,
+        "languages": [],
+        "createdAt": "2024-01-09T16:36:27Z",
+        "pushedAt": "2026-08-17T07:43:39Z",
+        "commitCount": 15,
+        "lastCommitAt": "2024-02-06T05:42:23Z",
+        "activeAt": "2024-02-06T05:42:23Z",
+        "image": null,
+        "tags": [
+          "teaching"
+        ],
+        "source": "own",
+        "recent": false
+      },
+      {
+        "key": "whatsapp-test",
+        "id": "jetzlstorfer-whatsapp-test",
+        "name": "whatsapp-test",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/whatsapp-test",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/whatsapp-test",
+        "sourceUrl": "https://github.com/jetzlstorfer/whatsapp-test",
+        "title": "whatsapp-test",
+        "subtitle": null,
+        "description": "Repo to test the go.mau.fi/whatsmeow package (see https://github.com/tulir/whatsmeow) to integrate with whatsapp.",
+        "summary": null,
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 0,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": "Go",
+        "languages": [
+          {
+            "name": "Go",
+            "color": "#00ADD8",
+            "bytes": 2166,
+            "share": 1
+          }
+        ],
+        "createdAt": "2023-01-13T20:39:43Z",
+        "pushedAt": "2023-01-14T20:47:00Z",
+        "commitCount": 5,
+        "lastCommitAt": "2023-01-14T20:46:58Z",
+        "activeAt": "2023-01-14T20:46:58Z",
+        "image": null,
+        "tags": [],
+        "source": "own",
+        "recent": false
+      },
+      {
+        "key": "utils",
+        "id": "jetzlstorfer-utils",
+        "name": "utils",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/utils",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/utils",
+        "sourceUrl": "https://github.com/jetzlstorfer/utils",
+        "title": "utils",
+        "subtitle": null,
+        "description": null,
+        "summary": null,
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 0,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": "Shell",
+        "languages": [
+          {
+            "name": "Shell",
+            "color": "#89e051",
+            "bytes": 3923,
+            "share": 1
+          }
+        ],
+        "createdAt": "2022-11-03T21:06:07Z",
+        "pushedAt": "2022-11-03T21:06:26Z",
+        "commitCount": 2,
+        "lastCommitAt": "2022-11-03T21:06:26Z",
+        "activeAt": "2022-11-03T21:06:26Z",
+        "image": null,
+        "tags": [],
+        "source": "own",
+        "recent": false
+      },
+      {
+        "key": "crossplane-keptn",
+        "id": "jetzlstorfer-crossplane-keptn",
+        "name": "crossplane-keptn",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/crossplane-keptn",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/crossplane-keptn",
+        "sourceUrl": "https://github.com/jetzlstorfer/crossplane-keptn",
+        "title": "crossplane-keptn",
+        "subtitle": null,
+        "description": null,
+        "summary": null,
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 0,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": null,
+        "languages": [],
+        "createdAt": "2021-08-20T08:09:59Z",
+        "pushedAt": "2021-10-21T11:44:54Z",
+        "commitCount": 13,
+        "lastCommitAt": "2021-10-18T14:19:42Z",
+        "activeAt": "2021-10-18T14:19:42Z",
+        "image": null,
+        "tags": [
+          "cloud-native"
+        ],
+        "source": "own",
+        "recent": false
+      },
+      {
+        "key": "keptn-k3d",
+        "id": "jetzlstorfer-keptn-k3d",
+        "name": "keptn-k3d",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/keptn-k3d",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/keptn-k3d",
+        "sourceUrl": "https://github.com/jetzlstorfer/keptn-k3d",
+        "title": "keptn-k3d",
+        "subtitle": null,
+        "description": null,
+        "summary": null,
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 0,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": null,
+        "languages": [],
+        "createdAt": "2021-06-02T11:32:00Z",
+        "pushedAt": "2021-06-02T11:44:54Z",
+        "commitCount": 2,
+        "lastCommitAt": "2021-06-02T11:30:41Z",
+        "activeAt": "2021-06-02T11:30:41Z",
+        "image": null,
+        "tags": [
+          "cloud-native"
+        ],
+        "source": "own",
+        "recent": false
+      },
+      {
+        "key": "prometheus-tutorial",
+        "id": "jetzlstorfer-prometheus-tutorial",
+        "name": "prometheus-tutorial",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/prometheus-tutorial",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/prometheus-tutorial",
+        "sourceUrl": "https://github.com/jetzlstorfer/prometheus-tutorial",
+        "title": "prometheus-tutorial",
+        "subtitle": null,
+        "description": null,
+        "summary": null,
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 0,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": null,
+        "languages": [],
+        "createdAt": "2021-04-13T10:47:12Z",
+        "pushedAt": "2021-04-13T13:23:15Z",
+        "commitCount": 2,
+        "lastCommitAt": "2021-04-13T08:41:07Z",
+        "activeAt": "2021-04-13T08:41:07Z",
+        "image": null,
+        "tags": [
+          "cloud-native",
+          "teaching"
+        ],
+        "source": "own",
+        "recent": false
+      },
+      {
+        "key": "litmus-tutorial",
+        "id": "jetzlstorfer-litmus-tutorial",
+        "name": "litmus-tutorial",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/litmus-tutorial",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/litmus-tutorial",
+        "sourceUrl": "https://github.com/jetzlstorfer/litmus-tutorial",
+        "title": "litmus-tutorial",
+        "subtitle": null,
+        "description": null,
+        "summary": null,
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 0,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": null,
+        "languages": [],
+        "createdAt": "2021-04-12T11:48:24Z",
+        "pushedAt": "2021-04-12T11:49:50Z",
+        "commitCount": 2,
+        "lastCommitAt": "2021-04-12T11:49:48Z",
+        "activeAt": "2021-04-12T11:49:48Z",
+        "image": null,
+        "tags": [
+          "teaching"
+        ],
+        "source": "own",
+        "recent": false
+      },
+      {
+        "key": "keptn-chaos",
+        "id": "jetzlstorfer-keptn-chaos",
+        "name": "keptn-chaos",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/keptn-chaos",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/keptn-chaos",
+        "sourceUrl": "https://github.com/jetzlstorfer/keptn-chaos",
+        "title": "keptn-chaos",
+        "subtitle": null,
+        "description": null,
+        "summary": null,
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 1,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": null,
+        "languages": [],
+        "createdAt": "2020-10-30T09:20:08Z",
+        "pushedAt": "2021-07-20T08:49:17Z",
+        "commitCount": 4,
+        "lastCommitAt": "2021-03-23T10:29:39Z",
+        "activeAt": "2021-03-23T10:29:39Z",
+        "image": null,
+        "tags": [
+          "cloud-native"
+        ],
+        "source": "own",
+        "recent": false
+      },
+      {
+        "key": "markymark",
+        "id": "jetzlstorfer-markymark",
+        "name": "markymark",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/markymark",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/markymark",
+        "sourceUrl": "https://github.com/jetzlstorfer/markymark",
+        "title": "markymark",
+        "subtitle": null,
+        "description": "Simple tool to make nested .md files possible.",
+        "summary": null,
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 0,
+        "forks": 0,
+        "license": "Apache-2.0",
+        "topics": [],
+        "primaryLanguage": "Go",
+        "languages": [
+          {
+            "name": "Go",
+            "color": "#00ADD8",
+            "bytes": 904,
+            "share": 0.8007085916740478
+          },
+          {
+            "name": "Shell",
+            "color": "#89e051",
+            "bytes": 225,
+            "share": 0.19929140832595216
+          }
+        ],
+        "createdAt": "2020-04-08T14:52:25Z",
+        "pushedAt": "2020-07-21T06:23:59Z",
+        "commitCount": 12,
+        "lastCommitAt": "2020-07-21T06:23:49Z",
+        "activeAt": "2020-07-21T06:23:49Z",
+        "image": null,
+        "tags": [],
+        "source": "own",
+        "recent": false
+      },
+      {
+        "key": "keptn-argo",
+        "id": "jetzlstorfer-keptn-argo",
+        "name": "keptn-argo",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/keptn-argo",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/keptn-argo",
+        "sourceUrl": "https://github.com/jetzlstorfer/keptn-argo",
+        "title": "keptn-argo",
+        "subtitle": null,
+        "description": null,
+        "summary": null,
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 0,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": null,
+        "languages": [],
+        "createdAt": "2020-04-22T07:53:00Z",
+        "pushedAt": "2020-04-22T10:42:09Z",
+        "commitCount": 3,
+        "lastCommitAt": "2020-04-22T07:57:05Z",
+        "activeAt": "2020-04-22T07:57:05Z",
+        "image": null,
+        "tags": [
+          "cloud-native"
+        ],
+        "source": "own",
+        "recent": false
+      },
+      {
+        "key": "keptn-helpers",
+        "id": "jetzlstorfer-keptn-helpers",
+        "name": "keptn-helpers",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/keptn-helpers",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/keptn-helpers",
+        "sourceUrl": "https://github.com/jetzlstorfer/keptn-helpers",
+        "title": "keptn-helpers",
+        "subtitle": null,
+        "description": null,
+        "summary": null,
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 0,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": "Shell",
+        "languages": [
+          {
+            "name": "Shell",
+            "color": "#89e051",
+            "bytes": 4182,
+            "share": 1
+          }
+        ],
+        "createdAt": "2020-03-04T21:03:39Z",
+        "pushedAt": "2020-03-11T12:53:50Z",
+        "commitCount": 12,
+        "lastCommitAt": "2020-03-11T12:53:13Z",
+        "activeAt": "2020-03-11T12:53:13Z",
+        "image": null,
+        "tags": [
+          "cloud-native"
+        ],
+        "source": "own",
+        "recent": false
+      },
+      {
+        "key": "perform-hotday-2019",
+        "id": "jetzlstorfer-perform-hotday-2019",
+        "name": "perform-hotday-2019",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/perform-hotday-2019",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/perform-hotday-2019",
+        "sourceUrl": "https://github.com/jetzlstorfer/perform-hotday-2019",
+        "title": "perform-hotday-2019",
+        "subtitle": "Files for runbook automation",
+        "description": null,
+        "summary": null,
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 0,
+        "forks": 0,
+        "license": "Apache-2.0",
+        "topics": [],
+        "primaryLanguage": "Shell",
+        "languages": [
+          {
+            "name": "Shell",
+            "color": "#89e051",
+            "bytes": 2496,
+            "share": 1
+          }
+        ],
+        "createdAt": "2019-05-15T14:08:38Z",
+        "pushedAt": "2019-05-15T14:10:29Z",
+        "commitCount": 3,
+        "lastCommitAt": "2019-05-15T14:10:23Z",
+        "activeAt": "2019-05-15T14:10:23Z",
+        "image": null,
+        "tags": [],
+        "source": "own",
+        "recent": false
+      },
+      {
+        "key": "katacoda-scenarios",
+        "id": "jetzlstorfer-katacoda-scenarios",
+        "name": "katacoda-scenarios",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/katacoda-scenarios",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/katacoda-scenarios",
+        "sourceUrl": "https://github.com/jetzlstorfer/katacoda-scenarios",
+        "title": "katacoda-scenarios",
+        "subtitle": "Interactive Katacoda Scenarios",
+        "description": "Katacoda Scenarios",
+        "summary": "Visit https://www.katacoda.com/jetzlstorfer to view the profile and interactive scenarios",
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 0,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": "Shell",
+        "languages": [
+          {
+            "name": "Shell",
+            "color": "#89e051",
+            "bytes": 9,
+            "share": 1
+          }
+        ],
+        "createdAt": "2019-04-03T13:13:51Z",
+        "pushedAt": "2019-04-04T06:59:55Z",
+        "commitCount": 18,
+        "lastCommitAt": "2019-04-04T06:59:56Z",
+        "activeAt": "2019-04-04T06:59:56Z",
+        "image": null,
+        "tags": [],
+        "source": "own",
+        "recent": false
+      },
+      {
+        "key": "monolith-to-microservices-ws",
+        "id": "jetzlstorfer-monolith-to-microservices-ws",
+        "name": "monolith-to-microservices-ws",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/monolith-to-microservices-ws",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/monolith-to-microservices-ws",
+        "sourceUrl": "https://github.com/jetzlstorfer/monolith-to-microservices-ws",
+        "title": "monolith-to-microservices-ws",
+        "subtitle": "Monolith to Microservices",
+        "description": "Step-by-step instructions to follow through the TicketMonster workshop",
+        "summary": "We build upon the repo monolith to microservices repository but will adapt some steps here. Basically, we'll try to avoid to build our artifacts by our own in this project. Instead, we will use pre-built docker images.",
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": true,
+        "fork": false,
+        "template": false,
+        "stars": 2,
+        "forks": 0,
+        "license": "Apache-2.0",
+        "topics": [],
+        "primaryLanguage": null,
+        "languages": [],
+        "createdAt": "2019-02-08T13:02:19Z",
+        "pushedAt": "2018-09-24T11:41:59Z",
+        "commitCount": 17,
+        "lastCommitAt": "2018-09-24T11:41:58Z",
+        "activeAt": "2018-09-24T11:41:58Z",
+        "image": null,
+        "tags": [
+          "teaching"
+        ],
+        "source": "own",
+        "recent": false
+      },
+      {
+        "key": "static-website-download",
+        "id": "jetzlstorfer-static-website-download",
+        "name": "static-website-download",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/static-website-download",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/static-website-download",
+        "sourceUrl": "https://github.com/jetzlstorfer/static-website-download",
+        "title": "static-website-download",
+        "subtitle": "Static Website Downloader",
+        "description": "This project allows to take a snapshot of a website and store its contents including js, css, images, etc locally.",
+        "summary": null,
+        "homepage": null,
+        "pinned": false,
+        "featured": false,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 0,
+        "forks": 0,
+        "license": "Apache-2.0",
+        "topics": [],
+        "primaryLanguage": null,
+        "languages": [],
+        "createdAt": "2018-08-25T10:37:20Z",
+        "pushedAt": "2018-09-04T19:04:46Z",
+        "commitCount": 7,
+        "lastCommitAt": "2018-09-04T19:04:45Z",
+        "activeAt": "2018-09-04T19:04:45Z",
+        "image": null,
+        "tags": [],
+        "source": "own",
+        "recent": false
+      },
+      {
+        "key": "fokus",
+        "id": "jetzlstorfer-fokus",
+        "name": "fokus",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/fokus",
+        "own": true,
+        "url": null,
+        "sourceUrl": null,
+        "title": "Fokus",
+        "subtitle": null,
+        "description": null,
+        "summary": null,
+        "homepage": "https://fokus.jetzlstorfer.org",
+        "pinned": false,
+        "featured": true,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 0,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": null,
+        "languages": [],
+        "createdAt": null,
+        "pushedAt": null,
+        "commitCount": null,
+        "lastCommitAt": null,
+        "activeAt": null,
+        "image": null,
+        "tags": [
+          "live"
+        ],
+        "source": "own",
+        "recent": false,
+        "run": 7
+      }
+    ],
+    "ownerAvatars": {
+      "technologieplauscherl": {
+        "file": "src/assets/fetched/owners/technologieplauscherl.webp",
+        "width": 240,
+        "height": 240
+      },
+      "CloudNativeLinz": {
+        "file": "src/assets/fetched/owners/cloudnativelinz.webp",
+        "width": 240,
+        "height": 240
+      },
+      "dasMulli": {
+        "file": "src/assets/fetched/owners/dasmulli.webp",
+        "width": 240,
+        "height": 240
+      }
+    },
+    "ledger": [
+      {
+        "oid": "110bbde64b9dce2e47ebb849d6cd426e3ad5c5a3",
+        "sha": "110bbde",
+        "headline": "Keep to-do celebrations in place and improve completion timing",
+        "date": "2026-11-14T13:35:41Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/110bbde64b9dce2e47ebb849d6cd426e3ad5c5a3",
+        "repo": "splitty",
+        "repoId": "jetzlstorfer-splitty",
+        "pr": 93
+      },
+      {
+        "oid": "c374d8454a35f351e9402649147c9e28ec008eb1",
+        "sha": "c374d84",
+        "headline": "Prefer fresh charging data after startup",
+        "date": "2026-11-14T13:31:07Z",
+        "url": "https://github.com/jetzlstorfer/wattpilot-exporter/commit/c374d8454a35f351e9402649147c9e28ec008eb1",
+        "repo": "wattpilot-exporter",
+        "repoId": "jetzlstorfer-wattpilot-exporter",
+        "pr": 83
+      },
+      {
+        "oid": "d3cc2f54f3e926ee13adaf2eb79ae21da73b2871",
+        "sha": "d3cc2f5",
+        "headline": "Only show persisted to-do completion as checked",
+        "date": "2026-11-14T13:27:42Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/d3cc2f54f3e926ee13adaf2eb79ae21da73b2871",
+        "repo": "splitty",
+        "repoId": "jetzlstorfer-splitty",
+        "pr": null
+      },
+      {
+        "oid": "68d8e243bf127090d6327deaf79c788a34483f6c",
+        "sha": "68d8e24",
+        "headline": "Prefer fresh charging data after startup",
+        "date": "2026-11-14T13:25:12Z",
+        "url": "https://github.com/jetzlstorfer/wattpilot-exporter/commit/68d8e243bf127090d6327deaf79c788a34483f6c",
+        "repo": "wattpilot-exporter",
+        "repoId": "jetzlstorfer-wattpilot-exporter",
+        "pr": null
+      },
+      {
+        "oid": "7e5c6054dc3f2c926c7c6d4b01598d1a6bedd559",
+        "sha": "7e5c605",
+        "headline": "Keep to-do celebrations in place and tighten completion timing",
+        "date": "2026-11-14T13:12:39Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/7e5c6054dc3f2c926c7c6d4b01598d1a6bedd559",
+        "repo": "splitty",
+        "repoId": "jetzlstorfer-splitty",
+        "pr": null
+      },
+      {
+        "oid": "7785ccaac7325b89f80ed0dfe7ebc1205d17aa82",
+        "sha": "7785cca",
+        "headline": "Keep completion celebrations in the open to-do list",
+        "date": "2026-11-14T12:52:55Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/7785ccaac7325b89f80ed0dfe7ebc1205d17aa82",
+        "repo": "splitty",
+        "repoId": "jetzlstorfer-splitty",
+        "pr": 91
+      },
+      {
+        "oid": "0d60771747bc3d60454ef13eb2e952240e6b7a11",
+        "sha": "0d60771",
+        "headline": "Avoid stealing focus after closing sheets",
+        "date": "2026-11-14T12:41:30Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/0d60771747bc3d60454ef13eb2e952240e6b7a11",
+        "repo": "splitty",
+        "repoId": "jetzlstorfer-splitty",
+        "pr": null
+      },
+      {
+        "oid": "ddf34028f663297cfbf40a3ec8bbcf042561c36e",
+        "sha": "ddf3402",
+        "headline": "Fix to-do completion CI regressions",
+        "date": "2026-11-14T12:32:44Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/ddf34028f663297cfbf40a3ec8bbcf042561c36e",
+        "repo": "splitty",
+        "repoId": "jetzlstorfer-splitty",
+        "pr": null
+      },
+      {
+        "oid": "27c2a97f4278ffbbd6a6cc9ec7cbac437f0ec8b4",
+        "sha": "27c2a97",
+        "headline": "Add homepage preview to README",
+        "date": "2026-11-13T12:20:04Z",
+        "url": "https://github.com/CloudNativeLinz/cloudnativelinz.github.io/commit/27c2a97f4278ffbbd6a6cc9ec7cbac437f0ec8b4",
+        "repo": "CloudNativeLinz/cloudnativelinz.github.io",
+        "repoId": "cloudnativelinz-cloudnativelinz-github-io",
+        "pr": 237
+      },
+      {
+        "oid": "8f9037ce6d54093d6c5e6c4e1a5f99ddd38df4b1",
+        "sha": "8f9037c",
+        "headline": "Add homepage preview to README",
+        "date": "2026-11-13T12:17:47Z",
+        "url": "https://github.com/CloudNativeLinz/cloudnativelinz.github.io/commit/8f9037ce6d54093d6c5e6c4e1a5f99ddd38df4b1",
+        "repo": "CloudNativeLinz/cloudnativelinz.github.io",
+        "repoId": "cloudnativelinz-cloudnativelinz-github-io",
+        "pr": null
+      },
+      {
+        "oid": "a862ed96393cf0e5d020fd16442f84985eb97e8f",
+        "sha": "a862ed9",
+        "headline": "docs: add app screenshot to README",
+        "date": "2026-11-13T12:05:58Z",
+        "url": "https://github.com/jetzlstorfer/music-timetraveler/commit/a862ed96393cf0e5d020fd16442f84985eb97e8f",
+        "repo": "music-timetraveler",
+        "repoId": "jetzlstorfer-music-timetraveler",
+        "pr": null
+      },
+      {
+        "oid": "f2b8fd50816f05f590f3799188a866829cde4596",
+        "sha": "f2b8fd5",
+        "headline": "Bump golang.org/x/oauth2 from 0.37.0 to 0.38.0 in the gomod group",
+        "date": "2026-11-12T05:47:03Z",
+        "url": "https://github.com/jetzlstorfer/spotify-yearly-discoveries/commit/f2b8fd50816f05f590f3799188a866829cde4596",
+        "repo": "spotify-yearly-discoveries",
+        "repoId": "jetzlstorfer-spotify-yearly-discoveries",
+        "pr": 39
+      },
+      {
+        "oid": "8369483a8b8fb1dd0e73bbfee125a8f84e7ab789",
+        "sha": "8369483",
+        "headline": "Add homepage screenshot to README",
+        "date": "2026-11-11T15:18:06Z",
+        "url": "https://github.com/jetzlstorfer/wichteln/commit/8369483a8b8fb1dd0e73bbfee125a8f84e7ab789",
+        "repo": "wichteln",
+        "repoId": "jetzlstorfer-wichteln",
+        "pr": 12
+      },
+      {
+        "oid": "5c24171bdbf18df9496bf841ad47c66c13840dc2",
+        "sha": "5c24171",
+        "headline": "docs: add app screenshot to README",
+        "date": "2026-11-11T15:16:17Z",
+        "url": "https://github.com/jetzlstorfer/wichteln/commit/5c24171bdbf18df9496bf841ad47c66c13840dc2",
+        "repo": "wichteln",
+        "repoId": "jetzlstorfer-wichteln",
+        "pr": null
+      }
+    ],
+    "calendar": {
+      "total": 2153,
+      "days": [
+        {
+          "date": "2025-11-09",
+          "count": 0
+        },
+        {
+          "date": "2025-11-10",
+          "count": 10
+        },
+        {
+          "date": "2025-11-11",
+          "count": 2
+        },
+        {
+          "date": "2025-11-12",
+          "count": 0
+        },
+        {
+          "date": "2025-11-13",
+          "count": 1
+        },
+        {
+          "date": "2025-11-14",
+          "count": 0
+        },
+        {
+          "date": "2025-11-15",
+          "count": 0
+        },
+        {
+          "date": "2025-11-16",
+          "count": 0
+        },
+        {
+          "date": "2025-11-17",
+          "count": 1
+        },
+        {
+          "date": "2025-11-18",
+          "count": 2
+        },
+        {
+          "date": "2025-11-19",
+          "count": 0
+        },
+        {
+          "date": "2025-11-20",
+          "count": 5
+        },
+        {
+          "date": "2025-11-21",
+          "count": 3
+        },
+        {
+          "date": "2025-11-22",
+          "count": 0
+        },
+        {
+          "date": "2025-11-23",
+          "count": 0
+        },
+        {
+          "date": "2025-11-24",
+          "count": 1
+        },
+        {
+          "date": "2025-11-25",
+          "count": 4
+        },
+        {
+          "date": "2025-11-26",
+          "count": 3
+        },
+        {
+          "date": "2025-11-27",
+          "count": 2
+        },
+        {
+          "date": "2025-11-28",
+          "count": 3
+        },
+        {
+          "date": "2025-11-29",
+          "count": 0
+        },
+        {
+          "date": "2025-11-30",
+          "count": 0
+        },
+        {
+          "date": "2025-12-01",
+          "count": 3
+        },
+        {
+          "date": "2025-12-02",
+          "count": 1
+        },
+        {
+          "date": "2025-12-03",
+          "count": 0
+        },
+        {
+          "date": "2025-12-04",
+          "count": 2
+        },
+        {
+          "date": "2025-12-05",
+          "count": 3
+        },
+        {
+          "date": "2025-12-06",
+          "count": 0
+        },
+        {
+          "date": "2025-12-07",
+          "count": 0
+        },
+        {
+          "date": "2025-12-08",
+          "count": 1
+        },
+        {
+          "date": "2025-12-09",
+          "count": 0
+        },
+        {
+          "date": "2025-12-10",
+          "count": 2
+        },
+        {
+          "date": "2025-12-11",
+          "count": 2
+        },
+        {
+          "date": "2025-12-12",
+          "count": 0
+        },
+        {
+          "date": "2025-12-13",
+          "count": 0
+        },
+        {
+          "date": "2025-12-14",
+          "count": 0
+        },
+        {
+          "date": "2025-12-15",
+          "count": 0
+        },
+        {
+          "date": "2025-12-16",
+          "count": 0
+        },
+        {
+          "date": "2025-12-17",
+          "count": 1
+        },
+        {
+          "date": "2025-12-18",
+          "count": 0
+        },
+        {
+          "date": "2025-12-19",
+          "count": 2
+        },
+        {
+          "date": "2025-12-20",
+          "count": 0
+        },
+        {
+          "date": "2025-12-21",
+          "count": 0
+        },
+        {
+          "date": "2025-12-22",
+          "count": 2
+        },
+        {
+          "date": "2025-12-23",
+          "count": 0
+        },
+        {
+          "date": "2025-12-24",
+          "count": 0
+        },
+        {
+          "date": "2025-12-25",
+          "count": 0
+        },
+        {
+          "date": "2025-12-26",
+          "count": 0
+        },
+        {
+          "date": "2025-12-27",
+          "count": 0
+        },
+        {
+          "date": "2025-12-28",
+          "count": 1
+        },
+        {
+          "date": "2025-12-29",
+          "count": 0
+        },
+        {
+          "date": "2025-12-30",
+          "count": 0
+        },
+        {
+          "date": "2025-12-31",
+          "count": 0
+        },
+        {
+          "date": "2026-01-01",
+          "count": 0
+        },
+        {
+          "date": "2026-01-02",
+          "count": 0
+        },
+        {
+          "date": "2026-01-03",
+          "count": 0
+        },
+        {
+          "date": "2026-01-04",
+          "count": 0
+        },
+        {
+          "date": "2026-01-05",
+          "count": 0
+        },
+        {
+          "date": "2026-01-06",
+          "count": 0
+        },
+        {
+          "date": "2026-01-07",
+          "count": 2
+        },
+        {
+          "date": "2026-01-08",
+          "count": 1
+        },
+        {
+          "date": "2026-01-09",
+          "count": 1
+        },
+        {
+          "date": "2026-01-10",
+          "count": 0
+        },
+        {
+          "date": "2026-01-11",
+          "count": 0
+        },
+        {
+          "date": "2026-01-12",
+          "count": 1
+        },
+        {
+          "date": "2026-01-13",
+          "count": 0
+        },
+        {
+          "date": "2026-01-14",
+          "count": 3
+        },
+        {
+          "date": "2026-01-15",
+          "count": 1
+        },
+        {
+          "date": "2026-01-16",
+          "count": 3
+        },
+        {
+          "date": "2026-01-17",
+          "count": 2
+        },
+        {
+          "date": "2026-01-18",
+          "count": 0
+        },
+        {
+          "date": "2026-01-19",
+          "count": 5
+        },
+        {
+          "date": "2026-01-20",
+          "count": 0
+        },
+        {
+          "date": "2026-01-21",
+          "count": 0
+        },
+        {
+          "date": "2026-01-22",
+          "count": 0
+        },
+        {
+          "date": "2026-01-23",
+          "count": 0
+        },
+        {
+          "date": "2026-01-24",
+          "count": 0
+        },
+        {
+          "date": "2026-01-25",
+          "count": 0
+        },
+        {
+          "date": "2026-01-26",
+          "count": 0
+        },
+        {
+          "date": "2026-01-27",
+          "count": 0
+        },
+        {
+          "date": "2026-01-28",
+          "count": 1
+        },
+        {
+          "date": "2026-01-29",
+          "count": 3
+        },
+        {
+          "date": "2026-01-30",
+          "count": 0
+        },
+        {
+          "date": "2026-01-31",
+          "count": 0
+        },
+        {
+          "date": "2026-02-01",
+          "count": 4
+        },
+        {
+          "date": "2026-02-02",
+          "count": 2
+        },
+        {
+          "date": "2026-02-03",
+          "count": 12
+        },
+        {
+          "date": "2026-02-04",
+          "count": 0
+        },
+        {
+          "date": "2026-02-05",
+          "count": 4
+        },
+        {
+          "date": "2026-02-06",
+          "count": 0
+        },
+        {
+          "date": "2026-02-07",
+          "count": 0
+        },
+        {
+          "date": "2026-02-08",
+          "count": 0
+        },
+        {
+          "date": "2026-02-09",
+          "count": 1
+        },
+        {
+          "date": "2026-02-10",
+          "count": 1
+        },
+        {
+          "date": "2026-02-11",
+          "count": 9
+        },
+        {
+          "date": "2026-02-12",
+          "count": 16
+        },
+        {
+          "date": "2026-02-13",
+          "count": 1
+        },
+        {
+          "date": "2026-02-14",
+          "count": 0
+        },
+        {
+          "date": "2026-02-15",
+          "count": 0
+        },
+        {
+          "date": "2026-02-16",
+          "count": 0
+        },
+        {
+          "date": "2026-02-17",
+          "count": 0
+        },
+        {
+          "date": "2026-02-18",
+          "count": 0
+        },
+        {
+          "date": "2026-02-19",
+          "count": 1
+        },
+        {
+          "date": "2026-02-20",
+          "count": 0
+        },
+        {
+          "date": "2026-02-21",
+          "count": 0
+        },
+        {
+          "date": "2026-02-22",
+          "count": 0
+        },
+        {
+          "date": "2026-02-23",
+          "count": 0
+        },
+        {
+          "date": "2026-02-24",
+          "count": 3
+        },
+        {
+          "date": "2026-02-25",
+          "count": 5
+        },
+        {
+          "date": "2026-02-26",
+          "count": 1
+        },
+        {
+          "date": "2026-02-27",
+          "count": 3
+        },
+        {
+          "date": "2026-02-28",
+          "count": 1
+        },
+        {
+          "date": "2026-03-01",
+          "count": 0
+        },
+        {
+          "date": "2026-03-02",
+          "count": 45
+        },
+        {
+          "date": "2026-03-03",
+          "count": 32
+        },
+        {
+          "date": "2026-03-04",
+          "count": 22
+        },
+        {
+          "date": "2026-03-05",
+          "count": 3
+        },
+        {
+          "date": "2026-03-06",
+          "count": 2
+        },
+        {
+          "date": "2026-03-07",
+          "count": 5
+        },
+        {
+          "date": "2026-03-08",
+          "count": 13
+        },
+        {
+          "date": "2026-03-09",
+          "count": 9
+        },
+        {
+          "date": "2026-03-10",
+          "count": 23
+        },
+        {
+          "date": "2026-03-11",
+          "count": 9
+        },
+        {
+          "date": "2026-03-12",
+          "count": 39
+        },
+        {
+          "date": "2026-03-13",
+          "count": 8
+        },
+        {
+          "date": "2026-03-14",
+          "count": 0
+        },
+        {
+          "date": "2026-03-15",
+          "count": 1
+        },
+        {
+          "date": "2026-03-16",
+          "count": 13
+        },
+        {
+          "date": "2026-03-17",
+          "count": 3
+        },
+        {
+          "date": "2026-03-18",
+          "count": 4
+        },
+        {
+          "date": "2026-03-19",
+          "count": 2
+        },
+        {
+          "date": "2026-03-20",
+          "count": 10
+        },
+        {
+          "date": "2026-03-21",
+          "count": 0
+        },
+        {
+          "date": "2026-03-22",
+          "count": 1
+        },
+        {
+          "date": "2026-03-23",
+          "count": 5
+        },
+        {
+          "date": "2026-03-24",
+          "count": 4
+        },
+        {
+          "date": "2026-03-25",
+          "count": 17
+        },
+        {
+          "date": "2026-03-26",
+          "count": 10
+        },
+        {
+          "date": "2026-03-27",
+          "count": 0
+        },
+        {
+          "date": "2026-03-28",
+          "count": 0
+        },
+        {
+          "date": "2026-03-29",
+          "count": 0
+        },
+        {
+          "date": "2026-03-30",
+          "count": 4
+        },
+        {
+          "date": "2026-03-31",
+          "count": 0
+        },
+        {
+          "date": "2026-04-01",
+          "count": 22
+        },
+        {
+          "date": "2026-04-02",
+          "count": 5
+        },
+        {
+          "date": "2026-04-03",
+          "count": 0
+        },
+        {
+          "date": "2026-04-04",
+          "count": 16
+        },
+        {
+          "date": "2026-04-05",
+          "count": 10
+        },
+        {
+          "date": "2026-04-06",
+          "count": 18
+        },
+        {
+          "date": "2026-04-07",
+          "count": 41
+        },
+        {
+          "date": "2026-04-08",
+          "count": 22
+        },
+        {
+          "date": "2026-04-09",
+          "count": 21
+        },
+        {
+          "date": "2026-04-10",
+          "count": 33
+        },
+        {
+          "date": "2026-04-11",
+          "count": 0
+        },
+        {
+          "date": "2026-04-12",
+          "count": 16
+        },
+        {
+          "date": "2026-04-13",
+          "count": 9
+        },
+        {
+          "date": "2026-04-14",
+          "count": 1
+        },
+        {
+          "date": "2026-04-15",
+          "count": 0
+        },
+        {
+          "date": "2026-04-16",
+          "count": 6
+        },
+        {
+          "date": "2026-04-17",
+          "count": 4
+        },
+        {
+          "date": "2026-04-18",
+          "count": 0
+        },
+        {
+          "date": "2026-04-19",
+          "count": 0
+        },
+        {
+          "date": "2026-04-20",
+          "count": 8
+        },
+        {
+          "date": "2026-04-21",
+          "count": 6
+        },
+        {
+          "date": "2026-04-22",
+          "count": 25
+        },
+        {
+          "date": "2026-04-23",
+          "count": 5
+        },
+        {
+          "date": "2026-04-24",
+          "count": 8
+        },
+        {
+          "date": "2026-04-25",
+          "count": 7
+        },
+        {
+          "date": "2026-04-26",
+          "count": 0
+        },
+        {
+          "date": "2026-04-27",
+          "count": 1
+        },
+        {
+          "date": "2026-04-28",
+          "count": 2
+        },
+        {
+          "date": "2026-04-29",
+          "count": 6
+        },
+        {
+          "date": "2026-04-30",
+          "count": 17
+        },
+        {
+          "date": "2026-05-01",
+          "count": 5
+        },
+        {
+          "date": "2026-05-02",
+          "count": 0
+        },
+        {
+          "date": "2026-05-03",
+          "count": 0
+        },
+        {
+          "date": "2026-05-04",
+          "count": 23
+        },
+        {
+          "date": "2026-05-05",
+          "count": 10
+        },
+        {
+          "date": "2026-05-06",
+          "count": 5
+        },
+        {
+          "date": "2026-05-07",
+          "count": 0
+        },
+        {
+          "date": "2026-05-08",
+          "count": 0
+        },
+        {
+          "date": "2026-05-09",
+          "count": 2
+        },
+        {
+          "date": "2026-05-10",
+          "count": 6
+        },
+        {
+          "date": "2026-05-11",
+          "count": 13
+        },
+        {
+          "date": "2026-05-12",
+          "count": 10
+        },
+        {
+          "date": "2026-05-13",
+          "count": 9
+        },
+        {
+          "date": "2026-05-14",
+          "count": 0
+        },
+        {
+          "date": "2026-05-15",
+          "count": 3
+        },
+        {
+          "date": "2026-05-16",
+          "count": 11
+        },
+        {
+          "date": "2026-05-17",
+          "count": 4
+        },
+        {
+          "date": "2026-05-18",
+          "count": 0
+        },
+        {
+          "date": "2026-05-19",
+          "count": 0
+        },
+        {
+          "date": "2026-05-20",
+          "count": 5
+        },
+        {
+          "date": "2026-05-21",
+          "count": 5
+        },
+        {
+          "date": "2026-05-22",
+          "count": 11
+        },
+        {
+          "date": "2026-05-23",
+          "count": 1
+        },
+        {
+          "date": "2026-05-24",
+          "count": 0
+        },
+        {
+          "date": "2026-05-25",
+          "count": 4
+        },
+        {
+          "date": "2026-05-26",
+          "count": 3
+        },
+        {
+          "date": "2026-05-27",
+          "count": 5
+        },
+        {
+          "date": "2026-05-28",
+          "count": 8
+        },
+        {
+          "date": "2026-05-29",
+          "count": 0
+        },
+        {
+          "date": "2026-05-30",
+          "count": 0
+        },
+        {
+          "date": "2026-05-31",
+          "count": 6
+        },
+        {
+          "date": "2026-06-01",
+          "count": 2
+        },
+        {
+          "date": "2026-06-02",
+          "count": 1
+        },
+        {
+          "date": "2026-06-03",
+          "count": 0
+        },
+        {
+          "date": "2026-06-04",
+          "count": 10
+        },
+        {
+          "date": "2026-06-05",
+          "count": 4
+        },
+        {
+          "date": "2026-06-06",
+          "count": 0
+        },
+        {
+          "date": "2026-06-07",
+          "count": 1
+        },
+        {
+          "date": "2026-06-08",
+          "count": 1
+        },
+        {
+          "date": "2026-06-09",
+          "count": 4
+        },
+        {
+          "date": "2026-06-10",
+          "count": 0
+        },
+        {
+          "date": "2026-06-11",
+          "count": 2
+        },
+        {
+          "date": "2026-06-12",
+          "count": 0
+        },
+        {
+          "date": "2026-06-13",
+          "count": 0
+        },
+        {
+          "date": "2026-06-14",
+          "count": 0
+        },
+        {
+          "date": "2026-06-15",
+          "count": 2
+        },
+        {
+          "date": "2026-06-16",
+          "count": 3
+        },
+        {
+          "date": "2026-06-17",
+          "count": 5
+        },
+        {
+          "date": "2026-06-18",
+          "count": 0
+        },
+        {
+          "date": "2026-06-19",
+          "count": 1
+        },
+        {
+          "date": "2026-06-20",
+          "count": 0
+        },
+        {
+          "date": "2026-06-21",
+          "count": 3
+        },
+        {
+          "date": "2026-06-22",
+          "count": 0
+        },
+        {
+          "date": "2026-06-23",
+          "count": 6
+        },
+        {
+          "date": "2026-06-24",
+          "count": 4
+        },
+        {
+          "date": "2026-06-25",
+          "count": 9
+        },
+        {
+          "date": "2026-06-26",
+          "count": 2
+        },
+        {
+          "date": "2026-06-27",
+          "count": 0
+        },
+        {
+          "date": "2026-06-28",
+          "count": 0
+        },
+        {
+          "date": "2026-06-29",
+          "count": 2
+        },
+        {
+          "date": "2026-06-30",
+          "count": 2
+        },
+        {
+          "date": "2026-07-01",
+          "count": 8
+        },
+        {
+          "date": "2026-07-02",
+          "count": 1
+        },
+        {
+          "date": "2026-07-03",
+          "count": 0
+        },
+        {
+          "date": "2026-07-04",
+          "count": 0
+        },
+        {
+          "date": "2026-07-05",
+          "count": 0
+        },
+        {
+          "date": "2026-07-06",
+          "count": 9
+        },
+        {
+          "date": "2026-07-07",
+          "count": 1
+        },
+        {
+          "date": "2026-07-08",
+          "count": 15
+        },
+        {
+          "date": "2026-07-09",
+          "count": 10
+        },
+        {
+          "date": "2026-07-10",
+          "count": 3
+        },
+        {
+          "date": "2026-07-11",
+          "count": 1
+        },
+        {
+          "date": "2026-07-12",
+          "count": 1
+        },
+        {
+          "date": "2026-07-13",
+          "count": 6
+        },
+        {
+          "date": "2026-07-14",
+          "count": 0
+        },
+        {
+          "date": "2026-07-15",
+          "count": 9
+        },
+        {
+          "date": "2026-07-16",
+          "count": 6
+        },
+        {
+          "date": "2026-07-17",
+          "count": 13
+        },
+        {
+          "date": "2026-07-18",
+          "count": 1
+        },
+        {
+          "date": "2026-07-19",
+          "count": 2
+        },
+        {
+          "date": "2026-07-20",
+          "count": 3
+        },
+        {
+          "date": "2026-07-21",
+          "count": 16
+        },
+        {
+          "date": "2026-07-22",
+          "count": 32
+        },
+        {
+          "date": "2026-07-23",
+          "count": 11
+        },
+        {
+          "date": "2026-07-24",
+          "count": 9
+        },
+        {
+          "date": "2026-07-25",
+          "count": 2
+        },
+        {
+          "date": "2026-07-26",
+          "count": 4
+        },
+        {
+          "date": "2026-07-27",
+          "count": 5
+        },
+        {
+          "date": "2026-07-28",
+          "count": 5
+        },
+        {
+          "date": "2026-07-29",
+          "count": 19
+        },
+        {
+          "date": "2026-07-30",
+          "count": 6
+        },
+        {
+          "date": "2026-07-31",
+          "count": 4
+        },
+        {
+          "date": "2026-08-01",
+          "count": 5
+        },
+        {
+          "date": "2026-08-02",
+          "count": 0
+        },
+        {
+          "date": "2026-08-03",
+          "count": 3
+        },
+        {
+          "date": "2026-08-04",
+          "count": 2
+        },
+        {
+          "date": "2026-08-05",
+          "count": 5
+        },
+        {
+          "date": "2026-08-06",
+          "count": 19
+        },
+        {
+          "date": "2026-08-07",
+          "count": 4
+        },
+        {
+          "date": "2026-08-08",
+          "count": 0
+        },
+        {
+          "date": "2026-08-09",
+          "count": 1
+        },
+        {
+          "date": "2026-08-10",
+          "count": 0
+        },
+        {
+          "date": "2026-08-11",
+          "count": 4
+        },
+        {
+          "date": "2026-08-12",
+          "count": 21
+        },
+        {
+          "date": "2026-08-13",
+          "count": 17
+        },
+        {
+          "date": "2026-08-14",
+          "count": 17
+        },
+        {
+          "date": "2026-08-15",
+          "count": 6
+        },
+        {
+          "date": "2026-08-16",
+          "count": 4
+        },
+        {
+          "date": "2026-08-17",
+          "count": 4
+        },
+        {
+          "date": "2026-08-18",
+          "count": 2
+        },
+        {
+          "date": "2026-08-19",
+          "count": 0
+        },
+        {
+          "date": "2026-08-20",
+          "count": 0
+        },
+        {
+          "date": "2026-08-21",
+          "count": 0
+        },
+        {
+          "date": "2026-08-22",
+          "count": 0
+        },
+        {
+          "date": "2026-08-23",
+          "count": 4
+        },
+        {
+          "date": "2026-08-24",
+          "count": 0
+        },
+        {
+          "date": "2026-08-25",
+          "count": 0
+        },
+        {
+          "date": "2026-08-26",
+          "count": 0
+        },
+        {
+          "date": "2026-08-27",
+          "count": 2
+        },
+        {
+          "date": "2026-08-28",
+          "count": 0
+        },
+        {
+          "date": "2026-08-29",
+          "count": 4
+        },
+        {
+          "date": "2026-08-30",
+          "count": 10
+        },
+        {
+          "date": "2026-08-31",
+          "count": 10
+        },
+        {
+          "date": "2026-09-01",
+          "count": 5
+        },
+        {
+          "date": "2026-09-02",
+          "count": 7
+        },
+        {
+          "date": "2026-09-03",
+          "count": 4
+        },
+        {
+          "date": "2026-09-04",
+          "count": 0
+        },
+        {
+          "date": "2026-09-05",
+          "count": 1
+        },
+        {
+          "date": "2026-09-06",
+          "count": 4
+        },
+        {
+          "date": "2026-09-07",
+          "count": 6
+        },
+        {
+          "date": "2026-09-08",
+          "count": 3
+        },
+        {
+          "date": "2026-09-09",
+          "count": 5
+        },
+        {
+          "date": "2026-09-10",
+          "count": 2
+        },
+        {
+          "date": "2026-09-11",
+          "count": 28
+        },
+        {
+          "date": "2026-09-12",
+          "count": 0
+        },
+        {
+          "date": "2026-09-13",
+          "count": 4
+        },
+        {
+          "date": "2026-09-14",
+          "count": 49
+        },
+        {
+          "date": "2026-09-15",
+          "count": 15
+        },
+        {
+          "date": "2026-09-16",
+          "count": 13
+        },
+        {
+          "date": "2026-09-17",
+          "count": 11
+        },
+        {
+          "date": "2026-09-18",
+          "count": 1
+        },
+        {
+          "date": "2026-09-19",
+          "count": 0
+        },
+        {
+          "date": "2026-09-20",
+          "count": 6
+        },
+        {
+          "date": "2026-09-21",
+          "count": 1
+        },
+        {
+          "date": "2026-09-22",
+          "count": 1
+        },
+        {
+          "date": "2026-09-23",
+          "count": 7
+        },
+        {
+          "date": "2026-09-24",
+          "count": 7
+        },
+        {
+          "date": "2026-09-25",
+          "count": 0
+        },
+        {
+          "date": "2026-09-26",
+          "count": 0
+        },
+        {
+          "date": "2026-09-27",
+          "count": 0
+        },
+        {
+          "date": "2026-09-28",
+          "count": 6
+        },
+        {
+          "date": "2026-09-29",
+          "count": 3
+        },
+        {
+          "date": "2026-09-30",
+          "count": 12
+        },
+        {
+          "date": "2026-10-01",
+          "count": 12
+        },
+        {
+          "date": "2026-10-02",
+          "count": 8
+        },
+        {
+          "date": "2026-10-03",
+          "count": 0
+        },
+        {
+          "date": "2026-10-04",
+          "count": 2
+        },
+        {
+          "date": "2026-10-05",
+          "count": 30
+        },
+        {
+          "date": "2026-10-06",
+          "count": 8
+        },
+        {
+          "date": "2026-10-07",
+          "count": 25
+        },
+        {
+          "date": "2026-10-08",
+          "count": 4
+        },
+        {
+          "date": "2026-10-09",
+          "count": 1
+        },
+        {
+          "date": "2026-10-10",
+          "count": 11
+        },
+        {
+          "date": "2026-10-11",
+          "count": 1
+        },
+        {
+          "date": "2026-10-12",
+          "count": 15
+        },
+        {
+          "date": "2026-10-13",
+          "count": 7
+        },
+        {
+          "date": "2026-10-14",
+          "count": 7
+        },
+        {
+          "date": "2026-10-15",
+          "count": 6
+        },
+        {
+          "date": "2026-10-16",
+          "count": 52
+        },
+        {
+          "date": "2026-10-17",
+          "count": 24
+        },
+        {
+          "date": "2026-10-18",
+          "count": 8
+        },
+        {
+          "date": "2026-10-19",
+          "count": 51
+        },
+        {
+          "date": "2026-10-20",
+          "count": 12
+        },
+        {
+          "date": "2026-10-21",
+          "count": 35
+        },
+        {
+          "date": "2026-10-22",
+          "count": 15
+        },
+        {
+          "date": "2026-10-23",
+          "count": 4
+        },
+        {
+          "date": "2026-10-24",
+          "count": 2
+        },
+        {
+          "date": "2026-10-25",
+          "count": 2
+        },
+        {
+          "date": "2026-10-26",
+          "count": 6
+        },
+        {
+          "date": "2026-10-27",
+          "count": 0
+        },
+        {
+          "date": "2026-10-28",
+          "count": 54
+        },
+        {
+          "date": "2026-10-29",
+          "count": 25
+        },
+        {
+          "date": "2026-10-30",
+          "count": 16
+        },
+        {
+          "date": "2026-10-31",
+          "count": 12
+        },
+        {
+          "date": "2026-11-01",
+          "count": 27
+        },
+        {
+          "date": "2026-11-02",
+          "count": 22
+        },
+        {
+          "date": "2026-11-03",
+          "count": 7
+        },
+        {
+          "date": "2026-11-04",
+          "count": 23
+        },
+        {
+          "date": "2026-11-05",
+          "count": 12
+        },
+        {
+          "date": "2026-11-06",
+          "count": 14
+        },
+        {
+          "date": "2026-11-07",
+          "count": 6
+        },
+        {
+          "date": "2026-11-08",
+          "count": 7
+        },
+        {
+          "date": "2026-11-09",
+          "count": 6
+        },
+        {
+          "date": "2026-11-10",
+          "count": 4
+        },
+        {
+          "date": "2026-11-11",
+          "count": 11
+        },
+        {
+          "date": "2026-11-12",
+          "count": 18
+        },
+        {
+          "date": "2026-11-13",
+          "count": 15
+        },
+        {
+          "date": "2026-11-14",
+          "count": 29
+        }
+      ],
+      "source": "github.com public profile"
+    }
+  }
+}
