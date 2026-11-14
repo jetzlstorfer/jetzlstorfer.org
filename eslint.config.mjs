@@ -5,7 +5,7 @@ import globals from 'globals';
 
 export default [
   {
-    ignores: ['dist/**', '.astro/**', 'src/assets/fetched/**', 'src/data/**'],
+    ignores: ['dist/**', '.astro/**', 'src/assets/fetched/**', 'src/data/**', '.portfolio-cache/**', '.portfolio-store/**'],
   },
   js.configs.recommended,
   {

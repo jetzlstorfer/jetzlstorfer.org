@@ -6,6 +6,8 @@ dist/
 # generated at build time by `npm run fetch`
 src/data/portfolio.json
 src/assets/fetched/
+.portfolio-cache/
+.portfolio-store/
 
 # local tooling
 .impeccable/questions/
