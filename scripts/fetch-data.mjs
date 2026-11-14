@@ -11,7 +11,7 @@
  * it is written: a private repository must never reach the build.
  */
 import { execSync } from 'node:child_process';
-import { mkdir, rename, rm, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import config from '../portfolio.config.mjs';
@@ -333,17 +333,29 @@ function sniffExt(buf, type = '') {
 }
 
 /** Downloads an image, normalises it to webp, and returns its repo-relative path and size. */
-async function downloadImage(url, destNoExt, { minWidth = 0, minHeight = 0, maxWidth = 1600 } = {}) {
-  const res = await fetch(url, {
-    headers: { 'user-agent': UA, accept: 'image/avif,image/webp,image/png,image/jpeg,image/*' },
-    redirect: 'follow',
-    signal: AbortSignal.timeout(30_000),
-  });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const buf = Buffer.from(await res.arrayBuffer());
+async function downloadImage(url, destNoExt, { minWidth = 0, minHeight = 0, maxWidth = 1600, curated = false } = {}) {
+  let buf;
+  let contentType = '';
+  if (curated) {
+    const file = path.resolve(ROOT, url);
+    const relative = path.relative(path.join(ROOT, 'src', 'assets', 'curated'), file);
+    if (relative.startsWith('..') || path.isAbsolute(relative) || !/\.(webp|png|jpe?g)$/i.test(relative)) {
+      throw new Error(`invalid curated image path: ${url}`);
+    }
+    buf = await readFile(file);
+  } else {
+    const res = await fetch(url, {
+      headers: { 'user-agent': UA, accept: 'image/avif,image/webp,image/png,image/jpeg,image/*' },
+      redirect: 'follow',
+      signal: AbortSignal.timeout(30_000),
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    buf = Buffer.from(await res.arrayBuffer());
+    contentType = res.headers.get('content-type') ?? '';
+  }
   if (buf.length > 12_000_000) throw new Error('image larger than 12 MB');
-  const ext = sniffExt(buf, res.headers.get('content-type') ?? '');
-  if (!ext) throw new Error(`not a raster image (${res.headers.get('content-type')})`);
+  const ext = sniffExt(buf, contentType);
+  if (!ext) throw new Error(`not a raster image (${contentType})`);
   await mkdir(path.dirname(destNoExt), { recursive: true });
 
   if (!sharp) {
@@ -704,6 +716,9 @@ async function fetchGitHub(previous) {
     };
     const p = buildProject(repo, null, { pinned });
     p.title = standalone.title ?? p.title;
+    if (standalone.image) {
+      p.imageCandidates.unshift({ src: standalone.image, alt: p.title, curated: true });
+    }
     p.source = 'own';
     projects.push(p);
   }
@@ -760,10 +775,11 @@ async function fetchGitHub(previous) {
     p.image = previous?.projects.find((project) => project.id === p.id)?.image ?? null;
     for (const c of p.imageCandidates) {
       try {
-        const img = await downloadImage(c.src, path.join(ASSET_DIR, 'projects', p.id), { minWidth: 360, minHeight: 200 });
-        p.image = { ...img, alt: c.alt && hasWords(c.alt) ? c.alt : null, source: c.src };
+        const img = await downloadImage(c.src, path.join(ASSET_DIR, 'projects', p.id), { minWidth: 360, minHeight: 200, curated: c.curated });
+        p.image = { ...img, alt: c.alt && hasWords(c.alt) ? c.alt : null, source: c.curated ? null : c.src };
         return;
       } catch (err) {
+        if (c.curated) throw err;
         warn(`image ${p.nameWithOwner} <${c.src}>: ${err.message}`);
       }
     }

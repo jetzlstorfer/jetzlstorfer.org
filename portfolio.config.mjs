@@ -26,7 +26,7 @@ export default {
    * Use these when repository metadata or source links should not be published.
    */
   standaloneProjects: [
-    { name: 'fokus', title: 'Fokus', homepage: 'https://fokus.jetzlstorfer.org' },
+    { name: 'fokus', title: 'Fokus', homepage: 'https://fokus.jetzlstorfer.org', image: 'src/assets/curated/fokus.png' },
   ],
 
   /**
@@ -54,6 +54,7 @@ export default {
    */
   overrides: {
     'cloudnativelinz/cloudnativelinz.github.io': { title: 'cloudnativelinz.at' },
+    'fokus': { description: 'A calm, mobile-first photography practice app with weekly assignments and coaching.' },
     'plattentests-go': { title: 'plattentests' },
     'music-timetraveler': { title: 'Music Time Traveler' },
     'spotify-yearly-discoveries': { title: 'Spotify Yearly Discoveries' }
