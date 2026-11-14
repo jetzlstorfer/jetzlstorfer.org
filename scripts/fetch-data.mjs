@@ -11,7 +11,7 @@
  * it is written: a private repository must never reach the build.
  */
 import { execSync } from 'node:child_process';
-import { mkdir, rm, writeFile } from 'node:fs/promises';
+import { access, mkdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import config from '../portfolio.config.mjs';
@@ -697,6 +697,15 @@ async function main() {
     };
     const p = buildProject(repo, null, { pinned });
     p.title = standalone.title ?? p.title;
+    if (standalone.image) {
+      const file = path.resolve(ROOT, standalone.image);
+      const relative = path.relative(path.join(ROOT, 'src', 'assets', 'curated'), file);
+      if (relative.startsWith('..') || path.isAbsolute(relative) || !/\.(webp|png|jpe?g)$/i.test(relative)) {
+        throw new Error(`invalid curated image path: ${standalone.image}`);
+      }
+      await access(file);
+      p.image = { file: path.relative(ROOT, file).replaceAll('\\', '/'), alt: p.title, source: null, width: null, height: null };
+    }
     p.source = 'own';
     projects.push(p);
   }

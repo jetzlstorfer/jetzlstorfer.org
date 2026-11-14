@@ -5,7 +5,7 @@ import '@fontsource-variable/mona-sans';
 import '@fontsource/monaspace-neon';
 import portfolio from '../data/portfolio.json';
 
-const assets = import.meta.glob<string>('../assets/fetched/**/*.{webp,png,jpg,jpeg}', {
+const assets = import.meta.glob<string>(['../assets/fetched/**/*.{webp,png,jpg,jpeg}', '../assets/curated/**/*.{webp,png,jpg,jpeg}'], {
   eager: true,
   import: 'default',
   query: '?url',
