@@ -82,6 +82,49 @@ const initialProject = run[0];
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#fbf5ea" />
+    <script is:inline>
+      (() => {
+        const deviceTheme = window.matchMedia('(prefers-color-scheme: dark)');
+        let preference = null;
+        try {
+          const saved = localStorage.getItem('theme');
+          if (saved === 'light' || saved === 'dark') preference = saved;
+        } catch (error) {
+          console.warn('Theme preference could not be read; using the device theme.', error);
+        }
+
+        function applyTheme() {
+          const theme = preference || (deviceTheme.matches ? 'dark' : 'light');
+          document.documentElement.dataset.theme = theme;
+          document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#17191d' : '#fbf5ea';
+          const toggle = document.querySelector('[data-theme-toggle]');
+          if (toggle) {
+            toggle.setAttribute('aria-pressed', String(theme === 'dark'));
+            toggle.hidden = false;
+          }
+        }
+
+        applyTheme();
+        deviceTheme.addEventListener('change', applyTheme);
+        document.addEventListener('DOMContentLoaded', () => {
+          applyTheme();
+          document.querySelector('[data-theme-toggle]').addEventListener('click', () => {
+            preference = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+            applyTheme();
+            try {
+              localStorage.setItem('theme', preference);
+            } catch (error) {
+              console.warn('Theme preference could not be saved; it will apply only to this page.', error);
+            }
+          });
+        });
+        window.addEventListener('storage', (event) => {
+          if (event.storageArea !== localStorage || (event.key !== 'theme' && event.key !== null)) return;
+          preference = event.newValue === 'light' || event.newValue === 'dark' ? event.newValue : null;
+          applyTheme();
+        });
+      })();
+    </script>
     <meta name="description" content={`${profile.name}'s living portfolio of websites, community work and experiments, updated from GitHub.`} />
     <title>{profile.name} — websites and projects</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -101,9 +144,12 @@ const initialProject = run[0];
         <a href="#year">Year in review</a>
         <a href="#community">Community</a>
       </nav>
-      <a class="masthead-link" href={`https://github.com/${profile.login}`} target="_blank" rel="noreferrer" aria-label="GitHub">
-        <span class="status-dot" aria-hidden="true"></span><span class="masthead-label">GitHub</span><span aria-hidden="true">↗</span>
-      </a>
+      <div class="masthead-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" hidden>Dark mode</button>
+        <a class="masthead-link" href={`https://github.com/${profile.login}`} target="_blank" rel="noreferrer" aria-label="GitHub">
+          <span class="status-dot" aria-hidden="true"></span><span class="masthead-label">GitHub</span><span aria-hidden="true">↗</span>
+        </a>
+      </div>
     </header>
 
     <main id="top">
