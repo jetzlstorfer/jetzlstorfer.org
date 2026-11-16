@@ -105,6 +105,9 @@ Warm paper is the ground; federal blue, fluoro pink and sunflower act as separat
 
 **The Spot-Ink Rule.** Keep the blue, pink and sunflower distinct; use overlap and multiply blending for the graphic treatment rather than inventing extra accent colors.
 
+### Dark theme
+Follow the device color scheme until the visitor uses the header's **Dark mode** toggle; persist that explicit choice locally. Apply the theme before first paint. Dark mode uses near-black paper (`#17191d`), recessed charcoal (`#24272e`), warm-paper text, muted warm metadata (`#c0b9ad`), lighter blue (`#91acff`) and pink (`#ff74bd`) for readable spot inks. Use screen blending for dark-mode artwork and unblended badge images so they remain visible. Keep the community section's saturated blue background and light text in both themes, and keep dark labels on solid pink actions.
+
 ## Typography
 
 **Display Font:** Anton (with sans-serif fallback)  

@@ -22,11 +22,19 @@ export default {
   include: [],
 
   /**
-   * Featured public repositories, in display order. Use `name` for your own
-   * repos and `owner/name` for other repositories. GitHub pins and recent
-   * repositories fill any remaining slots.
+   * Projects to list using only explicitly provided public display details.
+   * Use these when repository metadata or source links should not be published.
    */
-  featured: [ 'splitty', 'wichteln', 'plattentests-go', 'music-timetraveler', 'wattpilot-exporter', 'cloudnativelinz/cloudnativelinz.github.io' ],
+  standaloneProjects: [
+    { name: 'fokus', title: 'Fokus', homepage: 'https://fokus.jetzlstorfer.org', image: 'src/assets/curated/fokus.png' },
+  ],
+
+  /**
+   * Featured repositories and standalone projects, in display order. Use
+   * `name` for your own projects and `owner/name` for other repositories.
+   * GitHub pins and recent repositories fill any remaining slots.
+   */
+  featured: [ 'splitty', 'wichteln', 'plattentests-go', 'music-timetraveler', 'wattpilot-exporter', 'cloudnativelinz/cloudnativelinz.github.io', 'fokus' ],
 
   /** How many websites to feature. */
   runSize: 8,
@@ -42,10 +50,11 @@ export default {
 
   /**
    * Per-repo overrides keyed by `name` (own) or `owner/name`.
-   * Supported keys: title, description, homepage, tags (array), image (URL), hidden.
+   * Supported keys: title, description, homepage, tags (array), image (URL), hidden, hideSource.
    */
   overrides: {
     'cloudnativelinz/cloudnativelinz.github.io': { title: 'cloudnativelinz.at' },
+    'fokus': { description: 'A calm, mobile-first photography practice app with weekly assignments and coaching.' },
     'plattentests-go': { title: 'plattentests' },
     'music-timetraveler': { title: 'Music Time Traveler' },
     'spotify-yearly-discoveries': { title: 'Spotify Yearly Discoveries' }

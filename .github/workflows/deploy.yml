@@ -6,6 +6,8 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: '17 5 * * *'
 
 permissions:
   contents: read
@@ -25,8 +27,36 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      - name: Look for durable snapshots
+        id: snapshots
+        shell: bash
+        run: |
+          set +e
+          git ls-remote --exit-code origin refs/heads/portfolio-data > "$RUNNER_TEMP/snapshot-ref"
+          status=$?
+          set -e
+          if [ "$status" -eq 0 ]; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          elif [ "$status" -eq 2 ]; then
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          else
+            exit "$status"
+          fi
+      - name: Check out durable snapshots
+        if: steps.snapshots.outputs.exists == 'true'
+        uses: actions/checkout@v7
+        with:
+          ref: portfolio-data
+          path: .portfolio-store
+      - name: Restore data and images
+        if: steps.snapshots.outputs.exists == 'true'
+        run: |
+          mkdir -p .portfolio-cache
+          cp -a .portfolio-store/snapshot/. .portfolio-cache/
       - name: Install dependencies
         run: npm ci
+      - name: Test source refresh and site behavior
+        run: npm test
       - name: Lint source
         run: npm run lint
       - name: Fetch public portfolio data
@@ -38,13 +68,21 @@ jobs:
       - name: Build static site
         run: npm run build
       - name: Upload Pages artifact
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v5
         with:
           path: dist
+      - name: Upload candidate snapshots
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-snapshots
+          path: .portfolio-cache/
+          include-hidden-files: true
+          retention-days: 1
 
   deploy:
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -59,3 +97,73 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+  snapshots:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+      - name: Look for snapshot branch
+        id: branch
+        shell: bash
+        run: |
+          set +e
+          git ls-remote --exit-code origin refs/heads/portfolio-data > "$RUNNER_TEMP/snapshot-ref"
+          status=$?
+          set -e
+          if [ "$status" -eq 0 ]; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          elif [ "$status" -eq 2 ]; then
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          else
+            exit "$status"
+          fi
+      - name: Check out snapshot storage
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ steps.branch.outputs.exists == 'true' && 'portfolio-data' || 'main' }}
+          path: .portfolio-store
+      - name: Initialize snapshot branch
+        if: steps.branch.outputs.exists != 'true'
+        working-directory: .portfolio-store
+        run: |
+          git checkout --orphan portfolio-data
+          git rm -r --cached .
+      - name: Download deployed snapshots
+        uses: actions/download-artifact@v4
+        with:
+          name: portfolio-snapshots
+          path: .portfolio-candidate
+      - name: Replace stored snapshot files
+        working-directory: .portfolio-store
+        run: |
+          git rm -r --ignore-unmatch snapshot
+          mkdir -p snapshot
+          cp -a ../.portfolio-candidate/. snapshot/
+      - name: Save last-known-good data and images
+        working-directory: .portfolio-store
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add snapshot
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "Refresh public portfolio snapshots" -m "Co-authored-by: Copilot App <223556219+Copilot@users.noreply.github.com>"
+          git push origin HEAD:portfolio-data
+      - name: Flag sources stale for more than three days
+        working-directory: .portfolio-store
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFile } from 'node:fs/promises';
+          const sources = JSON.parse(await readFile('snapshot/status.json', 'utf8'));
+          const overdue = Object.entries(sources).filter(([, status]) =>
+            status && status.stale && Date.now() - Date.parse(status.lastSuccessAt) > 3 * 86400000);
+          if (overdue.length) {
+            throw new Error(`Portfolio deployed using snapshots, but refresh has failed for over three days: ${overdue.map(([source]) => source).join(', ')}`);
+          }
+          NODE

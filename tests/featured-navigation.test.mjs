@@ -13,8 +13,8 @@ function element() {
     classList: { toggle() {} },
     textContent: '',
     closest: () => null,
-    setAttribute() {},
-    removeAttribute() {},
+    setAttribute(name, value) { this[name] = value; },
+    removeAttribute(name) { delete this[name]; },
     replaceChildren() {},
     cloneNode() { return element(); },
     addEventListener(type, handler) {
@@ -32,13 +32,13 @@ function element() {
   };
 }
 
-function setup() {
+function setup(items = Array.from({ length: 3 }, (_, index) => ({ title: `Project ${index + 1}` }))) {
   const nodes = new Map();
   const get = (selector) => {
     if (!nodes.has(selector)) nodes.set(selector, element());
     return nodes.get(selector);
   };
-  const buttons = Array.from({ length: 3 }, (_, index) => ({
+  const buttons = Array.from({ length: items.length }, (_, index) => ({
     ...element(),
     dataset: { index: String(index) },
     querySelector: get,
@@ -47,7 +47,7 @@ function setup() {
   const document = { ...element(), querySelector: () => stage };
   runInNewContext(script, {
     document,
-    runItems: JSON.stringify(buttons.map((_, index) => ({ title: `Project ${index + 1}` }))),
+    runItems: JSON.stringify(items),
   });
   return {
     document,
@@ -55,6 +55,7 @@ function setup() {
     buttons,
     counter: () => get('[data-run-count]').textContent,
     front: get('[data-run-front]'),
+    source: get('[data-run-source]'),
   };
 }
 
@@ -74,6 +75,19 @@ test('arrow keys navigate before any click and wrap in both directions', () => {
   assert.equal(counter(), '03 / 03');
   document.dispatch('keydown', { key: 'ArrowRight' });
   assert.equal(counter(), '01 / 03');
+});
+
+test('source link is hidden for a project without a source URL and restored for one with it', () => {
+  const { buttons, source } = setup([
+    { title: 'Fokus' },
+    { title: 'Project with source', sourceUrl: 'https://github.com/example/project' },
+  ]);
+  buttons[1].dispatch('click');
+  assert.equal(source.hidden, false);
+  assert.equal(source.href, 'https://github.com/example/project');
+  buttons[0].dispatch('click');
+  assert.equal(source.hidden, true);
+  assert.equal(source.href, undefined);
 });
 
 test('typing, modified shortcuts, handled events and unrelated keys are left alone', () => {

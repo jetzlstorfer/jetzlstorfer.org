@@ -20,7 +20,7 @@ const ownerAvatars: Record<string, { file: string } | undefined> = portfolio.own
 const contactUrl = links.find((link) => link.label === 'LinkedIn')?.url ?? `https://github.com/${profile.login}`;
 const run = projects.filter((project): project is Project & { run: number } => Boolean(project.run)).sort((a, b) => a.run - b.run);
 const communityProjects = projects.filter((project) => project.source === 'community');
-const compactDate = (date: string) => new Date(date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' });
+const compactDate = (date: string | null) => date ? new Date(date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' }) : '';
 const displayDate = (date: string) => new Date(date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 const monthLabels = calendar.days.flatMap((day, index, days) => {
   const date = new Date(`${day.date}T00:00:00Z`);
@@ -65,7 +65,7 @@ const printShape = (project: Project, index: number) => {
 const runItems = run.map((project) => ({
   title: project.title,
   name: project.name,
-  url: project.url,
+  sourceUrl: project.sourceUrl,
   homepage: project.homepage,
   description: project.description || project.summary || project.subtitle || 'A public project from GitHub.',
   language: project.primaryLanguage || 'Repository',
@@ -85,6 +85,49 @@ const hasBlog = (await getCollection('blog', (post) => isVisible(post, { dev: im
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#fbf5ea" />
+    <script is:inline>
+      (() => {
+        const deviceTheme = window.matchMedia('(prefers-color-scheme: dark)');
+        let preference = null;
+        try {
+          const saved = localStorage.getItem('theme');
+          if (saved === 'light' || saved === 'dark') preference = saved;
+        } catch (error) {
+          console.warn('Theme preference could not be read; using the device theme.', error);
+        }
+
+        function applyTheme() {
+          const theme = preference || (deviceTheme.matches ? 'dark' : 'light');
+          document.documentElement.dataset.theme = theme;
+          document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#17191d' : '#fbf5ea';
+          const toggle = document.querySelector('[data-theme-toggle]');
+          if (toggle) {
+            toggle.setAttribute('aria-pressed', String(theme === 'dark'));
+            toggle.hidden = false;
+          }
+        }
+
+        applyTheme();
+        deviceTheme.addEventListener('change', applyTheme);
+        document.addEventListener('DOMContentLoaded', () => {
+          applyTheme();
+          document.querySelector('[data-theme-toggle]').addEventListener('click', () => {
+            preference = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+            applyTheme();
+            try {
+              localStorage.setItem('theme', preference);
+            } catch (error) {
+              console.warn('Theme preference could not be saved; it will apply only to this page.', error);
+            }
+          });
+        });
+        window.addEventListener('storage', (event) => {
+          if (event.storageArea !== localStorage || (event.key !== 'theme' && event.key !== null)) return;
+          preference = event.newValue === 'light' || event.newValue === 'dark' ? event.newValue : null;
+          applyTheme();
+        });
+      })();
+    </script>
     <meta name="description" content={`${profile.name}'s living portfolio of websites, community work and experiments, updated from GitHub.`} />
     <title>{profile.name} — websites and projects</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -105,9 +148,12 @@ const hasBlog = (await getCollection('blog', (post) => isVisible(post, { dev: im
         <a href="#community">Community</a>
         {hasBlog && <a href="/blog/">Blog</a>}
       </nav>
-      <a class="masthead-link" href={`https://github.com/${profile.login}`} target="_blank" rel="noreferrer" aria-label="GitHub">
-        <span class="status-dot" aria-hidden="true"></span><span class="masthead-label">GitHub</span><span aria-hidden="true">↗</span>
-      </a>
+      <div class="masthead-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" hidden>Dark mode</button>
+        <a class="masthead-link" href={`https://github.com/${profile.login}`} target="_blank" rel="noreferrer" aria-label="GitHub">
+          <span class="status-dot" aria-hidden="true"></span><span class="masthead-label">GitHub</span><span aria-hidden="true">↗</span>
+        </a>
+      </div>
     </header>
 
     <main id="top">
@@ -155,7 +201,7 @@ const hasBlog = (await getCollection('blog', (post) => isVisible(post, { dev: im
                 <p class="front-description" data-run-description>{initialProject?.description || initialProject?.summary || initialProject?.subtitle}</p>
                 <div class="front-actions">
                   <a class="ink-button" data-run-live href={initialProject?.homepage || '#'} target="_blank" rel="noreferrer" hidden={!initialProject?.homepage}>Live site <span aria-hidden="true">↗</span></a>
-                  <a class="outline-button" data-run-source href={initialProject?.url} target="_blank" rel="noreferrer">Open source <span aria-hidden="true">↗</span></a>
+                  <a class="outline-button" data-run-source href={initialProject?.sourceUrl || undefined} target="_blank" rel="noreferrer" hidden={!initialProject?.sourceUrl}>Open source <span aria-hidden="true">↗</span></a>
                 </div>
               </div>
             </div>
@@ -173,7 +219,7 @@ const hasBlog = (await getCollection('blog', (post) => isVisible(post, { dev: im
                     data-index={index}
                     data-title={project.title}
                     data-name={project.name}
-                    data-url={project.url}
+                    data-source-url={project.sourceUrl || ''}
                     data-homepage={project.homepage || ''}
                     data-description={project.description || project.summary || project.subtitle || 'A public project from GitHub.'}
                     data-language={project.primaryLanguage || 'Repository'}
@@ -193,7 +239,7 @@ const hasBlog = (await getCollection('blog', (post) => isVisible(post, { dev: im
         </section>
 
         <div class="data-updated mono">
-          <span>Data updated · <time datetime={portfolio.generatedAt}>{compactDate(portfolio.generatedAt)}</time></span>
+          <span>GitHub data · <time datetime={portfolio.sources.github.lastSuccessAt}>{compactDate(portfolio.sources.github.lastSuccessAt)}</time>{portfolio.sources.github.stale && ' · refresh delayed'}</span>
         </div>
       </section>
 
@@ -239,7 +285,7 @@ const hasBlog = (await getCollection('blog', (post) => isVisible(post, { dev: im
             {communityProjects.map((project, index) => {
               const avatar = ownerAvatars[project.owner] || ownerAvatars[project.owner.toLowerCase()];
               return (
-                <a class="community-row" href={project.homepage || project.url} target="_blank" rel="noreferrer">
+                <a class="community-row" href={project.homepage || project.sourceUrl || undefined} target="_blank" rel="noreferrer">
                   <span class="community-index mono">{String(index + 1).padStart(2, '0')}</span>
                   {avatar && <img src={assetUrl(avatar.file)} alt="" loading="lazy" />}
                   <span class="community-copy"><strong>{project.owner}</strong><small>{project.title}</small></span>
@@ -285,7 +331,8 @@ const hasBlog = (await getCollection('blog', (post) => isVisible(post, { dev: im
         </div>
       </div>
       <div class="colophon-bottom">
-        <span>Updated {displayDate(portfolio.generatedAt)} · Data from public GitHub and Credly</span>
+        <span>Built {displayDate(portfolio.generatedAt)} · GitHub updated {displayDate(portfolio.sources.github.lastSuccessAt)}{portfolio.sources.github.stale && ' (refresh delayed)'}</span>
+        {portfolio.sources.credly && <span>Credly updated {displayDate(portfolio.sources.credly.lastSuccessAt)}{portfolio.sources.credly.stale && ' (refresh delayed)'}</span>}
         <span class="mono">MADE WITH OPEN SOURCE</span>
         <a href="#top" class="back-to-top">BACK TO TOP ↑</a>
       </div>
@@ -317,7 +364,13 @@ const hasBlog = (await getCollection('blog', (post) => isVisible(post, { dev: im
           title.textContent = item.title;
           title.dataset.text = item.title;
           description.textContent = item.description;
-          source.href = item.url;
+          if (item.sourceUrl) {
+            source.href = item.sourceUrl;
+            source.hidden = false;
+          } else {
+            source.hidden = true;
+            source.removeAttribute('href');
+          }
           language.textContent = item.language;
           pushed.textContent = item.pushed;
           projectIndex.textContent = `PROJECT ${String(next + 1).padStart(2, '0')}`;
