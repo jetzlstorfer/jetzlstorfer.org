@@ -1,7 +1,21 @@
 {
   "identity": "jetzlstorfer",
-  "lastSuccessAt": "2026-11-15T12:46:36.753Z",
+  "lastSuccessAt": "2026-11-16T08:30:18.690Z",
   "data": [
+    {
+      "id": "d376becd-a27e-45ce-baa9-c3e5db1c5888",
+      "name": "Microsoft Pro Badge: GitHub Copilot - Proficient",
+      "issuer": "Microsoft",
+      "issuedAt": "2026-11-16",
+      "expiresAt": "2027-05-16",
+      "expired": false,
+      "url": "https://www.credly.com/badges/d376becd-a27e-45ce-baa9-c3e5db1c5888/public_url",
+      "image": {
+        "file": "src/assets/fetched/badges/d376becd-a27e-45ce-baa9-c3e5db1c5888.webp",
+        "width": 360,
+        "height": 360
+      }
+    },
     {
       "id": "60ef7c74-59e5-49b7-814a-12b445175a26",
       "name": "Organizer - 2025 Cloud Native Community Group",
