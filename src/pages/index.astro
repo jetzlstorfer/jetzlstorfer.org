@@ -4,6 +4,10 @@ import '@fontsource/anton';
 import '@fontsource-variable/mona-sans';
 import '@fontsource/monaspace-neon';
 import portfolio from '../data/portfolio.json';
+import { getCollection } from 'astro:content';
+import { isVisible, sortPosts } from '../lib/blog.mjs';
+import ThemeScript from '../components/ThemeScript.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
 
 const assets = import.meta.glob<string>('../assets/fetched/**/*.{webp,png,jpg,jpeg}', {
   eager: true,
@@ -74,6 +78,8 @@ const runItems = run.map((project) => ({
 const contributionByWeek = Array.from({ length: Math.ceil(calendar.days.length / 7) }, (_, weekIndex) =>
   calendar.days.slice(weekIndex * 7, weekIndex * 7 + 7));
 const initialProject = run[0];
+const blogPosts = sortPosts(await getCollection('blog', (post) => isVisible(post, { dev: import.meta.env.DEV }))).slice(0, 3);
+const hasBlog = blogPosts.length > 0;
 ---
 
 <!doctype html>
@@ -82,49 +88,7 @@ const initialProject = run[0];
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#fbf5ea" />
-    <script is:inline>
-      (() => {
-        const deviceTheme = window.matchMedia('(prefers-color-scheme: dark)');
-        let preference = null;
-        try {
-          const saved = localStorage.getItem('theme');
-          if (saved === 'light' || saved === 'dark') preference = saved;
-        } catch (error) {
-          console.warn('Theme preference could not be read; using the device theme.', error);
-        }
-
-        function applyTheme() {
-          const theme = preference || (deviceTheme.matches ? 'dark' : 'light');
-          document.documentElement.dataset.theme = theme;
-          document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#17191d' : '#fbf5ea';
-          const toggle = document.querySelector('[data-theme-toggle]');
-          if (toggle) {
-            toggle.setAttribute('aria-pressed', String(theme === 'dark'));
-            toggle.hidden = false;
-          }
-        }
-
-        applyTheme();
-        deviceTheme.addEventListener('change', applyTheme);
-        document.addEventListener('DOMContentLoaded', () => {
-          applyTheme();
-          document.querySelector('[data-theme-toggle]').addEventListener('click', () => {
-            preference = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-            applyTheme();
-            try {
-              localStorage.setItem('theme', preference);
-            } catch (error) {
-              console.warn('Theme preference could not be saved; it will apply only to this page.', error);
-            }
-          });
-        });
-        window.addEventListener('storage', (event) => {
-          if (event.storageArea !== localStorage || (event.key !== 'theme' && event.key !== null)) return;
-          preference = event.newValue === 'light' || event.newValue === 'dark' ? event.newValue : null;
-          applyTheme();
-        });
-      })();
-    </script>
+    <ThemeScript />
     <meta name="description" content={`${profile.name}'s living portfolio of websites, community work and experiments, updated from GitHub.`} />
     <title>{profile.name} — websites and projects</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -143,9 +107,10 @@ const initialProject = run[0];
         <a href="#featured-websites">Featured</a>
         <a href="#year">Year in review</a>
         <a href="#community">Community</a>
+        {hasBlog && <a href="/blog/">Blog</a>}
       </nav>
       <div class="masthead-actions">
-        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" hidden>Dark mode</button>
+        <ThemeToggle />
         <a class="masthead-link" href={`https://github.com/${profile.login}`} target="_blank" rel="noreferrer" aria-label="GitHub">
           <span class="status-dot" aria-hidden="true"></span><span class="masthead-label">GitHub</span><span aria-hidden="true">↗</span>
         </a>
@@ -238,6 +203,32 @@ const initialProject = run[0];
           <span>GitHub data · <time datetime={portfolio.sources.github.lastSuccessAt}>{compactDate(portfolio.sources.github.lastSuccessAt)}</time>{portfolio.sources.github.stale && ' · refresh delayed'}</span>
         </div>
       </section>
+
+      {blogPosts.length > 0 && (
+        <section class="home-blog page-wrap" aria-labelledby="home-blog-title">
+          <div class="section-heading home-blog-heading">
+            <h2 id="home-blog-title">Notes from the work</h2>
+            <a class="text-link mono" href="/blog/">All posts ↗</a>
+          </div>
+          <ul class="home-post-list">
+            {blogPosts.map((post) => (
+              <li>
+                <a class="home-post-row" href={`/blog/${post.id}/`}>
+                  <span class="home-post-copy">
+                    <strong>{post.data.title}</strong>
+                    <span>{post.data.description}</span>
+                  </span>
+                  <span class="home-post-meta mono">
+                    <time datetime={post.data.pubDate.toISOString()}>{compactDate(post.data.pubDate.toISOString())}</time>
+                    {post.data.draft && <span class="home-post-draft">DRAFT</span>}
+                  </span>
+                  <span class="home-post-arrow" aria-hidden="true">↗</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section class="year-section page-wrap" id="year" aria-labelledby="year-title">
         <div class="year-top">

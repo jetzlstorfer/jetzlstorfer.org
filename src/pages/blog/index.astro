@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import { isVisible, postArt, readingMinutes, sortPosts } from '../../lib/blog.mjs';
+
+const posts = sortPosts(await getCollection('blog', (post) => isVisible(post, { dev: import.meta.env.DEV })));
+const compactDate = (date: Date) => date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'UTC' });
+---
+
+<BlogLayout title="Blog — Jürgen Etzlstorfer" description="Notes on cloud, AI and the side projects behind jetzlstorfer.org, written by Jürgen Etzlstorfer.">
+  <section class="opening page-wrap" aria-labelledby="blog-title">
+    <div class="opening-copy">
+      <div class="opening-name" aria-hidden="true">
+        <span class="ink-title" data-text="NOTES FROM">NOTES FROM</span>
+        <span class="ink-title ink-title-small" data-text="THE WORK">THE WORK</span>
+      </div>
+      <div class="opening-meta">
+        <div>
+          <h1 id="blog-title">The blog.</h1>
+          <p>Write-ups on cloud, AI and the side projects in the portfolio: what was built, why, and what broke along the way.</p>
+        </div>
+        <p class="print-note"><span class="registration-mark" aria-hidden="true">✳</span> Every post links back to public source.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="blog-list-section page-wrap" aria-labelledby="posts-title">
+    <div class="section-topline">
+      <h2 id="posts-title">All posts</h2>
+      <span class="mono run-counter">{String(posts.length).padStart(2, '0')} POSTS</span>
+      <a class="text-link mono" href="/blog/rss.xml">RSS ↗</a>
+    </div>
+    {posts.length === 0 ? (
+      <p class="blog-empty">The first post is still at the printer. Check back soon.</p>
+    ) : (
+      <ol class="post-list">
+        {posts.map((post, index) => (
+          <li>
+            <a class="post-row" href={`/blog/${post.id}/`}>
+              <span class="post-row-art tile-art" set:html={postArt(post.id)}></span>
+              <span class="post-row-meta mono">
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <time datetime={post.data.pubDate.toISOString()}>{compactDate(post.data.pubDate)}</time>
+                <span>{readingMinutes(post.body)} MIN READ</span>
+                {post.data.draft && <span class="pinned-stamp">DRAFT</span>}
+              </span>
+              <span class="post-row-copy">
+                <strong class="post-row-title">{post.data.title}</strong>
+                <span class="post-row-description">{post.data.description}</span>
+                <span class="post-tags">{post.data.tags.map((tag) => <span class="post-tag mono">{tag}</span>)}</span>
+              </span>
+              <span class="post-row-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    )}
+  </section>
+</BlogLayout>

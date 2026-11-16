@@ -35,7 +35,7 @@ The portfolio is generated from the work itself: pinned repos, README content an
 - Static output, rebuilt by GitHub Actions on push, on a daily schedule, and on manual dispatch.
 - Curation controls: `portfolio.config.mjs` can explicitly order featured repositories; GitHub pins and recently active repositories fill remaining slots. The config can also exclude, include, or override repositories.
 - Self-host fonts and images where practical; avoid third-party runtime requests and trackers.
-- Blog posts are explicitly out of scope.
+- Blog: hand-written Markdown posts in `src/content/blog/` under `/blog/`, with an RSS feed. Posts marked `draft: true` render only in local development; the homepage nav links to the blog once at least one post is published. Posts should link back to public source and must follow the same no-fabrication rules.
 - Undecided: a talks/sessions list (no structured data source yet).
 
 ## Brand Commitments

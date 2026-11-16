@@ -4,7 +4,7 @@ A self-updating portfolio of public GitHub projects, community work and Credly c
 
 Browse featured projects with the arrow buttons or Left/Right arrow keys without clicking first. On mobile, swipe left or right across the featured card; vertical page scrolling and horizontal thumbnail scrolling remain available.
 
-The color theme follows your device by default, including live changes. The **Dark mode** toggle in the header overrides that default and saves your choice in this browser. Clear the site's local storage to follow the device again. If storage is unavailable, the toggle still works for the current page; without JavaScript, the theme follows the device.
+The color theme follows your device by default, including live changes. The header toggle, labeled **Dark mode** or **Light mode** for the theme it switches to, overrides that default and saves your choice in this browser. Clear the site's local storage to follow the device again. If storage is unavailable, the toggle still works for the current page; without JavaScript, the theme follows the device.
 
 ## Run locally
 
@@ -28,6 +28,23 @@ npm run build
 ESLint checks authored JavaScript and Astro components; generated data, downloaded assets and build output are excluded. `astro check` checks Astro and TypeScript diagnostics using the strict TypeScript configuration. Run `npm run fetch` first on a fresh checkout so the checks and build can read the generated portfolio data.
 
 Pull requests to `main` run tests, lint, type checks and a build without deploying or using `PORTFOLIO_TOKEN`. Public data is fetched using the read-only built-in `GITHUB_TOKEN`; it must have access to the public GitHub GraphQL queries. Pushes to `main`, daily builds and manual deployments run the same checks before publishing.
+
+## Blog
+
+Posts are Markdown files in `src/content/blog/`; the file name becomes the URL (`/blog/<file-name>/`). Front matter is validated by `src/content.config.ts`:
+
+```md
+---
+title: A portfolio that builds itself
+description: One or two sentences used on the index, in the feed and as the meta description.
+pubDate: 2026-11-20
+tags: [astro, github-actions]
+repo: jetzlstorfer/jetzlstorfer.org   # optional, links the post to its source
+draft: true                           # optional, defaults to false
+---
+```
+
+Drafts show up in `npm run dev` with a DRAFT stamp but are left out of production builds and `/blog/rss.xml`. Set `draft: false` (or remove it) to publish; the homepage navigation shows a Blog link as soon as one post is published.
 
 ## Curation
 

@@ -3,8 +3,18 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { runInNewContext } from 'node:vm';
 
-const page = readFileSync(new URL('../src/pages/index.astro', import.meta.url), 'utf8');
-const script = page.match(/<script is:inline>([\s\S]*?)<\/script>/)[1];
+const component = readFileSync(new URL('../src/components/ThemeScript.astro', import.meta.url), 'utf8');
+const script = component.match(/<script is:inline>([\s\S]*?)<\/script>/)[1];
+
+test('homepage and blog layout share the early theme script and header toggle', () => {
+  for (const file of ['../src/pages/index.astro', '../src/layouts/BlogLayout.astro']) {
+    const page = readFileSync(new URL(file, import.meta.url), 'utf8');
+    assert.match(page, /import ThemeScript from '\.\.\/components\/ThemeScript\.astro';/);
+    assert.match(page, /import ThemeToggle from '\.\.\/components\/ThemeToggle\.astro';/);
+    assert.match(page, /<head>[\s\S]*<meta name="theme-color"[^>]*\/>\s*<ThemeScript \/>[\s\S]*<\/head>/);
+    assert.match(page, /<header class="masthead page-wrap">[\s\S]*<div class="masthead-actions">\s*<ThemeToggle \/>[\s\S]*<\/header>/);
+  }
+});
 
 function setup({ dark = false, saved = null, storageBlocked = false } = {}) {
   const listeners = new Map();
@@ -70,11 +80,11 @@ test('device theme is applied before the toggle mounts and follows live changes'
     const app = setup({ dark });
     assert.equal(app.initialTheme, dark ? 'dark' : 'light');
     assert.equal(app.toggle.hidden, false);
-    assert.equal(app.toggle['aria-pressed'], String(dark));
+    assert.equal(app.toggle.textContent, dark ? 'Light mode' : 'Dark mode');
     assert.equal(app.meta.content, dark ? '#17191d' : '#fbf5ea');
     app.deviceChange(!dark);
     assert.equal(app.root.dataset.theme, dark ? 'light' : 'dark');
-    assert.equal(app.toggle['aria-pressed'], String(!dark));
+    assert.equal(app.toggle.textContent, dark ? 'Dark mode' : 'Light mode');
     assert.equal(app.meta.content, dark ? '#fbf5ea' : '#17191d');
     assert.equal(app.saved(), null);
   }
@@ -86,22 +96,22 @@ test('saved choices override the device on initial load and subsequent changes',
     assert.equal(app.initialTheme, saved);
     app.deviceChange(saved !== 'dark');
     assert.equal(app.root.dataset.theme, saved);
-    assert.equal(app.toggle['aria-pressed'], String(saved === 'dark'));
+    assert.equal(app.toggle.textContent, saved === 'dark' ? 'Light mode' : 'Dark mode');
   }
 });
 
-test('toggle updates appearance, accessible state and persisted preference in both directions', () => {
+test('toggle updates appearance, label and persisted preference in both directions', () => {
   const app = setup();
   app.click();
   assert.equal(app.root.dataset.theme, 'dark');
-  assert.equal(app.toggle['aria-pressed'], 'true');
+  assert.equal(app.toggle.textContent, 'Light mode');
   assert.equal(app.meta.content, '#17191d');
   assert.equal(app.saved(), 'dark');
   app.deviceChange(false);
   assert.equal(app.root.dataset.theme, 'dark');
   app.click();
   assert.equal(app.root.dataset.theme, 'light');
-  assert.equal(app.toggle['aria-pressed'], 'false');
+  assert.equal(app.toggle.textContent, 'Dark mode');
   assert.equal(app.saved(), 'light');
 });
 
@@ -112,7 +122,7 @@ test('invalid saved values use the device and unavailable storage does not break
   assert.equal(app.warnings.length, 1);
   app.click();
   assert.equal(app.root.dataset.theme, 'light');
-  assert.equal(app.toggle['aria-pressed'], 'false');
+  assert.equal(app.toggle.textContent, 'Dark mode');
   assert.equal(app.warnings.length, 2);
   app.deviceChange(true);
   assert.equal(app.root.dataset.theme, 'light');
