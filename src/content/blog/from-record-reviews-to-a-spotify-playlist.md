@@ -1,10 +1,10 @@
 ---
 title: From Plattentests reviews to a Spotify playlist
 description: How a Go app collects album reviews from Plattentests.de and turns their highlighted tracks into a Spotify playlist.
-pubDate: 2026-11-13
+pubDate: 2026-11-16
 tags: [go, spotify, music]
 repo: jetzlstorfer/plattentests-go
-draft: true
+draft: false
 ---
 
 [Plattentests.de](https://www.plattentests.de/) is one of my favourite places to discover music. Its album reviews include a selection of highlighted tracks. I wanted to listen to those tracks on Spotify without searching for each one myself, so I built [plattentests-go](https://github.com/jetzlstorfer/plattentests-go).
