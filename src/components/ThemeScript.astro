@@ -1,0 +1,43 @@
+<script is:inline>
+  (() => {
+    const deviceTheme = window.matchMedia('(prefers-color-scheme: dark)');
+    let preference = null;
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'light' || saved === 'dark') preference = saved;
+    } catch (error) {
+      console.warn('Theme preference could not be read; using the device theme.', error);
+    }
+
+    function applyTheme() {
+      const theme = preference || (deviceTheme.matches ? 'dark' : 'light');
+      document.documentElement.dataset.theme = theme;
+      document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#17191d' : '#fbf5ea';
+      const toggle = document.querySelector('[data-theme-toggle]');
+      if (toggle) {
+        toggle.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
+        toggle.hidden = false;
+      }
+    }
+
+    applyTheme();
+    deviceTheme.addEventListener('change', applyTheme);
+    document.addEventListener('DOMContentLoaded', () => {
+      applyTheme();
+      document.querySelector('[data-theme-toggle]').addEventListener('click', () => {
+        preference = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        applyTheme();
+        try {
+          localStorage.setItem('theme', preference);
+        } catch (error) {
+          console.warn('Theme preference could not be saved; it will apply only to this page.', error);
+        }
+      });
+    });
+    window.addEventListener('storage', (event) => {
+      if (event.storageArea !== localStorage || (event.key !== 'theme' && event.key !== null)) return;
+      preference = event.newValue === 'light' || event.newValue === 'dark' ? event.newValue : null;
+      applyTheme();
+    });
+  })();
+</script>

@@ -1,67 +1,71 @@
 ---
 title: A portfolio that builds itself
-description: Why jetzlstorfer.org is generated from public GitHub data on a schedule, and what it takes to keep a personal site honest with zero upkeep.
+description: How I use GitHub data, Astro and GitHub Actions to build a portfolio that stays close to the work.
 pubDate: 2026-11-20
 tags: [astro, github-actions, github-api]
 repo: jetzlstorfer/jetzlstorfer.org
 draft: true
 ---
 
-<!-- TODO(Jürgen): open with the moment that triggered this. The old links page at jetzlstorfer.github.io? A conversation after a meetup where you wanted to show "what you actually build"? -->
+A personal website is a useful place to show what I work on, but a list of projects is easy to forget once it's written. My projects already have descriptions, source code and activity on GitHub, so I wanted to use that information instead of maintaining a second list by hand.
 
-Every personal website I have built went stale within a few months. The projects moved on, the site did not. So this time I set one rule: **the site may only show what the code itself can prove.**
+That's the idea behind [jetzlstorfer.org](https://jetzlstorfer.org/). A script collects public project data, [Astro](https://astro.build/) turns it into a static site, and GitHub Actions builds and deploys it. I still choose which projects to feature, but I don't have to update every project card myself.
 
-## The rule: the code is the source of truth
+## Starting with public data
 
-Nothing on the front page is typed in by hand. Featured projects, screenshots, languages, the activity calendar, the community repositories and the badge shelf are all pulled from two public sources:
+The fetch script uses the GitHub GraphQL API to read my profile and public repositories, including pinned projects, descriptions, README content and languages. It also collects public repositories I've contributed to. The contribution calendar comes from my public GitHub profile, with the GraphQL calendar as a fallback.
 
-- the **GitHub GraphQL and REST APIs** for profile, pinned and public repositories, READMEs, languages and the contribution calendar, and
-- the public **Credly badge feed** for certifications and community recognition.
+For the badge section, the script reads my public [Credly profile](https://www.credly.com/users/jetzlstorfer). It also downloads images, such as project screenshots found in READMEs and badge images, so the site can use them as local assets.
 
-If a project is not public on GitHub, it does not exist as far as the site is concerned. That sounds limiting, but it is the whole point: every item links back to something a visitor can check.
+The result is a portfolio where visitors can follow a project back to its repository or live site. It's not a complete list of everything I've worked on; it focuses on work I can share publicly.
 
 ## How the build works
 
-The pipeline is deliberately boring:
+The build has two main steps. First, a Node.js script fetches the data and writes it to `src/data/portfolio.json`. Then Astro reads that file and generates the pages as static HTML.
 
-1. `npm run fetch` runs a Node script that queries GitHub and Credly and writes `src/data/portfolio.json` plus downloaded screenshots and avatars.
-2. Astro renders a fully static page from that JSON.
-3. A GitHub Actions workflow runs lint, `astro check` and the build, then deploys to GitHub Pages: on every push, every day on a schedule, and on demand.
+To run it locally, I use:
 
 ```sh
 npm ci
-npm run fetch   # GitHub + Credly → src/data/portfolio.json
-npm run build   # static HTML in dist/
+npm run fetch
+npm run dev
 ```
 
-Generated data is gitignored. The repository only contains the code that *knows how* to describe me, never a snapshot of the description.
+The fetch step needs a GitHub token. Locally it can use `GITHUB_TOKEN`, `GH_TOKEN`, or the GitHub CLI login. The generated JSON and downloaded images are ignored by Git, so a fresh checkout needs a fetch before it can build.
 
-## Curation without a CMS
+For deployment, a GitHub Actions workflow installs dependencies, runs lint and Astro's checks, fetches the data and builds the site. Pushes to `main` and manual runs deploy the result to GitHub Pages. Pull requests run the build checks without deploying.
 
-Fully automatic ordering turned out to be wrong in small ways. My most active repository is not always the one I want people to see first. So there is exactly one escape hatch, `portfolio.config.mjs`:
+## Choosing what to feature
+
+GitHub has plenty of useful information, but my most recently active repository isn't necessarily the one I want to show first. That's where `portfolio.config.mjs` comes in. Here's a shortened example:
 
 ```js
 export default {
-  featured: ['splitty', 'wichteln', 'plattentests-go', /* … */],
-  exclude: ['jetzlstorfer', 'jetzlstorfer.github.io'],
-  overrides: { 'plattentests-go': { title: 'plattentests' } },
+  featured: ['splitty', 'wichteln', 'plattentests-go'],
+  overrides: {
+    'plattentests-go': { title: 'plattentests' },
+  },
 };
 ```
 
-An explicit `featured` list wins, GitHub pins fill the gaps, and recently pushed repositories fill whatever is left. Older work does not get deleted, it just recedes.
+The configured projects come first, followed by GitHub pins and then other non-archived repositories ordered by activity. I can also exclude repositories or add an override for things like a title or a live URL. This gives me some control over the page without copying all the project details into it.
 
-## Keeping private things private
+## Keeping the data public
 
-<!-- TODO(Jürgen): explain the guardrails in fetch-data.mjs that keep private repos and private contribution details out of the build, and why that mattered to you as someone who also works on confidential customer projects. -->
+The repository lists request public projects. The script also checks `isPrivate` when collecting repositories and checks again before writing the generated data. That matters for a site that builds using a GitHub token: the portfolio should not accidentally turn access to a private repository into a public page.
+
+The contribution calendar is an aggregate rather than a list of projects. Its counts depend on what GitHub exposes through the profile or API and the relevant privacy settings, so a square on the calendar shouldn't be read as a link to a particular public repository.
 
 ## The design: two inks on warm paper
 
-<!-- TODO(Jürgen): a short paragraph on the "Two-Ink Riso" look (federal blue, fluoro pink, sunflower on warm paper) and the "nice developer touch" you asked for. Maybe a before/after screenshot of the old links page. -->
+I wanted the site to feel like a personal portfolio rather than a dashboard of GitHub statistics. The design takes cues from risograph printing: a warm paper background, blue and pink ink, yellow accents, registration marks and bold type.
 
-## What I would do differently
+There are still developer details throughout the page, such as the contribution calendar, language labels and links to source code. They support the projects rather than turning the whole page into a terminal.
 
-<!-- TODO(Jürgen): one or two honest lessons. Candidates: GitHub token permissions for the public profile query, image handling, how much curation you ended up needing after all. -->
+## What still needs attention
 
----
+The current workflow runs on a push to this repository or a manual dispatch. A change in one of my other repositories doesn't trigger a new portfolio build by itself. A scheduled build would close that gap; until then, the data updates on the next deployment.
 
-The source for all of this is public: [jetzlstorfer/jetzlstorfer.org](https://github.com/jetzlstorfer/jetzlstorfer.org).
+The fetch step also depends on the source data and images being available. It's worth checking the build output and the page occasionally, especially when a project changes its README or homepage.
+
+Have a look at the [site](https://jetzlstorfer.org/) or the [source on GitHub](https://github.com/jetzlstorfer/jetzlstorfer.org) for the full setup.

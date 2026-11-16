@@ -4,6 +4,8 @@ import '@fontsource/anton';
 import '@fontsource-variable/mona-sans';
 import '@fontsource/monaspace-neon';
 import portfolio from '../data/portfolio.json';
+import ThemeScript from '../components/ThemeScript.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
 
 interface Props {
   title: string;
@@ -22,6 +24,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#fbf5ea" />
+    <ThemeScript />
     <meta name="description" content={description} />
     <title>{title}</title>
     <link rel="canonical" href={canonical} />
@@ -42,9 +45,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         <a href="/#community">Community</a>
         <a href="/blog/" aria-current={Astro.url.pathname.startsWith('/blog') ? 'page' : undefined}>Blog</a>
       </nav>
-      <a class="masthead-link" href={`https://github.com/${profile.login}`} target="_blank" rel="noreferrer" aria-label="GitHub">
-        <span class="status-dot" aria-hidden="true"></span><span class="masthead-label">GitHub</span><span aria-hidden="true">↗</span>
-      </a>
+      <div class="masthead-actions">
+        <ThemeToggle />
+        <a class="masthead-link" href={`https://github.com/${profile.login}`} target="_blank" rel="noreferrer" aria-label="GitHub">
+          <span class="status-dot" aria-hidden="true"></span><span class="masthead-label">GitHub</span><span aria-hidden="true">↗</span>
+        </a>
+      </div>
     </header>
 
     <main id="top">

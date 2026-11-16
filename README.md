@@ -4,7 +4,7 @@ A self-updating portfolio of public GitHub projects, community work and Credly c
 
 Browse featured projects with the arrow buttons or Left/Right arrow keys without clicking first. On mobile, swipe left or right across the featured card; vertical page scrolling and horizontal thumbnail scrolling remain available.
 
-The color theme follows your device by default, including live changes. The **Dark mode** toggle in the header overrides that default and saves your choice in this browser. Clear the site's local storage to follow the device again. If storage is unavailable, the toggle still works for the current page; without JavaScript, the theme follows the device.
+The color theme follows your device by default, including live changes. The header toggle, labeled **Dark mode** or **Light mode** for the theme it switches to, overrides that default and saves your choice in this browser. Clear the site's local storage to follow the device again. If storage is unavailable, the toggle still works for the current page; without JavaScript, the theme follows the device.
 
 ## Run locally
 
