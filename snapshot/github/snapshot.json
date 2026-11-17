@@ -1,6 +1,6 @@
 {
   "identity": "{\"login\":\"jetzlstorfer\",\"tagline\":\"Solution Engineer at Microsoft Austria, Cloud Native Linz organizer, tech & music aficionado.\",\"exclude\":[\"jetzlstorfer\",\"jetzlstorfer.github.io\",\"jetzlstorfer.org\"],\"include\":[],\"standaloneProjects\":[{\"name\":\"fokus\",\"title\":\"Fokus\",\"homepage\":\"https://fokus.jetzlstorfer.org\",\"image\":\"src/assets/curated/fokus.png\"}],\"featured\":[\"splitty\",\"wichteln\",\"plattentests-go\",\"music-timetraveler\",\"wattpilot-exporter\",\"cloudnativelinz/cloudnativelinz.github.io\",\"fokus\"],\"runSize\":8,\"includeForks\":false,\"recentMonths\":24,\"overrides\":{\"cloudnativelinz/cloudnativelinz.github.io\":{\"title\":\"cloudnativelinz.at\"},\"fokus\":{\"description\":\"A calm, mobile-first photography practice app with weekly assignments and coaching.\"},\"plattentests-go\":{\"title\":\"plattentests\"},\"music-timetraveler\":{\"title\":\"Music Time Traveler\"},\"spotify-yearly-discoveries\":{\"title\":\"Spotify Yearly Discoveries\"}},\"credly\":\"jetzlstorfer\",\"links\":[{\"label\":\"GitHub\",\"url\":\"https://github.com/jetzlstorfer\"},{\"label\":\"LinkedIn\",\"url\":\"https://www.linkedin.com/in/juergenetzlstorfer/\"},{\"label\":\"Cloud Native Linz\",\"url\":\"https://www.meetup.com/cloud-native-linz/\"},{\"label\":\"Medium\",\"url\":\"https://medium.com/@jetzlstorfer\"},{\"label\":\"Credly\",\"url\":\"https://www.credly.com/users/jetzlstorfer\"}]}",
-  "lastSuccessAt": "2026-11-17T05:32:13.198Z",
+  "lastSuccessAt": "2026-11-17T14:28:25.036Z",
   "data": {
     "profile": {
       "login": "jetzlstorfer",
@@ -73,6 +73,209 @@
     },
     "projects": [
       {
+        "key": "splitty",
+        "id": "jetzlstorfer-splitty",
+        "name": "splitty",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/splitty",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/splitty",
+        "sourceUrl": "https://github.com/jetzlstorfer/splitty",
+        "title": "splitty",
+        "subtitle": null,
+        "description": "Split expenses with your spouse 💸",
+        "summary": "A private, offline-first expense ledger for two people. Record shared expenses in EUR, see who owes whom, and keep both devices in sync when you sign in.",
+        "homepage": "https://splitty.jetzlstorfer.org",
+        "pinned": false,
+        "featured": true,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 1,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": "TypeScript",
+        "languages": [
+          {
+            "name": "TypeScript",
+            "color": "#3178c6",
+            "bytes": 546195,
+            "share": 0.917479813411588
+          },
+          {
+            "name": "CSS",
+            "color": "#663399",
+            "bytes": 44611,
+            "share": 0.07493604290794378
+          }
+        ],
+        "createdAt": "2026-10-16T05:31:57Z",
+        "pushedAt": "2026-11-17T11:43:20Z",
+        "commitCount": 206,
+        "lastCommitAt": "2026-11-17T11:43:19Z",
+        "activeAt": "2026-11-17T11:43:19Z",
+        "image": {
+          "file": "src/assets/fetched/projects/jetzlstorfer-splitty.webp",
+          "width": 786,
+          "height": 1702,
+          "alt": "Splitty expense ledger with a shared balance and recent expenses in the light theme",
+          "source": "https://raw.githubusercontent.com/jetzlstorfer/splitty/main/docs/screenshots/expenses.png"
+        },
+        "tags": [
+          "live"
+        ],
+        "source": "own",
+        "recent": true,
+        "run": 1
+      },
+      {
+        "key": "plattentests-go",
+        "id": "jetzlstorfer-plattentests-go",
+        "name": "plattentests-go",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/plattentests-go",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/plattentests-go",
+        "sourceUrl": "https://github.com/jetzlstorfer/plattentests-go",
+        "title": "plattentests",
+        "subtitle": "Plattentests.de - Highlights der Woche",
+        "description": "creates a spotify playlist based on most recent record reviews from my favourite music website plattentests.de 💿",
+        "summary": "This project is a Go-based application for crawling and displaying music album reviews from Plattentests.de. It consists of multiple components, including a web crawler, playlist creator, token manager, and a modern web UI for browsing the data. The project…",
+        "homepage": "https://plattentests.jetzlstorfer.org",
+        "pinned": true,
+        "featured": true,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 1,
+        "forks": 0,
+        "license": "Apache-2.0",
+        "topics": [],
+        "primaryLanguage": "Go",
+        "languages": [
+          {
+            "name": "Go",
+            "color": "#00ADD8",
+            "bytes": 143434,
+            "share": 0.7750424172997742
+          },
+          {
+            "name": "CSS",
+            "color": "#663399",
+            "bytes": 23176,
+            "share": 0.1252309986707445
+          },
+          {
+            "name": "Go Template",
+            "color": "#00ADD8",
+            "bytes": 17292,
+            "share": 0.09343693601201733
+          }
+        ],
+        "createdAt": "2019-05-30T12:18:07Z",
+        "pushedAt": "2026-11-17T06:17:12Z",
+        "commitCount": 821,
+        "lastCommitAt": "2026-11-17T06:17:12Z",
+        "activeAt": "2026-11-17T06:17:12Z",
+        "image": {
+          "file": "src/assets/fetched/projects/jetzlstorfer-plattentests-go.webp",
+          "width": 1537,
+          "height": 1310,
+          "alt": "Project Structure",
+          "source": "https://raw.githubusercontent.com/jetzlstorfer/plattentests-go/main/screenshots/screenshot-dark-mode.png"
+        },
+        "tags": [
+          "live",
+          "music"
+        ],
+        "source": "own",
+        "recent": true,
+        "run": 3
+      },
+      {
+        "key": "CloudNativeLinz/cloudnativelinz.github.io",
+        "id": "cloudnativelinz-cloudnativelinz-github-io",
+        "name": "cloudnativelinz.github.io",
+        "owner": "CloudNativeLinz",
+        "nameWithOwner": "CloudNativeLinz/cloudnativelinz.github.io",
+        "own": false,
+        "url": "https://github.com/CloudNativeLinz/cloudnativelinz.github.io",
+        "sourceUrl": "https://github.com/CloudNativeLinz/cloudnativelinz.github.io",
+        "title": "cloudnativelinz.at",
+        "subtitle": "Cloud Native Linz Website",
+        "description": "Website and main repo for Cloud Native Linz community",
+        "summary": "Official website for the Cloud Native Linz community.",
+        "homepage": "https://cloudnativelinz.at",
+        "pinned": true,
+        "featured": true,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 4,
+        "forks": 18,
+        "license": "MIT",
+        "topics": [],
+        "primaryLanguage": "SCSS",
+        "languages": [
+          {
+            "name": "SCSS",
+            "color": "#c6538c",
+            "bytes": 121773,
+            "share": 0.5580183664491531
+          },
+          {
+            "name": "HTML",
+            "color": "#e34c26",
+            "bytes": 56150,
+            "share": 0.25730442114524527
+          },
+          {
+            "name": "Python",
+            "color": "#3572A5",
+            "bytes": 29254,
+            "share": 0.13405491604956374
+          },
+          {
+            "name": "Ruby",
+            "color": "#701516",
+            "bytes": 4488,
+            "share": 0.020566023902045604
+          },
+          {
+            "name": "JavaScript",
+            "color": "#f1e05a",
+            "bytes": 3336,
+            "share": 0.015287044504729086
+          },
+          {
+            "name": "Makefile",
+            "color": "#427819",
+            "bytes": 2125,
+            "share": 0.009737700711195835
+          }
+        ],
+        "createdAt": "2022-07-10T17:52:48Z",
+        "pushedAt": "2026-11-17T05:42:59Z",
+        "commitCount": 448,
+        "lastCommitAt": "2026-11-17T05:42:37Z",
+        "activeAt": "2026-11-17T05:42:37Z",
+        "image": {
+          "file": "src/assets/fetched/projects/cloudnativelinz-cloudnativelinz-github-io.webp",
+          "width": 1212,
+          "height": 1081,
+          "alt": "Cloud Native Linz homepage",
+          "source": "https://raw.githubusercontent.com/CloudNativeLinz/cloudnativelinz.github.io/main/images/homepage-preview.png"
+        },
+        "tags": [
+          "live",
+          "cloud-native"
+        ],
+        "source": "community",
+        "recent": true,
+        "run": 6
+      },
+      {
         "key": "music-timetraveler",
         "id": "jetzlstorfer-music-timetraveler",
         "name": "music-timetraveler",
@@ -136,63 +339,6 @@
         "source": "own",
         "recent": true,
         "run": 4
-      },
-      {
-        "key": "splitty",
-        "id": "jetzlstorfer-splitty",
-        "name": "splitty",
-        "owner": "jetzlstorfer",
-        "nameWithOwner": "jetzlstorfer/splitty",
-        "own": true,
-        "url": "https://github.com/jetzlstorfer/splitty",
-        "sourceUrl": "https://github.com/jetzlstorfer/splitty",
-        "title": "splitty",
-        "subtitle": null,
-        "description": "Split expenses with your spouse 💸",
-        "summary": "A private, offline-first expense ledger for two people. Record shared expenses in EUR, see who owes whom, and keep both devices in sync when you sign in.",
-        "homepage": "https://splitty.jetzlstorfer.org",
-        "pinned": false,
-        "featured": true,
-        "archived": false,
-        "fork": false,
-        "template": false,
-        "stars": 1,
-        "forks": 0,
-        "license": null,
-        "topics": [],
-        "primaryLanguage": "TypeScript",
-        "languages": [
-          {
-            "name": "TypeScript",
-            "color": "#3178c6",
-            "bytes": 546195,
-            "share": 0.917479813411588
-          },
-          {
-            "name": "CSS",
-            "color": "#663399",
-            "bytes": 44611,
-            "share": 0.07493604290794378
-          }
-        ],
-        "createdAt": "2026-10-16T05:31:57Z",
-        "pushedAt": "2026-11-16T16:18:54Z",
-        "commitCount": 202,
-        "lastCommitAt": "2026-11-14T13:35:41Z",
-        "activeAt": "2026-11-14T13:35:41Z",
-        "image": {
-          "file": "src/assets/fetched/projects/jetzlstorfer-splitty.webp",
-          "width": 786,
-          "height": 1702,
-          "alt": "Splitty expense ledger with a shared balance and recent expenses in the light theme",
-          "source": "https://raw.githubusercontent.com/jetzlstorfer/splitty/main/docs/screenshots/expenses.png"
-        },
-        "tags": [
-          "live"
-        ],
-        "source": "own",
-        "recent": true,
-        "run": 1
       },
       {
         "key": "wattpilot-exporter",
@@ -275,88 +421,6 @@
         "source": "own",
         "recent": true,
         "run": 5
-      },
-      {
-        "key": "CloudNativeLinz/cloudnativelinz.github.io",
-        "id": "cloudnativelinz-cloudnativelinz-github-io",
-        "name": "cloudnativelinz.github.io",
-        "owner": "CloudNativeLinz",
-        "nameWithOwner": "CloudNativeLinz/cloudnativelinz.github.io",
-        "own": false,
-        "url": "https://github.com/CloudNativeLinz/cloudnativelinz.github.io",
-        "sourceUrl": "https://github.com/CloudNativeLinz/cloudnativelinz.github.io",
-        "title": "cloudnativelinz.at",
-        "subtitle": "Cloud Native Linz Website",
-        "description": "Website and main repo for Cloud Native Linz community",
-        "summary": "Official website for the Cloud Native Linz community.",
-        "homepage": "https://cloudnativelinz.at",
-        "pinned": true,
-        "featured": true,
-        "archived": false,
-        "fork": false,
-        "template": false,
-        "stars": 4,
-        "forks": 18,
-        "license": "MIT",
-        "topics": [],
-        "primaryLanguage": "SCSS",
-        "languages": [
-          {
-            "name": "SCSS",
-            "color": "#c6538c",
-            "bytes": 121773,
-            "share": 0.5580183664491531
-          },
-          {
-            "name": "HTML",
-            "color": "#e34c26",
-            "bytes": 56150,
-            "share": 0.25730442114524527
-          },
-          {
-            "name": "Python",
-            "color": "#3572A5",
-            "bytes": 29254,
-            "share": 0.13405491604956374
-          },
-          {
-            "name": "Ruby",
-            "color": "#701516",
-            "bytes": 4488,
-            "share": 0.020566023902045604
-          },
-          {
-            "name": "JavaScript",
-            "color": "#f1e05a",
-            "bytes": 3336,
-            "share": 0.015287044504729086
-          },
-          {
-            "name": "Makefile",
-            "color": "#427819",
-            "bytes": 2125,
-            "share": 0.009737700711195835
-          }
-        ],
-        "createdAt": "2022-07-10T17:52:48Z",
-        "pushedAt": "2026-11-16T09:15:57Z",
-        "commitCount": 446,
-        "lastCommitAt": "2026-11-13T12:20:04Z",
-        "activeAt": "2026-11-13T12:20:04Z",
-        "image": {
-          "file": "src/assets/fetched/projects/cloudnativelinz-cloudnativelinz-github-io.webp",
-          "width": 1212,
-          "height": 1081,
-          "alt": "Cloud Native Linz homepage",
-          "source": "https://raw.githubusercontent.com/CloudNativeLinz/cloudnativelinz.github.io/main/images/homepage-preview.png"
-        },
-        "tags": [
-          "live",
-          "cloud-native"
-        ],
-        "source": "community",
-        "recent": true,
-        "run": 6
       },
       {
         "key": "spotify-yearly-discoveries",
@@ -570,70 +634,6 @@
         "recent": true
       },
       {
-        "key": "plattentests-go",
-        "id": "jetzlstorfer-plattentests-go",
-        "name": "plattentests-go",
-        "owner": "jetzlstorfer",
-        "nameWithOwner": "jetzlstorfer/plattentests-go",
-        "own": true,
-        "url": "https://github.com/jetzlstorfer/plattentests-go",
-        "sourceUrl": "https://github.com/jetzlstorfer/plattentests-go",
-        "title": "plattentests",
-        "subtitle": "Plattentests.de - Highlights der Woche",
-        "description": "creates a spotify playlist based on most recent record reviews from my favourite music website plattentests.de 💿",
-        "summary": "This project is a Go-based application for crawling and displaying music album reviews from Plattentests.de. It consists of multiple components, including a web crawler, playlist creator, token manager, and a modern web UI for browsing the data. The project…",
-        "homepage": "https://plattentests.jetzlstorfer.org",
-        "pinned": true,
-        "featured": true,
-        "archived": false,
-        "fork": false,
-        "template": false,
-        "stars": 1,
-        "forks": 0,
-        "license": "Apache-2.0",
-        "topics": [],
-        "primaryLanguage": "Go",
-        "languages": [
-          {
-            "name": "Go",
-            "color": "#00ADD8",
-            "bytes": 137685,
-            "share": 0.7678301555346119
-          },
-          {
-            "name": "CSS",
-            "color": "#663399",
-            "bytes": 23176,
-            "share": 0.12924597221680043
-          },
-          {
-            "name": "Go Template",
-            "color": "#00ADD8",
-            "bytes": 17292,
-            "share": 0.09643257471405388
-          }
-        ],
-        "createdAt": "2019-05-30T12:18:07Z",
-        "pushedAt": "2026-11-16T20:58:23Z",
-        "commitCount": 819,
-        "lastCommitAt": "2026-11-02T08:07:57Z",
-        "activeAt": "2026-11-02T08:07:57Z",
-        "image": {
-          "file": "src/assets/fetched/projects/jetzlstorfer-plattentests-go.webp",
-          "width": 1537,
-          "height": 1310,
-          "alt": "Project Structure",
-          "source": "https://raw.githubusercontent.com/jetzlstorfer/plattentests-go/main/screenshots/screenshot-dark-mode.png"
-        },
-        "tags": [
-          "live",
-          "music"
-        ],
-        "source": "own",
-        "recent": true,
-        "run": 3
-      },
-      {
         "key": "podcaster",
         "id": "jetzlstorfer-podcaster",
         "name": "podcaster",
@@ -735,7 +735,7 @@
         "fork": false,
         "template": false,
         "stars": 35,
-        "forks": 99,
+        "forks": 100,
         "license": null,
         "topics": [
           "hacktoberfest"
@@ -1762,18 +1762,78 @@
         "width": 240,
         "height": 240
       },
-      "CloudNativeLinz": {
-        "file": "src/assets/fetched/owners/cloudnativelinz.webp",
+      "dasMulli": {
+        "file": "src/assets/fetched/owners/dasmulli.webp",
         "width": 240,
         "height": 240
       },
-      "dasMulli": {
-        "file": "src/assets/fetched/owners/dasmulli.webp",
+      "CloudNativeLinz": {
+        "file": "src/assets/fetched/owners/cloudnativelinz.webp",
         "width": 240,
         "height": 240
       }
     },
     "ledger": [
+      {
+        "oid": "702b934604b03c6822e53b0fe004eb93e8d8e9aa",
+        "sha": "702b934",
+        "headline": "docs: capture multi-tenant plan and Azure cost outlook",
+        "date": "2026-11-17T11:43:19Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/702b934604b03c6822e53b0fe004eb93e8d8e9aa",
+        "repo": "splitty",
+        "repoId": "jetzlstorfer-splitty",
+        "pr": 53
+      },
+      {
+        "oid": "7ebee5e10186f08a4739b8e91696529d1499009f",
+        "sha": "7ebee5e",
+        "headline": "Add structured JSON logging",
+        "date": "2026-11-17T06:17:12Z",
+        "url": "https://github.com/jetzlstorfer/plattentests-go/commit/7ebee5e10186f08a4739b8e91696529d1499009f",
+        "repo": "plattentests-go",
+        "repoId": "jetzlstorfer-plattentests-go",
+        "pr": 357
+      },
+      {
+        "oid": "527453a56d9dbf2f7fb36dc9637001d4553d1f8d",
+        "sha": "527453a",
+        "headline": "Rename November meetup edition",
+        "date": "2026-11-17T05:42:37Z",
+        "url": "https://github.com/CloudNativeLinz/cloudnativelinz.github.io/commit/527453a56d9dbf2f7fb36dc9637001d4553d1f8d",
+        "repo": "CloudNativeLinz/cloudnativelinz.github.io",
+        "repoId": "cloudnativelinz-cloudnativelinz-github-io",
+        "pr": 238
+      },
+      {
+        "oid": "0d9b7d258e53d8ce439d0e8e88f9a903cd4a7812",
+        "sha": "0d9b7d2",
+        "headline": "Add structured JSON logging",
+        "date": "2026-11-16T20:55:37Z",
+        "url": "https://github.com/jetzlstorfer/plattentests-go/commit/0d9b7d258e53d8ce439d0e8e88f9a903cd4a7812",
+        "repo": "plattentests-go",
+        "repoId": "jetzlstorfer-plattentests-go",
+        "pr": null
+      },
+      {
+        "oid": "23eccb79ab677ad3ab876d190392dd26ae7c85f4",
+        "sha": "23eccb7",
+        "headline": "docs: refresh multi-tenant proposal",
+        "date": "2026-11-16T16:18:05Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/23eccb79ab677ad3ab876d190392dd26ae7c85f4",
+        "repo": "splitty",
+        "repoId": "jetzlstorfer-splitty",
+        "pr": null
+      },
+      {
+        "oid": "19357383c465ccb9b6024013c442299708faad28",
+        "sha": "1935738",
+        "headline": "Rename November meetup edition",
+        "date": "2026-11-16T09:15:53Z",
+        "url": "https://github.com/CloudNativeLinz/cloudnativelinz.github.io/commit/19357383c465ccb9b6024013c442299708faad28",
+        "repo": "CloudNativeLinz/cloudnativelinz.github.io",
+        "repoId": "cloudnativelinz-cloudnativelinz-github-io",
+        "pr": null
+      },
       {
         "oid": "c39388fa2d18fa63682c4fbde0e1c8ae950977b0",
         "sha": "c39388f",
@@ -1845,26 +1905,6 @@
         "pr": 91
       },
       {
-        "oid": "0d60771747bc3d60454ef13eb2e952240e6b7a11",
-        "sha": "0d60771",
-        "headline": "Avoid stealing focus after closing sheets",
-        "date": "2026-11-14T12:41:30Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/0d60771747bc3d60454ef13eb2e952240e6b7a11",
-        "repo": "splitty",
-        "repoId": "jetzlstorfer-splitty",
-        "pr": null
-      },
-      {
-        "oid": "ddf34028f663297cfbf40a3ec8bbcf042561c36e",
-        "sha": "ddf3402",
-        "headline": "Fix to-do completion CI regressions",
-        "date": "2026-11-14T12:32:44Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/ddf34028f663297cfbf40a3ec8bbcf042561c36e",
-        "repo": "splitty",
-        "repoId": "jetzlstorfer-splitty",
-        "pr": null
-      },
-      {
         "oid": "27c2a97f4278ffbbd6a6cc9ec7cbac437f0ec8b4",
         "sha": "27c2a97",
         "headline": "Add homepage preview to README",
@@ -1873,50 +1913,10 @@
         "repo": "CloudNativeLinz/cloudnativelinz.github.io",
         "repoId": "cloudnativelinz-cloudnativelinz-github-io",
         "pr": 237
-      },
-      {
-        "oid": "8f9037ce6d54093d6c5e6c4e1a5f99ddd38df4b1",
-        "sha": "8f9037c",
-        "headline": "Add homepage preview to README",
-        "date": "2026-11-13T12:17:47Z",
-        "url": "https://github.com/CloudNativeLinz/cloudnativelinz.github.io/commit/8f9037ce6d54093d6c5e6c4e1a5f99ddd38df4b1",
-        "repo": "CloudNativeLinz/cloudnativelinz.github.io",
-        "repoId": "cloudnativelinz-cloudnativelinz-github-io",
-        "pr": null
-      },
-      {
-        "oid": "a862ed96393cf0e5d020fd16442f84985eb97e8f",
-        "sha": "a862ed9",
-        "headline": "docs: add app screenshot to README",
-        "date": "2026-11-13T12:05:58Z",
-        "url": "https://github.com/jetzlstorfer/music-timetraveler/commit/a862ed96393cf0e5d020fd16442f84985eb97e8f",
-        "repo": "music-timetraveler",
-        "repoId": "jetzlstorfer-music-timetraveler",
-        "pr": null
-      },
-      {
-        "oid": "f2b8fd50816f05f590f3799188a866829cde4596",
-        "sha": "f2b8fd5",
-        "headline": "Bump golang.org/x/oauth2 from 0.37.0 to 0.38.0 in the gomod group",
-        "date": "2026-11-12T05:47:03Z",
-        "url": "https://github.com/jetzlstorfer/spotify-yearly-discoveries/commit/f2b8fd50816f05f590f3799188a866829cde4596",
-        "repo": "spotify-yearly-discoveries",
-        "repoId": "jetzlstorfer-spotify-yearly-discoveries",
-        "pr": 39
-      },
-      {
-        "oid": "8369483a8b8fb1dd0e73bbfee125a8f84e7ab789",
-        "sha": "8369483",
-        "headline": "Add homepage screenshot to README",
-        "date": "2026-11-11T15:18:06Z",
-        "url": "https://github.com/jetzlstorfer/wichteln/commit/8369483a8b8fb1dd0e73bbfee125a8f84e7ab789",
-        "repo": "wichteln",
-        "repoId": "jetzlstorfer-wichteln",
-        "pr": 12
       }
     ],
     "calendar": {
-      "total": 2161,
+      "total": 2173,
       "days": [
         {
           "date": "2025-11-16",
@@ -3292,7 +3292,7 @@
         },
         {
           "date": "2026-10-25",
-          "count": 2
+          "count": 3
         },
         {
           "date": "2026-10-26",
@@ -3380,11 +3380,11 @@
         },
         {
           "date": "2026-11-16",
-          "count": 10
+          "count": 14
         },
         {
           "date": "2026-11-17",
-          "count": 2
+          "count": 9
         }
       ],
       "source": "github.com public profile"
