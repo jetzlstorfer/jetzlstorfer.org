@@ -46,6 +46,20 @@ draft: true                           # optional, defaults to false
 
 Drafts show up in `npm run dev` with a DRAFT stamp but are left out of production builds and `/blog/rss.xml`. Set `draft: false` (or remove it) to publish; the homepage navigation shows a Blog link as soon as one post is published.
 
+### Full-text RSS and images
+
+`/blog/rss.xml` keeps the short description as a summary and includes the complete rendered article in RSS `content:encoded`, including headings, lists, code, links and inline images. The feed uses the same Astro Markdown rendering as the article page, sanitizes the HTML for feed readers, and makes image and link URLs absolute. Images load eagerly in the feed rather than relying on reader JavaScript or the site's CSS.
+
+To add an image to both an article and its feed entry, commit a PNG, JPEG or WebP under `src/assets/blog/` and reference it from the Markdown:
+
+```md
+![Diagram showing public GitHub data flowing through Astro to GitHub Pages](../../assets/blog/portfolio-pipeline.png)
+```
+
+Astro processes local Markdown images and the feed points to the built asset. Files in `public/blog/` can instead use root-relative URLs such as `/blog/portfolio-pipeline.png`. Use descriptive alt text and explain essential information in the prose too; some readers block remote images. Avoid SVG-only illustrations for reader compatibility. Existing posts do not gain placeholder images automatically.
+
+Image ideas for the current posts: a small data-flow diagram for the portfolio build; a record-review-to-playlist pipeline or a screenshot of the playlist tool using cleared artwork; a fictional charging-session breakdown for EV billing; and a participant/assignment diagram with invented names for the Secret Santa draw. Prefer explanatory diagrams or cropped screenshots over decorative covers, use the site's two-ink palette, and exclude tokens, real billing details and private draw results.
+
 ## Curation
 
 `portfolio.config.mjs` controls featured-project selection and order, exclusions, extra repositories, recency and factual overrides such as a live URL. Put repository names in `featured` in the order you want them shown (`name` for your own repos, `owner/name` for other public repos). Use `standaloneProjects` to list a project using only its explicitly provided public display details, without fetching or publishing repository metadata or a source link. For a standalone image, commit a PNG, JPEG or WebP under `src/assets/curated/` and set `image` to its repository-relative path; it will be published with the site. GitHub pins and recently active repositories fill any remaining slots. Only public repository data is requested and written.
