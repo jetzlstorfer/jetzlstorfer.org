@@ -1,3 +1,5 @@
+[![Check and publish portfolio](https://github.com/jetzlstorfer/jetzlstorfer.org/actions/workflows/deploy.yml/badge.svg)](https://github.com/jetzlstorfer/jetzlstorfer.org/actions/workflows/deploy.yml)
+
 # jetzlstorfer.org
 
 A self-updating portfolio of public GitHub projects, community work and Credly credentials. The site is built as a static Astro page; project details, screenshots, activity and badges are refreshed by GitHub Actions.
