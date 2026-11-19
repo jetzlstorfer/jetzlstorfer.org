@@ -1,6 +1,6 @@
 {
   "identity": "{\"login\":\"jetzlstorfer\",\"tagline\":\"Solution Engineer at Microsoft Austria, Cloud Native Linz organizer, tech & music aficionado.\",\"exclude\":[\"jetzlstorfer\",\"jetzlstorfer.github.io\",\"jetzlstorfer.org\"],\"include\":[],\"standaloneProjects\":[{\"name\":\"fokus\",\"title\":\"Fokus\",\"homepage\":\"https://fokus.jetzlstorfer.org\",\"image\":\"src/assets/curated/fokus.png\"}],\"featured\":[\"splitty\",\"wichteln\",\"plattentests-go\",\"music-timetraveler\",\"wattpilot-exporter\",\"cloudnativelinz/cloudnativelinz.github.io\",\"fokus\"],\"runSize\":8,\"includeForks\":false,\"recentMonths\":24,\"overrides\":{\"cloudnativelinz/cloudnativelinz.github.io\":{\"title\":\"cloudnativelinz.at\"},\"fokus\":{\"description\":\"A calm, mobile-first photography practice app with weekly assignments and coaching.\"},\"plattentests-go\":{\"title\":\"plattentests\"},\"music-timetraveler\":{\"title\":\"Music Time Traveler\"},\"spotify-yearly-discoveries\":{\"title\":\"Spotify Yearly Discoveries\"}},\"credly\":\"jetzlstorfer\",\"links\":[{\"label\":\"GitHub\",\"url\":\"https://github.com/jetzlstorfer\"},{\"label\":\"LinkedIn\",\"url\":\"https://www.linkedin.com/in/juergenetzlstorfer/\"},{\"label\":\"Cloud Native Linz\",\"url\":\"https://www.meetup.com/cloud-native-linz/\"},{\"label\":\"Medium\",\"url\":\"https://medium.com/@jetzlstorfer\"},{\"label\":\"Credly\",\"url\":\"https://www.credly.com/users/jetzlstorfer\"}]}",
-  "lastSuccessAt": "2026-11-18T08:01:33.782Z",
+  "lastSuccessAt": "2026-11-19T11:07:43.041Z",
   "data": {
     "profile": {
       "login": "jetzlstorfer",
@@ -73,6 +73,169 @@
     },
     "projects": [
       {
+        "key": "CloudNativeLinz/cloudnativelinz.github.io",
+        "id": "cloudnativelinz-cloudnativelinz-github-io",
+        "name": "cloudnativelinz.github.io",
+        "owner": "CloudNativeLinz",
+        "nameWithOwner": "CloudNativeLinz/cloudnativelinz.github.io",
+        "own": false,
+        "url": "https://github.com/CloudNativeLinz/cloudnativelinz.github.io",
+        "sourceUrl": "https://github.com/CloudNativeLinz/cloudnativelinz.github.io",
+        "title": "cloudnativelinz.at",
+        "subtitle": "Cloud Native Linz Website",
+        "description": "Website and main repo for Cloud Native Linz community",
+        "summary": "Official website for the Cloud Native Linz community.",
+        "homepage": "https://cloudnativelinz.at",
+        "pinned": true,
+        "featured": true,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 4,
+        "forks": 18,
+        "license": "MIT",
+        "topics": [],
+        "primaryLanguage": "SCSS",
+        "languages": [
+          {
+            "name": "SCSS",
+            "color": "#c6538c",
+            "bytes": 121773,
+            "share": 0.5580183664491531
+          },
+          {
+            "name": "HTML",
+            "color": "#e34c26",
+            "bytes": 56150,
+            "share": 0.25730442114524527
+          },
+          {
+            "name": "Python",
+            "color": "#3572A5",
+            "bytes": 29254,
+            "share": 0.13405491604956374
+          },
+          {
+            "name": "Ruby",
+            "color": "#701516",
+            "bytes": 4488,
+            "share": 0.020566023902045604
+          },
+          {
+            "name": "JavaScript",
+            "color": "#f1e05a",
+            "bytes": 3336,
+            "share": 0.015287044504729086
+          },
+          {
+            "name": "Makefile",
+            "color": "#427819",
+            "bytes": 2125,
+            "share": 0.009737700711195835
+          }
+        ],
+        "createdAt": "2022-07-10T17:52:48Z",
+        "pushedAt": "2026-11-19T10:20:49Z",
+        "commitCount": 452,
+        "lastCommitAt": "2026-11-19T10:20:46Z",
+        "activeAt": "2026-11-19T10:20:46Z",
+        "image": {
+          "file": "src/assets/fetched/projects/cloudnativelinz-cloudnativelinz-github-io.webp",
+          "width": 1212,
+          "height": 1081,
+          "alt": "Cloud Native Linz homepage",
+          "source": "https://raw.githubusercontent.com/CloudNativeLinz/cloudnativelinz.github.io/main/images/homepage-preview.png"
+        },
+        "tags": [
+          "live",
+          "cloud-native"
+        ],
+        "source": "community",
+        "recent": true,
+        "run": 6
+      },
+      {
+        "key": "wichteln",
+        "id": "jetzlstorfer-wichteln",
+        "name": "wichteln",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/wichteln",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/wichteln",
+        "sourceUrl": "https://github.com/jetzlstorfer/wichteln",
+        "title": "wichteln",
+        "subtitle": "🎄 Wichteln mit dem Christkind",
+        "description": "A little secret santa website 🧑‍🎄",
+        "summary": "Eine warme, familienfreundliche Wichtel-App (Secret Santa auf Österreichisch) – gemacht fürs Handy, ohne Passwörter, ohne Werbung, ohne Tracking. Das Christkind lost aus. Jede Person sieht nur die eigene Zuteilung; der Organisator-Link gewährt keinen Zugriff…",
+        "homepage": "https://wichteln.jetzlstorfer.org",
+        "pinned": false,
+        "featured": true,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 0,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": "TypeScript",
+        "languages": [
+          {
+            "name": "TypeScript",
+            "color": "#3178c6",
+            "bytes": 315925,
+            "share": 0.8782598542743323
+          },
+          {
+            "name": "Bicep",
+            "color": "#519aba",
+            "bytes": 13306,
+            "share": 0.0369901895100871
+          },
+          {
+            "name": "JavaScript",
+            "color": "#f1e05a",
+            "bytes": 11851,
+            "share": 0.0329453431447499
+          },
+          {
+            "name": "CSS",
+            "color": "#663399",
+            "bytes": 11109,
+            "share": 0.030882610496584816
+          },
+          {
+            "name": "PowerShell",
+            "color": "#012456",
+            "bytes": 4513,
+            "share": 0.012545973640389528
+          },
+          {
+            "name": "HTML",
+            "color": "#e34c26",
+            "bytes": 2163,
+            "share": 0.006013060266820862
+          }
+        ],
+        "createdAt": "2026-11-04T13:40:19Z",
+        "pushedAt": "2026-11-18T08:45:02Z",
+        "commitCount": 34,
+        "lastCommitAt": "2026-11-18T08:44:53Z",
+        "activeAt": "2026-11-18T08:44:53Z",
+        "image": {
+          "file": "src/assets/fetched/projects/jetzlstorfer-wichteln.webp",
+          "width": 1281,
+          "height": 807,
+          "alt": "Startseite von Wichteln mit dem Christkind",
+          "source": "https://raw.githubusercontent.com/jetzlstorfer/wichteln/main/docs/screenshot.png"
+        },
+        "tags": [
+          "live"
+        ],
+        "source": "own",
+        "recent": true,
+        "run": 2
+      },
+      {
         "key": "splitty",
         "id": "jetzlstorfer-splitty",
         "name": "splitty",
@@ -111,7 +274,7 @@
           }
         ],
         "createdAt": "2026-10-16T05:31:57Z",
-        "pushedAt": "2026-11-17T19:05:43Z",
+        "pushedAt": "2026-11-19T09:48:13Z",
         "commitCount": 206,
         "lastCommitAt": "2026-11-17T11:43:19Z",
         "activeAt": "2026-11-17T11:43:19Z",
@@ -192,88 +355,6 @@
         "source": "own",
         "recent": true,
         "run": 3
-      },
-      {
-        "key": "CloudNativeLinz/cloudnativelinz.github.io",
-        "id": "cloudnativelinz-cloudnativelinz-github-io",
-        "name": "cloudnativelinz.github.io",
-        "owner": "CloudNativeLinz",
-        "nameWithOwner": "CloudNativeLinz/cloudnativelinz.github.io",
-        "own": false,
-        "url": "https://github.com/CloudNativeLinz/cloudnativelinz.github.io",
-        "sourceUrl": "https://github.com/CloudNativeLinz/cloudnativelinz.github.io",
-        "title": "cloudnativelinz.at",
-        "subtitle": "Cloud Native Linz Website",
-        "description": "Website and main repo for Cloud Native Linz community",
-        "summary": "Official website for the Cloud Native Linz community.",
-        "homepage": "https://cloudnativelinz.at",
-        "pinned": true,
-        "featured": true,
-        "archived": false,
-        "fork": false,
-        "template": false,
-        "stars": 4,
-        "forks": 18,
-        "license": "MIT",
-        "topics": [],
-        "primaryLanguage": "SCSS",
-        "languages": [
-          {
-            "name": "SCSS",
-            "color": "#c6538c",
-            "bytes": 121773,
-            "share": 0.5580183664491531
-          },
-          {
-            "name": "HTML",
-            "color": "#e34c26",
-            "bytes": 56150,
-            "share": 0.25730442114524527
-          },
-          {
-            "name": "Python",
-            "color": "#3572A5",
-            "bytes": 29254,
-            "share": 0.13405491604956374
-          },
-          {
-            "name": "Ruby",
-            "color": "#701516",
-            "bytes": 4488,
-            "share": 0.020566023902045604
-          },
-          {
-            "name": "JavaScript",
-            "color": "#f1e05a",
-            "bytes": 3336,
-            "share": 0.015287044504729086
-          },
-          {
-            "name": "Makefile",
-            "color": "#427819",
-            "bytes": 2125,
-            "share": 0.009737700711195835
-          }
-        ],
-        "createdAt": "2022-07-10T17:52:48Z",
-        "pushedAt": "2026-11-17T05:42:59Z",
-        "commitCount": 448,
-        "lastCommitAt": "2026-11-17T05:42:37Z",
-        "activeAt": "2026-11-17T05:42:37Z",
-        "image": {
-          "file": "src/assets/fetched/projects/cloudnativelinz-cloudnativelinz-github-io.webp",
-          "width": 1212,
-          "height": 1081,
-          "alt": "Cloud Native Linz homepage",
-          "source": "https://raw.githubusercontent.com/CloudNativeLinz/cloudnativelinz.github.io/main/images/homepage-preview.png"
-        },
-        "tags": [
-          "live",
-          "cloud-native"
-        ],
-        "source": "community",
-        "recent": true,
-        "run": 6
       },
       {
         "key": "music-timetraveler",
@@ -499,87 +580,6 @@
         "run": 8
       },
       {
-        "key": "wichteln",
-        "id": "jetzlstorfer-wichteln",
-        "name": "wichteln",
-        "owner": "jetzlstorfer",
-        "nameWithOwner": "jetzlstorfer/wichteln",
-        "own": true,
-        "url": "https://github.com/jetzlstorfer/wichteln",
-        "sourceUrl": "https://github.com/jetzlstorfer/wichteln",
-        "title": "wichteln",
-        "subtitle": "🎄 Wichteln mit dem Christkind",
-        "description": "A little secret santa website 🧑‍🎄",
-        "summary": "Eine warme, familienfreundliche Wichtel-App (Secret Santa auf Österreichisch) – gemacht fürs Handy, ohne Passwörter, ohne Werbung, ohne Tracking. Das Christkind lost aus. Jede Person sieht nur die eigene Zuteilung; der Organisator-Link gewährt keinen Zugriff…",
-        "homepage": "https://wichteln.jetzlstorfer.org",
-        "pinned": false,
-        "featured": true,
-        "archived": false,
-        "fork": false,
-        "template": false,
-        "stars": 0,
-        "forks": 0,
-        "license": null,
-        "topics": [],
-        "primaryLanguage": "TypeScript",
-        "languages": [
-          {
-            "name": "TypeScript",
-            "color": "#3178c6",
-            "bytes": 315925,
-            "share": 0.8782598542743323
-          },
-          {
-            "name": "Bicep",
-            "color": "#519aba",
-            "bytes": 13306,
-            "share": 0.0369901895100871
-          },
-          {
-            "name": "JavaScript",
-            "color": "#f1e05a",
-            "bytes": 11851,
-            "share": 0.0329453431447499
-          },
-          {
-            "name": "CSS",
-            "color": "#663399",
-            "bytes": 11109,
-            "share": 0.030882610496584816
-          },
-          {
-            "name": "PowerShell",
-            "color": "#012456",
-            "bytes": 4513,
-            "share": 0.012545973640389528
-          },
-          {
-            "name": "HTML",
-            "color": "#e34c26",
-            "bytes": 2163,
-            "share": 0.006013060266820862
-          }
-        ],
-        "createdAt": "2026-11-04T13:40:19Z",
-        "pushedAt": "2026-11-14T01:54:54Z",
-        "commitCount": 32,
-        "lastCommitAt": "2026-11-11T15:18:06Z",
-        "activeAt": "2026-11-11T15:18:06Z",
-        "image": {
-          "file": "src/assets/fetched/projects/jetzlstorfer-wichteln.webp",
-          "width": 1281,
-          "height": 807,
-          "alt": "Startseite von Wichteln mit dem Christkind",
-          "source": "https://raw.githubusercontent.com/jetzlstorfer/wichteln/main/docs/screenshot.png"
-        },
-        "tags": [
-          "live"
-        ],
-        "source": "own",
-        "recent": true,
-        "run": 2
-      },
-      {
         "key": "CloudNativeLinz/asset-generator",
         "id": "cloudnativelinz-asset-generator",
         "name": "asset-generator",
@@ -745,24 +745,24 @@
           {
             "name": "HTML",
             "color": "#e34c26",
-            "bytes": 218830,
-            "share": 0.8901716233642084
+            "bytes": 222170,
+            "share": 0.8916438240712127
           },
           {
             "name": "SCSS",
             "color": "#c6538c",
             "bytes": 17099,
-            "share": 0.06955648031761916
+            "share": 0.06862410653010607
           },
           {
             "name": "CSS",
             "color": "#663399",
             "bytes": 9900,
-            "share": 0.040271896318172386
+            "share": 0.039732069398681215
           }
         ],
         "createdAt": "2013-08-12T13:15:54Z",
-        "pushedAt": "2026-11-17T16:29:40Z",
+        "pushedAt": "2026-11-19T06:01:56Z",
         "commitCount": 14,
         "lastCommitAt": "2026-09-15T12:55:25Z",
         "activeAt": "2026-09-15T12:55:25Z",
@@ -878,7 +878,7 @@
           }
         ],
         "createdAt": "2026-04-24T19:26:24Z",
-        "pushedAt": "2026-09-03T23:29:22Z",
+        "pushedAt": "2026-11-18T08:49:01Z",
         "commitCount": 69,
         "lastCommitAt": "2026-06-05T13:57:22Z",
         "activeAt": "2026-06-05T13:57:22Z",
@@ -1016,7 +1016,7 @@
         "primaryLanguage": null,
         "languages": [],
         "createdAt": "2023-01-15T10:49:19Z",
-        "pushedAt": "2026-08-17T11:12:09Z",
+        "pushedAt": "2026-11-18T08:46:41Z",
         "commitCount": 30,
         "lastCommitAt": "2025-02-04T17:13:43Z",
         "activeAt": "2025-02-04T17:13:43Z",
@@ -1108,7 +1108,7 @@
         "primaryLanguage": null,
         "languages": [],
         "createdAt": "2022-12-13T09:17:27Z",
-        "pushedAt": "2026-08-17T19:09:36Z",
+        "pushedAt": "2026-11-18T08:46:59Z",
         "commitCount": 40,
         "lastCommitAt": "2024-03-27T06:14:24Z",
         "activeAt": "2024-03-27T06:14:24Z",
@@ -1145,7 +1145,7 @@
         "primaryLanguage": null,
         "languages": [],
         "createdAt": "2024-01-09T16:36:27Z",
-        "pushedAt": "2026-08-17T07:43:39Z",
+        "pushedAt": "2026-11-18T08:47:17Z",
         "commitCount": 15,
         "lastCommitAt": "2024-02-06T05:42:23Z",
         "activeAt": "2024-02-06T05:42:23Z",
@@ -1757,8 +1757,8 @@
       }
     ],
     "ownerAvatars": {
-      "technologieplauscherl": {
-        "file": "src/assets/fetched/owners/technologieplauscherl.webp",
+      "dasMulli": {
+        "file": "src/assets/fetched/owners/dasmulli.webp",
         "width": 240,
         "height": 240
       },
@@ -1767,13 +1767,63 @@
         "width": 240,
         "height": 240
       },
-      "dasMulli": {
-        "file": "src/assets/fetched/owners/dasmulli.webp",
+      "technologieplauscherl": {
+        "file": "src/assets/fetched/owners/technologieplauscherl.webp",
         "width": 240,
         "height": 240
       }
     },
     "ledger": [
+      {
+        "oid": "74208e3f27c5d454596c400b428bb72a52c2a796",
+        "sha": "74208e3",
+        "headline": "Use local photo for Katharina's event",
+        "date": "2026-11-19T10:20:46Z",
+        "url": "https://github.com/CloudNativeLinz/cloudnativelinz.github.io/commit/74208e3f27c5d454596c400b428bb72a52c2a796",
+        "repo": "CloudNativeLinz/cloudnativelinz.github.io",
+        "repoId": "cloudnativelinz-cloudnativelinz-github-io",
+        "pr": 240
+      },
+      {
+        "oid": "e4e5e40fc98916339170cd51f66ce89c110ed05d",
+        "sha": "e4e5e40",
+        "headline": "Add LinkedIn links to November meetup speakers",
+        "date": "2026-11-19T10:20:22Z",
+        "url": "https://github.com/CloudNativeLinz/cloudnativelinz.github.io/commit/e4e5e40fc98916339170cd51f66ce89c110ed05d",
+        "repo": "CloudNativeLinz/cloudnativelinz.github.io",
+        "repoId": "cloudnativelinz-cloudnativelinz-github-io",
+        "pr": 239
+      },
+      {
+        "oid": "5d9af0c23f245c9c060e95c469a2a09af2db7f67",
+        "sha": "5d9af0c",
+        "headline": "Use local photo for Katharina's event",
+        "date": "2026-11-19T10:19:04Z",
+        "url": "https://github.com/CloudNativeLinz/cloudnativelinz.github.io/commit/5d9af0c23f245c9c060e95c469a2a09af2db7f67",
+        "repo": "CloudNativeLinz/cloudnativelinz.github.io",
+        "repoId": "cloudnativelinz-cloudnativelinz-github-io",
+        "pr": null
+      },
+      {
+        "oid": "1c7fd7558fe6b14a5d39cb8dfab1ceec398c083a",
+        "sha": "1c7fd75",
+        "headline": "Add speaker LinkedIn links",
+        "date": "2026-11-19T10:19:04Z",
+        "url": "https://github.com/CloudNativeLinz/cloudnativelinz.github.io/commit/1c7fd7558fe6b14a5d39cb8dfab1ceec398c083a",
+        "repo": "CloudNativeLinz/cloudnativelinz.github.io",
+        "repoId": "cloudnativelinz-cloudnativelinz-github-io",
+        "pr": null
+      },
+      {
+        "oid": "83990f07483657fc1ed38bf414e3a9a64c91c14b",
+        "sha": "83990f0",
+        "headline": "Bump fast-xml-parser from 5.11.2 to 5.12.1",
+        "date": "2026-11-18T08:44:53Z",
+        "url": "https://github.com/jetzlstorfer/wichteln/commit/83990f07483657fc1ed38bf414e3a9a64c91c14b",
+        "repo": "wichteln",
+        "repoId": "jetzlstorfer-wichteln",
+        "pr": 13
+      },
       {
         "oid": "702b934604b03c6822e53b0fe004eb93e8d8e9aa",
         "sha": "702b934",
@@ -1863,60 +1913,10 @@
         "repo": "wattpilot-exporter",
         "repoId": "jetzlstorfer-wattpilot-exporter",
         "pr": 83
-      },
-      {
-        "oid": "d3cc2f54f3e926ee13adaf2eb79ae21da73b2871",
-        "sha": "d3cc2f5",
-        "headline": "Only show persisted to-do completion as checked",
-        "date": "2026-11-14T13:27:42Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/d3cc2f54f3e926ee13adaf2eb79ae21da73b2871",
-        "repo": "splitty",
-        "repoId": "jetzlstorfer-splitty",
-        "pr": null
-      },
-      {
-        "oid": "68d8e243bf127090d6327deaf79c788a34483f6c",
-        "sha": "68d8e24",
-        "headline": "Prefer fresh charging data after startup",
-        "date": "2026-11-14T13:25:12Z",
-        "url": "https://github.com/jetzlstorfer/wattpilot-exporter/commit/68d8e243bf127090d6327deaf79c788a34483f6c",
-        "repo": "wattpilot-exporter",
-        "repoId": "jetzlstorfer-wattpilot-exporter",
-        "pr": null
-      },
-      {
-        "oid": "7e5c6054dc3f2c926c7c6d4b01598d1a6bedd559",
-        "sha": "7e5c605",
-        "headline": "Keep to-do celebrations in place and tighten completion timing",
-        "date": "2026-11-14T13:12:39Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/7e5c6054dc3f2c926c7c6d4b01598d1a6bedd559",
-        "repo": "splitty",
-        "repoId": "jetzlstorfer-splitty",
-        "pr": null
-      },
-      {
-        "oid": "7785ccaac7325b89f80ed0dfe7ebc1205d17aa82",
-        "sha": "7785cca",
-        "headline": "Keep completion celebrations in the open to-do list",
-        "date": "2026-11-14T12:52:55Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/7785ccaac7325b89f80ed0dfe7ebc1205d17aa82",
-        "repo": "splitty",
-        "repoId": "jetzlstorfer-splitty",
-        "pr": 91
-      },
-      {
-        "oid": "27c2a97f4278ffbbd6a6cc9ec7cbac437f0ec8b4",
-        "sha": "27c2a97",
-        "headline": "Add homepage preview to README",
-        "date": "2026-11-13T12:20:04Z",
-        "url": "https://github.com/CloudNativeLinz/cloudnativelinz.github.io/commit/27c2a97f4278ffbbd6a6cc9ec7cbac437f0ec8b4",
-        "repo": "CloudNativeLinz/cloudnativelinz.github.io",
-        "repoId": "cloudnativelinz-cloudnativelinz-github-io",
-        "pr": 237
       }
     ],
     "calendar": {
-      "total": 2178,
+      "total": 2188,
       "days": [
         {
           "date": "2025-11-16",
@@ -3388,7 +3388,11 @@
         },
         {
           "date": "2026-11-18",
-          "count": 4
+          "count": 6
+        },
+        {
+          "date": "2026-11-19",
+          "count": 8
         }
       ],
       "source": "github.com public profile"
