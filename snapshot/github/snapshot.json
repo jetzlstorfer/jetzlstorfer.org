@@ -1,6 +1,6 @@
 {
   "identity": "{\"login\":\"jetzlstorfer\",\"tagline\":\"Solution Engineer at Microsoft Austria, Cloud Native Linz organizer, tech & music aficionado.\",\"exclude\":[\"jetzlstorfer\",\"jetzlstorfer.github.io\",\"jetzlstorfer.org\"],\"include\":[],\"standaloneProjects\":[{\"name\":\"fokus\",\"title\":\"Fokus\",\"homepage\":\"https://fokus.jetzlstorfer.org\",\"image\":\"src/assets/curated/fokus.png\"}],\"featured\":[\"splitty\",\"wichteln\",\"plattentests-go\",\"music-timetraveler\",\"wattpilot-exporter\",\"cloudnativelinz/cloudnativelinz.github.io\",\"fokus\"],\"runSize\":8,\"includeForks\":false,\"recentMonths\":24,\"overrides\":{\"cloudnativelinz/cloudnativelinz.github.io\":{\"title\":\"cloudnativelinz.at\"},\"fokus\":{\"description\":\"A calm, mobile-first photography practice app with weekly assignments and coaching.\"},\"plattentests-go\":{\"title\":\"plattentests\"},\"music-timetraveler\":{\"title\":\"Music Time Traveler\"},\"spotify-yearly-discoveries\":{\"title\":\"Spotify Yearly Discoveries\"}},\"credly\":\"jetzlstorfer\",\"links\":[{\"label\":\"GitHub\",\"url\":\"https://github.com/jetzlstorfer\"},{\"label\":\"LinkedIn\",\"url\":\"https://www.linkedin.com/in/juergenetzlstorfer/\"},{\"label\":\"Cloud Native Linz\",\"url\":\"https://www.meetup.com/cloud-native-linz/\"},{\"label\":\"Medium\",\"url\":\"https://medium.com/@jetzlstorfer\"},{\"label\":\"Credly\",\"url\":\"https://www.credly.com/users/jetzlstorfer\"}]}",
-  "lastSuccessAt": "2026-11-19T11:07:43.041Z",
+  "lastSuccessAt": "2026-11-20T10:54:18.497Z",
   "data": {
     "profile": {
       "login": "jetzlstorfer",
@@ -274,7 +274,7 @@
           }
         ],
         "createdAt": "2026-10-16T05:31:57Z",
-        "pushedAt": "2026-11-19T09:48:13Z",
+        "pushedAt": "2026-11-20T07:20:04Z",
         "commitCount": 206,
         "lastCommitAt": "2026-11-17T11:43:19Z",
         "activeAt": "2026-11-17T11:43:19Z",
@@ -745,24 +745,24 @@
           {
             "name": "HTML",
             "color": "#e34c26",
-            "bytes": 222170,
-            "share": 0.8916438240712127
+            "bytes": 222144,
+            "share": 0.891632516265759
           },
           {
             "name": "SCSS",
             "color": "#c6538c",
             "bytes": 17099,
-            "share": 0.06862410653010607
+            "share": 0.06863126798665826
           },
           {
             "name": "CSS",
             "color": "#663399",
             "bytes": 9900,
-            "share": 0.039732069398681215
+            "share": 0.039736215747582716
           }
         ],
         "createdAt": "2013-08-12T13:15:54Z",
-        "pushedAt": "2026-11-19T06:01:56Z",
+        "pushedAt": "2026-11-20T08:33:57Z",
         "commitCount": 14,
         "lastCommitAt": "2026-09-15T12:55:25Z",
         "activeAt": "2026-09-15T12:55:25Z",
@@ -1757,6 +1757,11 @@
       }
     ],
     "ownerAvatars": {
+      "technologieplauscherl": {
+        "file": "src/assets/fetched/owners/technologieplauscherl.webp",
+        "width": 240,
+        "height": 240
+      },
       "dasMulli": {
         "file": "src/assets/fetched/owners/dasmulli.webp",
         "width": 240,
@@ -1764,11 +1769,6 @@
       },
       "CloudNativeLinz": {
         "file": "src/assets/fetched/owners/cloudnativelinz.webp",
-        "width": 240,
-        "height": 240
-      },
-      "technologieplauscherl": {
-        "file": "src/assets/fetched/owners/technologieplauscherl.webp",
         "width": 240,
         "height": 240
       }
@@ -1916,7 +1916,7 @@
       }
     ],
     "calendar": {
-      "total": 2188,
+      "total": 2195,
       "days": [
         {
           "date": "2025-11-16",
@@ -3392,7 +3392,11 @@
         },
         {
           "date": "2026-11-19",
-          "count": 8
+          "count": 15
+        },
+        {
+          "date": "2026-11-20",
+          "count": 0
         }
       ],
       "source": "github.com public profile"
