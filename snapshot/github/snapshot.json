@@ -1,6 +1,6 @@
 {
   "identity": "{\"login\":\"jetzlstorfer\",\"tagline\":\"Solution Engineer at Microsoft Austria, Cloud Native Linz organizer, tech & music aficionado.\",\"exclude\":[\"jetzlstorfer\",\"jetzlstorfer.github.io\",\"jetzlstorfer.org\"],\"include\":[],\"standaloneProjects\":[{\"name\":\"fokus\",\"title\":\"Fokus\",\"homepage\":\"https://fokus.jetzlstorfer.org\",\"image\":\"src/assets/curated/fokus.png\"}],\"featured\":[\"splitty\",\"wichteln\",\"plattentests-go\",\"music-timetraveler\",\"wattpilot-exporter\",\"cloudnativelinz/cloudnativelinz.github.io\",\"fokus\"],\"runSize\":8,\"includeForks\":false,\"recentMonths\":24,\"overrides\":{\"cloudnativelinz/cloudnativelinz.github.io\":{\"title\":\"cloudnativelinz.at\"},\"fokus\":{\"description\":\"A calm, mobile-first photography practice app with weekly assignments and coaching.\"},\"plattentests-go\":{\"title\":\"plattentests\"},\"music-timetraveler\":{\"title\":\"Music Time Traveler\"},\"spotify-yearly-discoveries\":{\"title\":\"Spotify Yearly Discoveries\"}},\"credly\":\"jetzlstorfer\",\"links\":[{\"label\":\"GitHub\",\"url\":\"https://github.com/jetzlstorfer\"},{\"label\":\"LinkedIn\",\"url\":\"https://www.linkedin.com/in/juergenetzlstorfer/\"},{\"label\":\"Cloud Native Linz\",\"url\":\"https://www.meetup.com/cloud-native-linz/\"},{\"label\":\"Medium\",\"url\":\"https://medium.com/@jetzlstorfer\"},{\"label\":\"Credly\",\"url\":\"https://www.credly.com/users/jetzlstorfer\"}]}",
-  "lastSuccessAt": "2026-11-24T13:17:20.949Z",
+  "lastSuccessAt": "2026-11-25T12:06:58.533Z",
   "data": {
     "profile": {
       "login": "jetzlstorfer",
@@ -751,24 +751,24 @@
           {
             "name": "HTML",
             "color": "#e34c26",
-            "bytes": 222747,
-            "share": 0.8918941644711026
+            "bytes": 233452,
+            "share": 0.8963375068630952
           },
           {
             "name": "SCSS",
             "color": "#c6538c",
             "bytes": 17099,
-            "share": 0.06846556100998615
+            "share": 0.06565150450564597
           },
           {
             "name": "CSS",
             "color": "#663399",
             "bytes": 9900,
-            "share": 0.039640274518911216
+            "share": 0.03801098863125885
           }
         ],
         "createdAt": "2013-08-12T13:15:54Z",
-        "pushedAt": "2026-11-21T16:42:19Z",
+        "pushedAt": "2026-11-24T20:45:52Z",
         "commitCount": 14,
         "lastCommitAt": "2026-09-15T12:55:25Z",
         "activeAt": "2026-09-15T12:55:25Z",
@@ -3391,6 +3391,10 @@
         {
           "date": "2026-11-24",
           "count": 2
+        },
+        {
+          "date": "2026-11-25",
+          "count": 0
         }
       ],
       "source": "github.com public profile"
