@@ -1,6 +1,6 @@
 {
   "identity": "{\"login\":\"jetzlstorfer\",\"tagline\":\"Solution Engineer at Microsoft Austria, Cloud Native Linz organizer, tech & music aficionado.\",\"exclude\":[\"jetzlstorfer\",\"jetzlstorfer.github.io\",\"jetzlstorfer.org\"],\"include\":[],\"standaloneProjects\":[{\"name\":\"fokus\",\"title\":\"Fokus\",\"homepage\":\"https://fokus.jetzlstorfer.org\",\"image\":\"src/assets/curated/fokus.png\"}],\"featured\":[\"splitty\",\"wichteln\",\"plattentests-go\",\"music-timetraveler\",\"wattpilot-exporter\",\"cloudnativelinz/cloudnativelinz.github.io\",\"fokus\"],\"runSize\":8,\"includeForks\":false,\"recentMonths\":24,\"overrides\":{\"cloudnativelinz/cloudnativelinz.github.io\":{\"title\":\"cloudnativelinz.at\"},\"fokus\":{\"description\":\"A calm, mobile-first photography practice app with weekly assignments and coaching.\"},\"plattentests-go\":{\"title\":\"plattentests\"},\"music-timetraveler\":{\"title\":\"Music Time Traveler\"},\"spotify-yearly-discoveries\":{\"title\":\"Spotify Yearly Discoveries\"}},\"credly\":\"jetzlstorfer\",\"links\":[{\"label\":\"GitHub\",\"url\":\"https://github.com/jetzlstorfer\"},{\"label\":\"LinkedIn\",\"url\":\"https://www.linkedin.com/in/juergenetzlstorfer/\"},{\"label\":\"Cloud Native Linz\",\"url\":\"https://www.meetup.com/cloud-native-linz/\"},{\"label\":\"Medium\",\"url\":\"https://medium.com/@jetzlstorfer\"},{\"label\":\"Credly\",\"url\":\"https://www.credly.com/users/jetzlstorfer\"}]}",
-  "lastSuccessAt": "2026-11-25T12:06:58.533Z",
+  "lastSuccessAt": "2026-11-26T11:53:11.800Z",
   "data": {
     "profile": {
       "login": "jetzlstorfer",
@@ -73,6 +73,69 @@
     },
     "projects": [
       {
+        "key": "splitty",
+        "id": "jetzlstorfer-splitty",
+        "name": "splitty",
+        "owner": "jetzlstorfer",
+        "nameWithOwner": "jetzlstorfer/splitty",
+        "own": true,
+        "url": "https://github.com/jetzlstorfer/splitty",
+        "sourceUrl": "https://github.com/jetzlstorfer/splitty",
+        "title": "splitty",
+        "subtitle": null,
+        "description": "Split expenses with your spouse 💸",
+        "summary": "A private, offline-first expense ledger for two people. Record shared expenses in EUR, see who owes whom, and keep both devices in sync when you sign in.",
+        "homepage": "https://splitty.jetzlstorfer.org",
+        "pinned": false,
+        "featured": true,
+        "archived": false,
+        "fork": false,
+        "template": false,
+        "stars": 1,
+        "forks": 0,
+        "license": null,
+        "topics": [],
+        "primaryLanguage": "TypeScript",
+        "languages": [
+          {
+            "name": "TypeScript",
+            "color": "#3178c6",
+            "bytes": 800840,
+            "share": 0.9355465395969453
+          },
+          {
+            "name": "CSS",
+            "color": "#663399",
+            "bytes": 47904,
+            "share": 0.05596176693578252
+          },
+          {
+            "name": "Bicep",
+            "color": "#519aba",
+            "bytes": 4511,
+            "share": 0.005269779781381825
+          }
+        ],
+        "createdAt": "2026-10-16T05:31:57Z",
+        "pushedAt": "2026-11-26T11:19:07Z",
+        "commitCount": 254,
+        "lastCommitAt": "2026-11-26T11:19:07Z",
+        "activeAt": "2026-11-26T11:19:07Z",
+        "image": {
+          "file": "src/assets/fetched/projects/jetzlstorfer-splitty.webp",
+          "width": 786,
+          "height": 1702,
+          "alt": "Splitty expense ledger with a shared balance and recent expenses in the light theme",
+          "source": "https://raw.githubusercontent.com/jetzlstorfer/splitty/main/docs/screenshots/expenses.png"
+        },
+        "tags": [
+          "live"
+        ],
+        "source": "own",
+        "recent": true,
+        "run": 1
+      },
+      {
         "key": "music-timetraveler",
         "id": "jetzlstorfer-music-timetraveler",
         "name": "music-timetraveler",
@@ -136,69 +199,6 @@
         "source": "own",
         "recent": true,
         "run": 4
-      },
-      {
-        "key": "splitty",
-        "id": "jetzlstorfer-splitty",
-        "name": "splitty",
-        "owner": "jetzlstorfer",
-        "nameWithOwner": "jetzlstorfer/splitty",
-        "own": true,
-        "url": "https://github.com/jetzlstorfer/splitty",
-        "sourceUrl": "https://github.com/jetzlstorfer/splitty",
-        "title": "splitty",
-        "subtitle": null,
-        "description": "Split expenses with your spouse 💸",
-        "summary": "A private, offline-first expense ledger for two people. Record shared expenses in EUR, see who owes whom, and keep both devices in sync when you sign in.",
-        "homepage": "https://splitty.jetzlstorfer.org",
-        "pinned": false,
-        "featured": true,
-        "archived": false,
-        "fork": false,
-        "template": false,
-        "stars": 1,
-        "forks": 0,
-        "license": null,
-        "topics": [],
-        "primaryLanguage": "TypeScript",
-        "languages": [
-          {
-            "name": "TypeScript",
-            "color": "#3178c6",
-            "bytes": 711286,
-            "share": 0.93022945588418
-          },
-          {
-            "name": "CSS",
-            "color": "#663399",
-            "bytes": 46368,
-            "share": 0.060640697849300644
-          },
-          {
-            "name": "Bicep",
-            "color": "#519aba",
-            "bytes": 4511,
-            "share": 0.005899546842611181
-          }
-        ],
-        "createdAt": "2026-10-16T05:31:57Z",
-        "pushedAt": "2026-11-20T13:15:45Z",
-        "commitCount": 218,
-        "lastCommitAt": "2026-11-20T13:15:45Z",
-        "activeAt": "2026-11-20T13:15:45Z",
-        "image": {
-          "file": "src/assets/fetched/projects/jetzlstorfer-splitty.webp",
-          "width": 786,
-          "height": 1702,
-          "alt": "Splitty expense ledger with a shared balance and recent expenses in the light theme",
-          "source": "https://raw.githubusercontent.com/jetzlstorfer/splitty/main/docs/screenshots/expenses.png"
-        },
-        "tags": [
-          "live"
-        ],
-        "source": "own",
-        "recent": true,
-        "run": 1
       },
       {
         "key": "CloudNativeLinz/cloudnativelinz.github.io",
@@ -1781,6 +1781,76 @@
     },
     "ledger": [
       {
+        "oid": "2efea80ca51b22061072a18ca6bf1ca5bbf32f05",
+        "sha": "2efea80",
+        "headline": "Align insurance setting checkbox with to-dos",
+        "date": "2026-11-26T11:19:07Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/2efea80ca51b22061072a18ca6bf1ca5bbf32f05",
+        "repo": "splitty",
+        "repoId": "jetzlstorfer-splitty",
+        "pr": 110
+      },
+      {
+        "oid": "ff2fe2e782663ce680bf50ad88b441725e2de1c8",
+        "sha": "ff2fe2e",
+        "headline": "Recognize External ID federated issuers with tenant suffix",
+        "date": "2026-11-26T11:06:04Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/ff2fe2e782663ce680bf50ad88b441725e2de1c8",
+        "repo": "splitty",
+        "repoId": "jetzlstorfer-splitty",
+        "pr": 109
+      },
+      {
+        "oid": "149e40a63672ef94eefb7ee8ef8444130a107e87",
+        "sha": "149e40a",
+        "headline": "Align insurance setting checkbox with to-dos",
+        "date": "2026-11-26T10:56:46Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/149e40a63672ef94eefb7ee8ef8444130a107e87",
+        "repo": "splitty",
+        "repoId": "jetzlstorfer-splitty",
+        "pr": null
+      },
+      {
+        "oid": "69184feefb7292c0d20f487867ccf155ad18f1b8",
+        "sha": "69184fe",
+        "headline": "Recognize External ID federated issuers with tenant suffix",
+        "date": "2026-11-26T10:54:57Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/69184feefb7292c0d20f487867ccf155ad18f1b8",
+        "repo": "splitty",
+        "repoId": "jetzlstorfer-splitty",
+        "pr": null
+      },
+      {
+        "oid": "5d3bea6d6f70724e575f0c832f2d682fe8b868ce",
+        "sha": "5d3bea6",
+        "headline": "Identify email and Microsoft sign-ins when Entra omits the provider",
+        "date": "2026-11-26T10:33:15Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/5d3bea6d6f70724e575f0c832f2d682fe8b868ce",
+        "repo": "splitty",
+        "repoId": "jetzlstorfer-splitty",
+        "pr": 107
+      },
+      {
+        "oid": "76e4b2c145f174f97b24ac89198c0ea98ec1e17b",
+        "sha": "76e4b2c",
+        "headline": "Add optional on-device receipt scanning and expense autofill",
+        "date": "2026-11-26T10:21:35Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/76e4b2c145f174f97b24ac89198c0ea98ec1e17b",
+        "repo": "splitty",
+        "repoId": "jetzlstorfer-splitty",
+        "pr": 38
+      },
+      {
+        "oid": "0238cebaf8910dd5df00c7b45f55e0d503cc20dd",
+        "sha": "0238ceb",
+        "headline": "Resolve missing sign-in providers using Entra identity evidence",
+        "date": "2026-11-26T10:21:17Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/0238cebaf8910dd5df00c7b45f55e0d503cc20dd",
+        "repo": "splitty",
+        "repoId": "jetzlstorfer-splitty",
+        "pr": null
+      },
+      {
         "oid": "32a70bbee91dfd73ebf731ff3c840c34fd29827d",
         "sha": "32a70bb",
         "headline": "build(deps): bump the pip group with 2 updates",
@@ -1789,76 +1859,6 @@
         "repo": "music-timetraveler",
         "repoId": "jetzlstorfer-music-timetraveler",
         "pr": 82
-      },
-      {
-        "oid": "a400d158c176f95b143fbe006750576dafffc41d",
-        "sha": "a400d15",
-        "headline": "Use a soccer ball for the sports category",
-        "date": "2026-11-20T13:15:45Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/a400d158c176f95b143fbe006750576dafffc41d",
-        "repo": "splitty",
-        "repoId": "jetzlstorfer-splitty",
-        "pr": 96
-      },
-      {
-        "oid": "204e2fb0596ea43f6248c8fd3b610b462bed8ea3",
-        "sha": "204e2fb",
-        "headline": "Move custom soccer ball icon into its own module",
-        "date": "2026-11-20T12:53:40Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/204e2fb0596ea43f6248c8fd3b610b462bed8ea3",
-        "repo": "splitty",
-        "repoId": "jetzlstorfer-splitty",
-        "pr": null
-      },
-      {
-        "oid": "673715b34a2fcaff14d9c204a4abb0b3f4e14ace",
-        "sha": "673715b",
-        "headline": "Use soccer ball for sports category",
-        "date": "2026-11-20T12:51:30Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/673715b34a2fcaff14d9c204a4abb0b3f4e14ace",
-        "repo": "splitty",
-        "repoId": "jetzlstorfer-splitty",
-        "pr": null
-      },
-      {
-        "oid": "572d4d6b3f180e3cc8d3fd7088f30f6c5cc3f40d",
-        "sha": "572d4d6",
-        "headline": "Implement multi-tenant households",
-        "date": "2026-11-20T12:38:07Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/572d4d6b3f180e3cc8d3fd7088f30f6c5cc3f40d",
-        "repo": "splitty",
-        "repoId": "jetzlstorfer-splitty",
-        "pr": 94
-      },
-      {
-        "oid": "2a6b11cdf17a7c3c99c885dc9aa855772e81696e",
-        "sha": "2a6b11c",
-        "headline": "Add public privacy and terms pages",
-        "date": "2026-11-20T12:06:31Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/2a6b11cdf17a7c3c99c885dc9aa855772e81696e",
-        "repo": "splitty",
-        "repoId": "jetzlstorfer-splitty",
-        "pr": 95
-      },
-      {
-        "oid": "d6c053ccc6fa69d6885d441dfd164dc7f09c1b99",
-        "sha": "d6c053c",
-        "headline": "Add public privacy and terms pages",
-        "date": "2026-11-20T11:59:03Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/d6c053ccc6fa69d6885d441dfd164dc7f09c1b99",
-        "repo": "splitty",
-        "repoId": "jetzlstorfer-splitty",
-        "pr": null
-      },
-      {
-        "oid": "164624c11dec7c7316b096a44e787668e49306ac",
-        "sha": "164624c",
-        "headline": "Add existing-household claim and cutover prep",
-        "date": "2026-11-19T21:52:09Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/164624c11dec7c7316b096a44e787668e49306ac",
-        "repo": "splitty",
-        "repoId": "jetzlstorfer-splitty",
-        "pr": null
       },
       {
         "oid": "74208e3f27c5d454596c400b428bb72a52c2a796",
@@ -1922,7 +1922,7 @@
       }
     ],
     "calendar": {
-      "total": 2207,
+      "total": 2254,
       "days": [
         {
           "date": "2025-11-23",
@@ -3246,7 +3246,7 @@
         },
         {
           "date": "2026-10-19",
-          "count": 51
+          "count": 54
         },
         {
           "date": "2026-10-20",
@@ -3254,7 +3254,7 @@
         },
         {
           "date": "2026-10-21",
-          "count": 35
+          "count": 36
         },
         {
           "date": "2026-10-22",
@@ -3394,7 +3394,11 @@
         },
         {
           "date": "2026-11-25",
-          "count": 0
+          "count": 14
+        },
+        {
+          "date": "2026-11-26",
+          "count": 29
         }
       ],
       "source": "github.com public profile"
