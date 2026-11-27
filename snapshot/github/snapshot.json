@@ -1,6 +1,6 @@
 {
   "identity": "{\"login\":\"jetzlstorfer\",\"tagline\":\"Solution Engineer at Microsoft Austria, Cloud Native Linz organizer, tech & music aficionado.\",\"exclude\":[\"jetzlstorfer\",\"jetzlstorfer.github.io\",\"jetzlstorfer.org\"],\"include\":[],\"standaloneProjects\":[{\"name\":\"fokus\",\"title\":\"Fokus\",\"homepage\":\"https://fokus.jetzlstorfer.org\",\"image\":\"src/assets/curated/fokus.png\"}],\"featured\":[\"splitty\",\"wichteln\",\"plattentests-go\",\"music-timetraveler\",\"wattpilot-exporter\",\"cloudnativelinz/cloudnativelinz.github.io\",\"fokus\"],\"runSize\":8,\"includeForks\":false,\"recentMonths\":24,\"overrides\":{\"cloudnativelinz/cloudnativelinz.github.io\":{\"title\":\"cloudnativelinz.at\"},\"fokus\":{\"description\":\"A calm, mobile-first photography practice app with weekly assignments and coaching.\"},\"plattentests-go\":{\"title\":\"plattentests\"},\"music-timetraveler\":{\"title\":\"Music Time Traveler\"},\"spotify-yearly-discoveries\":{\"title\":\"Spotify Yearly Discoveries\"}},\"credly\":\"jetzlstorfer\",\"links\":[{\"label\":\"GitHub\",\"url\":\"https://github.com/jetzlstorfer\"},{\"label\":\"LinkedIn\",\"url\":\"https://www.linkedin.com/in/juergenetzlstorfer/\"},{\"label\":\"Cloud Native Linz\",\"url\":\"https://www.meetup.com/cloud-native-linz/\"},{\"label\":\"Medium\",\"url\":\"https://medium.com/@jetzlstorfer\"},{\"label\":\"Credly\",\"url\":\"https://www.credly.com/users/jetzlstorfer\"}]}",
-  "lastSuccessAt": "2026-11-26T11:53:11.800Z",
+  "lastSuccessAt": "2026-11-27T11:45:58.185Z",
   "data": {
     "profile": {
       "login": "jetzlstorfer",
@@ -12,7 +12,7 @@
       "url": "https://github.com/jetzlstorfer",
       "createdAt": "2014-05-23T07:40:23Z",
       "followers": 78,
-      "publicRepos": 62,
+      "publicRepos": 63,
       "avatar": {
         "file": "src/assets/fetched/avatar.webp",
         "width": 460,
@@ -100,27 +100,27 @@
           {
             "name": "TypeScript",
             "color": "#3178c6",
-            "bytes": 800840,
-            "share": 0.9355465395969453
+            "bytes": 841568,
+            "share": 0.9124478623990181
           },
           {
             "name": "CSS",
             "color": "#663399",
-            "bytes": 47904,
-            "share": 0.05596176693578252
+            "bytes": 47877,
+            "share": 0.051909371920127415
           },
           {
             "name": "Bicep",
             "color": "#519aba",
-            "bytes": 4511,
-            "share": 0.005269779781381825
+            "bytes": 30047,
+            "share": 0.032577665644966655
           }
         ],
         "createdAt": "2026-10-16T05:31:57Z",
-        "pushedAt": "2026-11-26T11:19:07Z",
-        "commitCount": 254,
-        "lastCommitAt": "2026-11-26T11:19:07Z",
-        "activeAt": "2026-11-26T11:19:07Z",
+        "pushedAt": "2026-11-27T11:25:01Z",
+        "commitCount": 289,
+        "lastCommitAt": "2026-11-27T11:25:01Z",
+        "activeAt": "2026-11-27T11:25:01Z",
         "image": {
           "file": "src/assets/fetched/projects/jetzlstorfer-splitty.webp",
           "width": 786,
@@ -1781,71 +1781,81 @@
     },
     "ledger": [
       {
-        "oid": "2efea80ca51b22061072a18ca6bf1ca5bbf32f05",
-        "sha": "2efea80",
-        "headline": "Align insurance setting checkbox with to-dos",
-        "date": "2026-11-26T11:19:07Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/2efea80ca51b22061072a18ca6bf1ca5bbf32f05",
+        "oid": "efa6729115d623b5fba5fcc04b60c8084e111603",
+        "sha": "efa6729",
+        "headline": "Confirm sign-out and align settings action buttons",
+        "date": "2026-11-27T11:25:01Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/efa6729115d623b5fba5fcc04b60c8084e111603",
         "repo": "splitty",
         "repoId": "jetzlstorfer-splitty",
-        "pr": 110
+        "pr": 123
       },
       {
-        "oid": "ff2fe2e782663ce680bf50ad88b441725e2de1c8",
-        "sha": "ff2fe2e",
-        "headline": "Recognize External ID federated issuers with tenant suffix",
-        "date": "2026-11-26T11:06:04Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/ff2fe2e782663ce680bf50ad88b441725e2de1c8",
-        "repo": "splitty",
-        "repoId": "jetzlstorfer-splitty",
-        "pr": 109
-      },
-      {
-        "oid": "149e40a63672ef94eefb7ee8ef8444130a107e87",
-        "sha": "149e40a",
-        "headline": "Align insurance setting checkbox with to-dos",
-        "date": "2026-11-26T10:56:46Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/149e40a63672ef94eefb7ee8ef8444130a107e87",
+        "oid": "92ab142e127a8712204b3e715abc1537369759f9",
+        "sha": "92ab142",
+        "headline": "Wait for sync popover toggle state in browser helpers",
+        "date": "2026-11-27T11:17:12Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/92ab142e127a8712204b3e715abc1537369759f9",
         "repo": "splitty",
         "repoId": "jetzlstorfer-splitty",
         "pr": null
       },
       {
-        "oid": "69184feefb7292c0d20f487867ccf155ad18f1b8",
-        "sha": "69184fe",
-        "headline": "Recognize External ID federated issuers with tenant suffix",
-        "date": "2026-11-26T10:54:57Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/69184feefb7292c0d20f487867ccf155ad18f1b8",
+        "oid": "842fbc37c950727491f4e8c61e06cad35213d251",
+        "sha": "842fbc3",
+        "headline": "Confirm sign-out and align settings action buttons",
+        "date": "2026-11-27T10:54:52Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/842fbc37c950727491f4e8c61e06cad35213d251",
         "repo": "splitty",
         "repoId": "jetzlstorfer-splitty",
         "pr": null
       },
       {
-        "oid": "5d3bea6d6f70724e575f0c832f2d682fe8b868ce",
-        "sha": "5d3bea6",
-        "headline": "Identify email and Microsoft sign-ins when Entra omits the provider",
-        "date": "2026-11-26T10:33:15Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/5d3bea6d6f70724e575f0c832f2d682fe8b868ce",
+        "oid": "be1fca0f4783be62048e96592c974f71aa72ac77",
+        "sha": "be1fca0",
+        "headline": "Document open registration and remove cutover wording",
+        "date": "2026-11-27T10:35:18Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/be1fca0f4783be62048e96592c974f71aa72ac77",
         "repo": "splitty",
         "repoId": "jetzlstorfer-splitty",
-        "pr": 107
+        "pr": 121
       },
       {
-        "oid": "76e4b2c145f174f97b24ac89198c0ea98ec1e17b",
-        "sha": "76e4b2c",
-        "headline": "Add optional on-device receipt scanning and expense autofill",
-        "date": "2026-11-26T10:21:35Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/76e4b2c145f174f97b24ac89198c0ea98ec1e17b",
+        "oid": "112f5a7998ea9c64c60780cd74a4c7fea2c7319a",
+        "sha": "112f5a7",
+        "headline": "Document open registration and drop cutover wording",
+        "date": "2026-11-27T10:21:04Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/112f5a7998ea9c64c60780cd74a4c7fea2c7319a",
         "repo": "splitty",
         "repoId": "jetzlstorfer-splitty",
-        "pr": 38
+        "pr": null
       },
       {
-        "oid": "0238cebaf8910dd5df00c7b45f55e0d503cc20dd",
-        "sha": "0238ceb",
-        "headline": "Resolve missing sign-in providers using Entra identity evidence",
-        "date": "2026-11-26T10:21:17Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/0238cebaf8910dd5df00c7b45f55e0d503cc20dd",
+        "oid": "24ee3e08c14f58a051e246d7dcdba769f585d9b1",
+        "sha": "24ee3e0",
+        "headline": "Enable production operations on SWA Free and finish token cleanup",
+        "date": "2026-11-27T09:59:37Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/24ee3e08c14f58a051e246d7dcdba769f585d9b1",
+        "repo": "splitty",
+        "repoId": "jetzlstorfer-splitty",
+        "pr": 120
+      },
+      {
+        "oid": "7648d5640e1b4949deed0cbd2aceae9a33224545",
+        "sha": "7648d56",
+        "headline": "Record rollout verification and enforce telemetry retention",
+        "date": "2026-11-27T08:18:06Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/7648d5640e1b4949deed0cbd2aceae9a33224545",
+        "repo": "splitty",
+        "repoId": "jetzlstorfer-splitty",
+        "pr": null
+      },
+      {
+        "oid": "8f16ee8d5a6a5974be2e5943b8c9b542d67dd5c3",
+        "sha": "8f16ee8",
+        "headline": "Enable production operations while retaining SWA Free",
+        "date": "2026-11-27T08:06:29Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/8f16ee8d5a6a5974be2e5943b8c9b542d67dd5c3",
         "repo": "splitty",
         "repoId": "jetzlstorfer-splitty",
         "pr": null
@@ -1909,20 +1919,10 @@
         "repo": "wichteln",
         "repoId": "jetzlstorfer-wichteln",
         "pr": 13
-      },
-      {
-        "oid": "7ebee5e10186f08a4739b8e91696529d1499009f",
-        "sha": "7ebee5e",
-        "headline": "Add structured JSON logging",
-        "date": "2026-11-17T06:17:12Z",
-        "url": "https://github.com/jetzlstorfer/plattentests-go/commit/7ebee5e10186f08a4739b8e91696529d1499009f",
-        "repo": "plattentests-go",
-        "repoId": "jetzlstorfer-plattentests-go",
-        "pr": 357
       }
     ],
     "calendar": {
-      "total": 2254,
+      "total": 2302,
       "days": [
         {
           "date": "2025-11-23",
@@ -3398,7 +3398,11 @@
         },
         {
           "date": "2026-11-26",
-          "count": 29
+          "count": 64
+        },
+        {
+          "date": "2026-11-27",
+          "count": 13
         }
       ],
       "source": "github.com public profile"
