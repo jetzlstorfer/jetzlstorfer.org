@@ -1,6 +1,6 @@
 {
   "identity": "{\"login\":\"jetzlstorfer\",\"tagline\":\"Solution Engineer at Microsoft Austria, Cloud Native Linz organizer, tech & music aficionado.\",\"exclude\":[\"jetzlstorfer\",\"jetzlstorfer.github.io\",\"jetzlstorfer.org\"],\"include\":[],\"standaloneProjects\":[{\"name\":\"fokus\",\"title\":\"Fokus\",\"homepage\":\"https://fokus.jetzlstorfer.org\",\"image\":\"src/assets/curated/fokus.png\"}],\"featured\":[\"splitty\",\"wichteln\",\"plattentests-go\",\"music-timetraveler\",\"wattpilot-exporter\",\"cloudnativelinz/cloudnativelinz.github.io\",\"fokus\"],\"runSize\":8,\"includeForks\":false,\"recentMonths\":24,\"overrides\":{\"cloudnativelinz/cloudnativelinz.github.io\":{\"title\":\"cloudnativelinz.at\"},\"fokus\":{\"description\":\"A calm, mobile-first photography practice app with weekly assignments and coaching.\"},\"plattentests-go\":{\"title\":\"plattentests\"},\"music-timetraveler\":{\"title\":\"Music Time Traveler\"},\"spotify-yearly-discoveries\":{\"title\":\"Spotify Yearly Discoveries\"}},\"credly\":\"jetzlstorfer\",\"links\":[{\"label\":\"GitHub\",\"url\":\"https://github.com/jetzlstorfer\"},{\"label\":\"LinkedIn\",\"url\":\"https://www.linkedin.com/in/juergenetzlstorfer/\"},{\"label\":\"Cloud Native Linz\",\"url\":\"https://www.meetup.com/cloud-native-linz/\"},{\"label\":\"Medium\",\"url\":\"https://medium.com/@jetzlstorfer\"},{\"label\":\"Credly\",\"url\":\"https://www.credly.com/users/jetzlstorfer\"}]}",
-  "lastSuccessAt": "2026-11-27T11:45:58.185Z",
+  "lastSuccessAt": "2026-11-28T11:21:43.299Z",
   "data": {
     "profile": {
       "login": "jetzlstorfer",
@@ -100,27 +100,27 @@
           {
             "name": "TypeScript",
             "color": "#3178c6",
-            "bytes": 841568,
-            "share": 0.9124478623990181
+            "bytes": 964693,
+            "share": 0.9195951349851912
           },
           {
             "name": "CSS",
             "color": "#663399",
-            "bytes": 47877,
-            "share": 0.051909371920127415
+            "bytes": 51474,
+            "share": 0.04906767228354278
           },
           {
             "name": "Bicep",
             "color": "#519aba",
             "bytes": 30047,
-            "share": 0.032577665644966655
+            "share": 0.028642350489637678
           }
         ],
         "createdAt": "2026-10-16T05:31:57Z",
-        "pushedAt": "2026-11-27T11:25:01Z",
-        "commitCount": 289,
-        "lastCommitAt": "2026-11-27T11:25:01Z",
-        "activeAt": "2026-11-27T11:25:01Z",
+        "pushedAt": "2026-11-27T16:43:06Z",
+        "commitCount": 296,
+        "lastCommitAt": "2026-11-27T16:43:06Z",
+        "activeAt": "2026-11-27T16:43:06Z",
         "image": {
           "file": "src/assets/fetched/projects/jetzlstorfer-splitty.webp",
           "width": 786,
@@ -1781,6 +1781,46 @@
     },
     "ledger": [
       {
+        "oid": "473257ad9ef7c62f942523323f0fae7b4acc22c1",
+        "sha": "473257a",
+        "headline": "Streamline onboarding and move household management to Settings",
+        "date": "2026-11-27T16:43:06Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/473257ad9ef7c62f942523323f0fae7b4acc22c1",
+        "repo": "splitty",
+        "repoId": "jetzlstorfer-splitty",
+        "pr": 124
+      },
+      {
+        "oid": "a6918a31ec82cef1770d55ae147fdd49c0939bb3",
+        "sha": "a6918a3",
+        "headline": "Streamline onboarding and move household management to Settings",
+        "date": "2026-11-27T15:37:47Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/a6918a31ec82cef1770d55ae147fdd49c0939bb3",
+        "repo": "splitty",
+        "repoId": "jetzlstorfer-splitty",
+        "pr": null
+      },
+      {
+        "oid": "b7c0acdbbf795557df02d851633622e9d15f41be",
+        "sha": "b7c0acd",
+        "headline": "Let one account belong to several households and switch between them",
+        "date": "2026-11-27T12:23:44Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/b7c0acdbbf795557df02d851633622e9d15f41be",
+        "repo": "splitty",
+        "repoId": "jetzlstorfer-splitty",
+        "pr": 122
+      },
+      {
+        "oid": "850cebd5b621e7eae935cadf48579897f1b3ffb9",
+        "sha": "850cebd",
+        "headline": "Keep household transitions and queued data tied to their originating …",
+        "date": "2026-11-27T12:09:26Z",
+        "url": "https://github.com/jetzlstorfer/splitty/commit/850cebd5b621e7eae935cadf48579897f1b3ffb9",
+        "repo": "splitty",
+        "repoId": "jetzlstorfer-splitty",
+        "pr": null
+      },
+      {
         "oid": "efa6729115d623b5fba5fcc04b60c8084e111603",
         "sha": "efa6729",
         "headline": "Confirm sign-out and align settings action buttons",
@@ -1796,66 +1836,6 @@
         "headline": "Wait for sync popover toggle state in browser helpers",
         "date": "2026-11-27T11:17:12Z",
         "url": "https://github.com/jetzlstorfer/splitty/commit/92ab142e127a8712204b3e715abc1537369759f9",
-        "repo": "splitty",
-        "repoId": "jetzlstorfer-splitty",
-        "pr": null
-      },
-      {
-        "oid": "842fbc37c950727491f4e8c61e06cad35213d251",
-        "sha": "842fbc3",
-        "headline": "Confirm sign-out and align settings action buttons",
-        "date": "2026-11-27T10:54:52Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/842fbc37c950727491f4e8c61e06cad35213d251",
-        "repo": "splitty",
-        "repoId": "jetzlstorfer-splitty",
-        "pr": null
-      },
-      {
-        "oid": "be1fca0f4783be62048e96592c974f71aa72ac77",
-        "sha": "be1fca0",
-        "headline": "Document open registration and remove cutover wording",
-        "date": "2026-11-27T10:35:18Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/be1fca0f4783be62048e96592c974f71aa72ac77",
-        "repo": "splitty",
-        "repoId": "jetzlstorfer-splitty",
-        "pr": 121
-      },
-      {
-        "oid": "112f5a7998ea9c64c60780cd74a4c7fea2c7319a",
-        "sha": "112f5a7",
-        "headline": "Document open registration and drop cutover wording",
-        "date": "2026-11-27T10:21:04Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/112f5a7998ea9c64c60780cd74a4c7fea2c7319a",
-        "repo": "splitty",
-        "repoId": "jetzlstorfer-splitty",
-        "pr": null
-      },
-      {
-        "oid": "24ee3e08c14f58a051e246d7dcdba769f585d9b1",
-        "sha": "24ee3e0",
-        "headline": "Enable production operations on SWA Free and finish token cleanup",
-        "date": "2026-11-27T09:59:37Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/24ee3e08c14f58a051e246d7dcdba769f585d9b1",
-        "repo": "splitty",
-        "repoId": "jetzlstorfer-splitty",
-        "pr": 120
-      },
-      {
-        "oid": "7648d5640e1b4949deed0cbd2aceae9a33224545",
-        "sha": "7648d56",
-        "headline": "Record rollout verification and enforce telemetry retention",
-        "date": "2026-11-27T08:18:06Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/7648d5640e1b4949deed0cbd2aceae9a33224545",
-        "repo": "splitty",
-        "repoId": "jetzlstorfer-splitty",
-        "pr": null
-      },
-      {
-        "oid": "8f16ee8d5a6a5974be2e5943b8c9b542d67dd5c3",
-        "sha": "8f16ee8",
-        "headline": "Enable production operations while retaining SWA Free",
-        "date": "2026-11-27T08:06:29Z",
-        "url": "https://github.com/jetzlstorfer/splitty/commit/8f16ee8d5a6a5974be2e5943b8c9b542d67dd5c3",
         "repo": "splitty",
         "repoId": "jetzlstorfer-splitty",
         "pr": null
@@ -1919,10 +1899,30 @@
         "repo": "wichteln",
         "repoId": "jetzlstorfer-wichteln",
         "pr": 13
+      },
+      {
+        "oid": "7ebee5e10186f08a4739b8e91696529d1499009f",
+        "sha": "7ebee5e",
+        "headline": "Add structured JSON logging",
+        "date": "2026-11-17T06:17:12Z",
+        "url": "https://github.com/jetzlstorfer/plattentests-go/commit/7ebee5e10186f08a4739b8e91696529d1499009f",
+        "repo": "plattentests-go",
+        "repoId": "jetzlstorfer-plattentests-go",
+        "pr": 357
+      },
+      {
+        "oid": "527453a56d9dbf2f7fb36dc9637001d4553d1f8d",
+        "sha": "527453a",
+        "headline": "Rename November meetup edition",
+        "date": "2026-11-17T05:42:37Z",
+        "url": "https://github.com/CloudNativeLinz/cloudnativelinz.github.io/commit/527453a56d9dbf2f7fb36dc9637001d4553d1f8d",
+        "repo": "CloudNativeLinz/cloudnativelinz.github.io",
+        "repoId": "cloudnativelinz-cloudnativelinz-github-io",
+        "pr": 238
       }
     ],
     "calendar": {
-      "total": 2302,
+      "total": 2311,
       "days": [
         {
           "date": "2025-11-23",
@@ -3402,7 +3402,11 @@
         },
         {
           "date": "2026-11-27",
-          "count": 13
+          "count": 22
+        },
+        {
+          "date": "2026-11-28",
+          "count": 0
         }
       ],
       "source": "github.com public profile"
